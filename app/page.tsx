@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <main>
-      <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden">
+      {/* <WavyBackground className="max-w-4xl mx-auto pb-40 overflow-hidden">
         <div className="h-[40rem] flex justify-center items-center px-4">
           <div className="text-4xl mx-auto font-normal text-white">
             Buy
@@ -16,7 +16,7 @@ export default function Home() {
             products from hellet
           </div>
         </div>
-      </WavyBackground>
+      </WavyBackground> */}
 
       <AppleCardsCarouselDemo />
 
