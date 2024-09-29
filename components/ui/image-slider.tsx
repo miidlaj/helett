@@ -1,7 +1,8 @@
 "use client";
-import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 export const ImagesSlider = ({
   images,
@@ -21,6 +22,7 @@ export const ImagesSlider = ({
   direction?: "up" | "down";
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(false);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
@@ -45,6 +47,7 @@ export const ImagesSlider = ({
     const loadPromises = images.map((image) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
+
         img.src = image;
         img.onload = () => resolve(image);
         img.onerror = reject;
@@ -56,8 +59,10 @@ export const ImagesSlider = ({
         setLoadedImages(loadedImages as string[]);
         setLoading(false);
       })
+      // eslint-disable-next-line no-console
       .catch((error) => console.error("Failed to load images", error));
   };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
@@ -71,6 +76,7 @@ export const ImagesSlider = ({
 
     // autoplay
     let interval: any;
+
     if (autoplay) {
       interval = setInterval(() => {
         handleNext();
@@ -137,12 +143,12 @@ export const ImagesSlider = ({
         <AnimatePresence>
           <motion.img
             key={currentIndex}
-            src={loadedImages[currentIndex]}
-            initial="initial"
             animate="visible"
-            exit={direction === "up" ? "upExit" : "downExit"}
-            variants={slideVariants}
             className="image h-full w-full absolute inset-0 object-cover object-center"
+            exit={direction === "up" ? "upExit" : "downExit"}
+            initial="initial"
+            src={loadedImages[currentIndex]}
+            variants={slideVariants}
           />
         </AnimatePresence>
       )}

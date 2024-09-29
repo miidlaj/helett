@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
+import { Viewport } from "next";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
@@ -35,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className="light">
+    <html suppressHydrationWarning className="light" lang="en">
       <head />
       <body
         className={clsx(

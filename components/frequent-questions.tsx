@@ -40,14 +40,14 @@ function FrequentQuestions() {
               <span className="text-2xl">{question}</span>
 
               <ChevronDown
+                className="transition-all dark:block hidden duration-500 group-focus:-rotate-180"
                 color="white"
                 size={20}
-                className="transition-all dark:block hidden duration-500 group-focus:-rotate-180"
               />
               <ChevronDown
+                className="transition-all dark:hidden duration-500 group-focus:-rotate-180"
                 color="black"
                 size={20}
-                className="transition-all dark:hidden duration-500 group-focus:-rotate-180"
               />
             </div>
             <div className="text-[16px] mt-5 font-poppins invisible h-auto max-h-0 items-center opacity-0 transition-all group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000">

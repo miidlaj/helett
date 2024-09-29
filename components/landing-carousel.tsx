@@ -2,7 +2,6 @@
 
 import { FlipWords } from "./ui/flip-words";
 import { ImagesSlider } from "./ui/image-slider";
-import { motion } from "framer-motion";
 const LandingCarousel = () => {
   const images = [
     "http://via.placeholder.com/1920x1200.png?text=Banner",

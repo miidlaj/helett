@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+
 import { Card, Carousel } from "./ui/apple-cards-carousel";
 
 export function FeaturedProducts() {
   const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} layout />
+    <Card key={card.src} layout card={card} index={index} />
   ));
 
   return (
@@ -35,19 +36,19 @@ const data = [
           </span>
         </p>
         <Image
-          src="https://m.media-amazon.com/images/I/61gDC77DxbL._SX450_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61gDC77DxbL._SX450_.jpg"
+          width="500"
         />
 
         <Image
-          src="https://m.media-amazon.com/images/I/6129V+OjLtL._SX450_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/6129V+OjLtL._SX450_.jpg"
+          width="500"
         />
       </div>
     ),
@@ -60,25 +61,25 @@ const data = [
       <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
         <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
           <span className="font-bold text-neutral-700 dark:text-neutral-200">
-            Helett® H30C USB Direct 4×6" Shipping Label Printer |Adjustable
-            Label Size| 203DPI Resolution 152mm/s Printing Speed Compatible with
-            Windows,Mac,Linux Chrome OS (1Year Warranty) White
+            Helett® H30C USB Direct 4×6&quot; Shipping Label Printer
+            |Adjustable Label Size| 203DPI Resolution 152mm/s Printing Speed
+            Compatible with Windows,Mac,Linux Chrome OS (1Year Warranty) White
           </span>
         </p>
         <Image
-          src="https://m.media-amazon.com/images/I/61+Rd8HcK+L._SX466_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61+Rd8HcK+L._SX466_.jpg"
+          width="500"
         />
 
         <Image
-          src="https://m.media-amazon.com/images/I/61kJZATE28L._SX466_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61kJZATE28L._SX466_.jpg"
+          width="500"
         />
       </div>
     ),
@@ -98,19 +99,19 @@ const data = [
           </span>
         </p>
         <Image
-          src="https://m.media-amazon.com/images/I/61NbtlOKGoL._SY450_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61NbtlOKGoL._SY450_.jpg"
+          width="500"
         />
 
         <Image
-          src="https://m.media-amazon.com/images/I/61J9hOZp3WL._SY450_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61J9hOZp3WL._SY450_.jpg"
+          width="500"
         />
       </div>
     ),
@@ -130,19 +131,19 @@ const data = [
           </span>
         </p>
         <Image
-          src="https://m.media-amazon.com/images/I/71v2CjYtQWL._SY450_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/71v2CjYtQWL._SY450_.jpg"
+          width="500"
         />
 
         <Image
-          src="https://m.media-amazon.com/images/I/71fSksdPNIL._SY450_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/71fSksdPNIL._SY450_.jpg"
+          width="500"
         />
       </div>
     ),
@@ -161,19 +162,19 @@ const data = [
           </span>
         </p>
         <Image
-          src="https://m.media-amazon.com/images/I/7114YQJcjFL._SX679_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/7114YQJcjFL._SX679_.jpg"
+          width="500"
         />
 
         <Image
-          src="https://m.media-amazon.com/images/I/71whXfzUwML._SX679_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/71whXfzUwML._SX679_.jpg"
+          width="500"
         />
       </div>
     ),
@@ -193,19 +194,19 @@ const data = [
           </span>
         </p>
         <Image
-          src="https://m.media-amazon.com/images/I/61PsQ+KX83L._SX569_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61PsQ+KX83L._SX569_.jpg"
+          width="500"
         />
 
         <Image
-          src="https://m.media-amazon.com/images/I/61g-9fmbcPL._SX569_.jpg"
           alt=" Helett® HT20 Wireless Product Image"
-          height="500"
-          width="500"
           className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+          height="500"
+          src="https://m.media-amazon.com/images/I/61g-9fmbcPL._SX569_.jpg"
+          width="500"
         />
       </div>
     ),
