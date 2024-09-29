@@ -5,9 +5,11 @@ import clsx from "clsx";
 
 import { Providers } from "./providers";
 
-import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/footer";
+import { ThemeSwitch } from "@/components/theme-switch";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 // export const metadata: Metadata = {
 //   title: {
@@ -37,25 +39,21 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen w-screen relative bg-background font-sans antialiased",
-          fontSans.variable,
+          "relative bg-background font-sans antialiased",
+          fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <Navbar className="top-2" />
-          {children}
-          <footer className="w-full flex items-center justify-center py-3">
-            <Link
-              isExternal
-              className="flex items-center gap-1 text-current"
-              href="/"
-              title="hellette homepage"
-            >
-              <span className="text-default-600">Powered by</span>
-              <p className="text-primary">helett</p>
-            </Link>
-          </footer>
-        </Providers>
+        <ScrollArea className="h-screen w-full">
+          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+            <Navbar className="top-2" />
+            {children}
+
+            <Footer />
+            <div className="fixed right-4 bottom-4">
+              <ThemeSwitch />
+            </div>
+          </Providers>
+        </ScrollArea>
       </body>
     </html>
   );
