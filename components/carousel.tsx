@@ -3,89 +3,211 @@ import Image from "next/image";
 import React from "react";
 import { Card, Carousel } from "./ui/apple-cards-carousel";
 
-export function AppleCardsCarouselDemo() {
-    const cards = data.map((card, index) => (
-        <Card key={card.src} card={card} index={index} />
-    ));
+export function FeaturedProducts() {
+  const cards = data.map((card, index) => (
+    <Card key={card.src} card={card} index={index} layout />
+  ));
 
-    return (
-        <div className="w-full h-full py-20 max-w-full overflow-hidden">
-            <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-                Get to know helett.
-            </h2>
-            <Carousel items={cards} />
-        </div>
-    );
+  return (
+    <div className="w-full h-full py-20 max-w-full overflow-hidden">
+      <h1 className="text-3xl font-new-york-large py-5 text-center">
+        Featured Products
+      </h1>
+
+      <Carousel items={cards} />
+    </div>
+  );
 }
 
-const DummyContent = () => {
-    return (
-        <>
-            {[...new Array(3).fill(1)].map((_, index) => {
-                return (
-                    <div
-                        key={"dummy-content" + index}
-                        className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-                    >
-                        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-                            <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                                The first rule of Apple club is that you boast about Apple club.
-                            </span>{" "}
-                            Keep a journal, quickly jot down a grocery list, and take amazing
-                            class notes. Want to convert those notes to text? No problem.
-                            Langotiya jeetu ka mara hua yaar is ready to capture every
-                            thought.
-                        </p>
-                        <Image
-                            src="https://assets.aceternity.com/macbook.png"
-                            alt="Macbook mockup from Aceternity UI"
-                            height="500"
-                            width="500"
-                            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-                        />
-                    </div>
-                );
-            })}
-        </>
-    );
-};
-
 const data = [
-    {
-        category: "Artificial Intelligence",
-        title: "You can do more with AI.",
-        src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "Productivity",
-        title: "Enhance your productivity.",
-        src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "Product",
-        title: "Launching the new Apple Vision Pro.",
-        src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
+  {
+    category: "Scanner",
+    title: "Wireless Barcode Scanner",
+    src: "https://m.media-amazon.com/images/I/51RHBMtPBzL._SX450_.jpg",
+    content: (
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Helett® HT20 Wireless 2.4GHz 2D & 1D Barcode Scanner(QR Code &
+            Barcode)Wireless &Wired(Charging Battery)Connectivity |Induction
+            Scanning|Ideal for Retail Shop & Supermarket|Strong ABS (1Year
+            Warranty)
+          </span>
+        </p>
+        <Image
+          src="https://m.media-amazon.com/images/I/61gDC77DxbL._SX450_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
 
-    {
-        category: "Product",
-        title: "Maps for your iPhone 15 Pro Max.",
-        src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "iOS",
-        title: "Photography just got better.",
-        src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
-    {
-        category: "Hiring",
-        title: "Hiring for a Staff Software Engineer",
-        src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        content: <DummyContent />,
-    },
+        <Image
+          src="https://m.media-amazon.com/images/I/6129V+OjLtL._SX450_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      </div>
+    ),
+  },
+  {
+    category: "Printer",
+    title: "Shipping Label Printer",
+    src: "https://m.media-amazon.com/images/I/612YWtTKgIL._SX466_.jpg",
+    content: (
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Helett® H30C USB Direct 4×6" Shipping Label Printer |Adjustable
+            Label Size| 203DPI Resolution 152mm/s Printing Speed Compatible with
+            Windows,Mac,Linux Chrome OS (1Year Warranty) White
+          </span>
+        </p>
+        <Image
+          src="https://m.media-amazon.com/images/I/61+Rd8HcK+L._SX466_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+
+        <Image
+          src="https://m.media-amazon.com/images/I/61kJZATE28L._SX466_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      </div>
+    ),
+  },
+  {
+    category: "Printer",
+    title: "Thermal Label Printer",
+    src: "https://m.media-amazon.com/images/I/51pi4DwBZGL._SY450_.jpg",
+    content: (
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Helett H65C Portable Bluetooth Thermal Label Printer(2in1)with
+            Receipt Printer 58mm(Max Printing Width 2Inch)Connect Android iOS
+            Phone&Laptop(USB cable)203DPI Resolution with 250 label(1Year
+            Warranty)
+          </span>
+        </p>
+        <Image
+          src="https://m.media-amazon.com/images/I/61NbtlOKGoL._SY450_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+
+        <Image
+          src="https://m.media-amazon.com/images/I/61J9hOZp3WL._SY450_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      </div>
+    ),
+  },
+
+  {
+    category: "Router",
+    title: "1200 Mbps 6 Wi-Fi Router ",
+    src: "https://m.media-amazon.com/images/I/61y7BzqEnqL._SY450_.jpg",
+    content: (
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Helett® AC1200 Dual Band (2.4GHz & 5GHz) 1200 Mbps 6 Wi-Fi Router |
+            6 High-Gain Antennas(5dBi) 300 Meter Wi-Fi Range | AP, Repeater &
+            Mesh Mode with 1 WAN & 4 Ethernet Ports (1 Year Warranty) White
+          </span>
+        </p>
+        <Image
+          src="https://m.media-amazon.com/images/I/71v2CjYtQWL._SY450_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+
+        <Image
+          src="https://m.media-amazon.com/images/I/71fSksdPNIL._SY450_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      </div>
+    ),
+  },
+  {
+    category: "Hair Dryer",
+    title: "Wall Mounted Hair Dryer",
+    src: "https://m.media-amazon.com/images/I/31vGwuPLB0L._SX300_SY300_QL70_FMwebp_.jpg",
+    content: (
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Helett® HL96 Professional 2000 Watts Wall Mounted Hair Dryer For
+            Men&Women|Blue Ray Ion Technology|Overheat Protection|Up to 20000
+            RPM|Low Noise|Rear Metal Mesh Guard|Strong ABS (1Year Warranty)
+          </span>
+        </p>
+        <Image
+          src="https://m.media-amazon.com/images/I/7114YQJcjFL._SX679_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+
+        <Image
+          src="https://m.media-amazon.com/images/I/71whXfzUwML._SX679_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      </div>
+    ),
+  },
+  {
+    category: "Lock",
+    title: "Fingerprint Lock",
+    src: "https://m.media-amazon.com/images/I/51W4Eq-RanL._SX569_.jpg",
+    content: (
+      <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4 flex flex-col gap-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+          <span className="font-bold text-neutral-700 dark:text-neutral-200">
+            Helett H65C Portable Bluetooth Thermal Label Printer(2in1)with
+            Receipt Printer 58mm(Max Printing Width 2Inch)Connect Android iOS
+            Phone&Laptop(USB cable)203DPI Resolution with 250 label(1Year
+            Warranty)
+          </span>
+        </p>
+        <Image
+          src="https://m.media-amazon.com/images/I/61PsQ+KX83L._SX569_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+
+        <Image
+          src="https://m.media-amazon.com/images/I/61g-9fmbcPL._SX569_.jpg"
+          alt=" Helett® HT20 Wireless Product Image"
+          height="500"
+          width="500"
+          className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+        />
+      </div>
+    ),
+  },
 ];

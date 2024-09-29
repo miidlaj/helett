@@ -35,21 +35,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" className="light">
       <head />
       <body
         className={clsx(
           "relative bg-background font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
         )}
       >
-        <ScrollArea className="h-screen w-full">
+        <ScrollArea className="h-screen w-full bg-white dark:bg-black">
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <Navbar className="top-2" />
+            <Navbar className="top-2 z-50" />
             {children}
 
             <Footer />
-            <div className="fixed right-4 bottom-4">
+            <div className="fixed right-4 bottom-4 z-50">
               <ThemeSwitch />
             </div>
           </Providers>

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useLayoutEffect } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
@@ -22,6 +22,18 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   const isSSR = useIsSSR();
 
   const onChange = () => {
+    //@ts-ignore
+    if (!document.startViewTransition) SWITCH();
+
+    //@ts-ignore
+    document.startViewTransition(SWITCH);
+  };
+
+  // useLayoutEffect(() => {
+  //   setTheme("light")
+  // }, [])
+
+  const SWITCH = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
@@ -44,7 +56,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
         className: clsx(
           "px-px transition-opacity hover:opacity-80 cursor-pointer",
           className,
-          classNames?.base
+          classNames?.base,
         ),
       })}
     >
@@ -66,7 +78,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
               "px-0",
               "mx-0",
             ],
-            classNames?.wrapper
+            classNames?.wrapper,
           ),
         })}
       >
