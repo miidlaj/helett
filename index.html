@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lokum Chat</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+    <style>
+      #messages {
+        height: 400px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div class="max-w-lg mx-auto p-5 bg-white rounded shadow mt-10">
+      <div class="w-full" id="messages"></div>
+
+      <div
+        class="w-full pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-2 inline-flex justify-between mt-5"
+      >
+        <div class="flex items-center gap-2">
+          <select
+            id="userSelect"
+            class="text-xs font-medium text-black leading-4 bg-white border border-gray-300 rounded px-2 py-1 focus:outline-none"
+          ></select>
+
+          <input
+            class="grow shrink basis-0 text-black text-xs font-medium leading-4 focus:outline-none"
+            id="chat"
+            placeholder="Type here..."
+          />
+        </div>
+        <button
+          class="items-center flex px-3 py-2 bg-indigo-600 rounded-full shadow"
+          id="sendButton"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <g id="Send 01">
+              <path
+                id="icon"
+                d="M9.04071 6.959L6.54227 9.45744M6.89902 10.0724L7.03391 10.3054C8.31034 12.5102 8.94855 13.6125 9.80584 13.5252C10.6631 13.4379 11.0659 12.2295 11.8715 9.81261L13.0272 6.34566C13.7631 4.13794 14.1311 3.03408 13.5484 2.45139C12.9657 1.8687 11.8618 2.23666 9.65409 2.97257L6.18714 4.12822C3.77029 4.93383 2.56187 5.33664 2.47454 6.19392C2.38721 7.0512 3.48957 7.68941 5.69431 8.96584L5.92731 9.10074C6.23326 9.27786 6.38623 9.36643 6.50978 9.48998C6.63333 9.61352 6.72189 9.7665 6.89902 10.0724Z"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linecap="round"
+              />
+            </g>
+          </svg>
+          <h3 class="text-white text-xs font-semibold leading-4 px-2">Send</h3>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let stompClient = null;
+      let selectedUser = null;
+
+      function fetchUsers() {
+        fetch("http://localhost:8082/api/users")
+          .then((response) => response.json())
+          .then((data) => {
+            const userSelect = document.getElementById("userSelect");
+
+            if (data && data.data && data.data.content.length > 0) {
+              data.data.content.forEach((user, index) => {
+                const option = document.createElement("option");
+                option.value = user.uuid;
+                option.text = user.name;
+                userSelect.appendChild(option);
+
+                if (index === 0) {
+                  selectedUser = user;
+                }
+              });
+
+              userSelect.addEventListener("change", function () {
+                const selectedUuid = this.value;
+                selectedUser = data.data.content.find(
+                  (user) => user.uuid === selectedUuid
+                );
+                fetchMessages();
+              });
+            }
+          })
+          .catch((err) => console.error("Error fetching users:", err));
+      }
+      function sendMessage() {
+        const messageContent = document.getElementById("chat").value;
+        if (messageContent && stompClient && selectedUser) {
+          const messageData = {
+            content: messageContent,
+            userUUID: selectedUser.uuid,
+          };
+          stompClient.send("/app/ai/chat", {}, JSON.stringify(messageData));
+
+          document.getElementById("chat").value = "";
+        }
+      }
+
+      function connect() {
+        const socket = new SockJS("http://localhost:8082/api/ws");
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+          console.log("Connected: " + frame);
+          stompClient.subscribe("/topic/ai/chat", function (message) {
+            const msgDatas = JSON.parse(message.body);
+            appendMessage(msgDatas);
+          });
+        });
+      }
+
+      function appendMessage(messageData) {
+        const messagesDiv = document.getElementById("messages");
+
+        let existingMessageElement = document.querySelector(
+          `[data-uuid='${messageData.uuid}']`
+        );
+
+        const { content, createdAt, user } = messageData;
+        const isSender = user.uuid === selectedUser.uuid;
+
+        const timestamp = new Date(createdAt);
+        const timeOptions = {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        };
+        const formattedTime = timestamp.toLocaleTimeString([], timeOptions);
+
+        if (existingMessageElement) {
+          existingMessageElement.querySelector(".message-content").textContent =
+            content;
+        } else {
+          const messageElement = document.createElement("div");
+          messageElement.setAttribute("data-uuid", messageData.uuid);
+
+          messageElement.innerHTML = `
+        <div class="flex ${isSender ? "justify-end" : ""} mb-4">
+            <div class="max-w-xs w-auto">
+                <div class="px-3 py-2 ${isSender ? "bg-indigo-600 text-white" : "bg-gray-100 text-black"} rounded-lg">
+                    <p class="text-sm leading-snug message-content">${content}</p>
+                </div>
+                <div class="text-xs text-gray-500 ${isSender ? "text-right" : ""} mt-1">
+                    <span class="font-semibold">${user.name}</span> at ${formattedTime}
+                </div>
+            </div>
+        </div>
+        `;
+
+          messagesDiv.appendChild(messageElement);
+        }
+
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }
+
+      function fetchMessages() {
+        fetch("http://localhost:8082/api/chat")
+          .then((response) => response.json())
+          .then((data) => {
+            if (data && data.data && data.data.content) {
+              data.data.content.forEach((msg) => {
+                appendMessage(msg);
+              });
+            }
+          })
+          .catch((err) => console.error("Error fetching messages:", err));
+      }
+
+      window.onload = function () {
+        connect();
+        fetchUsers();
+        fetchMessages();
+
+        document.getElementById("sendButton").onclick = sendMessage;
+      };
+    </script>
+  </body>
+</html>

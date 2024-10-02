@@ -3,11 +3,95 @@ import Image from "next/image";
 import React from "react";
 
 import { Card, Carousel } from "./ui/apple-cards-carousel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 export function FeaturedProducts() {
   const cards = data.map((card, index) => (
     <Card key={card.src} layout card={card} index={index} />
   ));
+
+  const categories = [
+    {
+      label: "Pinter",
+      value: "printer",
+    },
+    {
+      label: "Barcode Scanner",
+      value: "barcode_scanner",
+    },
+    {
+      label: "Digital Door Lock",
+      value: "digital_door_lock",
+    },
+    {
+      label: "Microphone",
+      value: "microphone",
+    },
+    {
+      label: "Home & Office Tech",
+      value: "home_office_tech",
+    },
+    {
+      label: "Grooming",
+      value: "grooming",
+    },
+    {
+      label: "Vehicle Accessories",
+      value: "vehicle_accessories",
+    },
+  ];
+
+  const tabs = [
+    {
+      title: "Product",
+      value: "product",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>Product Tab</p>
+          <Carousel items={cards} />
+        </div>
+      ),
+    },
+    {
+      title: "Services",
+      value: "services",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>Services tab</p>
+          <Carousel items={cards} />
+        </div>
+      ),
+    },
+    {
+      title: "Playground",
+      value: "playground",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>Playground tab</p>
+          <Carousel items={cards} />
+        </div>
+      ),
+    },
+    {
+      title: "Content",
+      value: "content",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+          <p>Content tab</p>
+          <Carousel items={cards} />
+        </div>
+      ),
+    },
+    {
+      title: "Random",
+      value: "random",
+      content: (
+        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold ">
+          <Carousel items={cards} />
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div className="w-full h-full py-20 max-w-full overflow-hidden">
@@ -15,7 +99,21 @@ export function FeaturedProducts() {
         Featured Products
       </h1>
 
-      <Carousel items={cards} />
+      <Tabs className="w-full" defaultValue={categories[0].value}>
+        <TabsList className="w-full flex gap-5 justify-center bg-transparent">
+          {categories.map((cat, index) => (
+            <TabsTrigger key={index} value={cat.value}>
+              {cat.label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+
+        {categories.map((cat, index) => (
+          <TabsContent key={index} value={cat.value}>
+            <Carousel items={cards} />
+          </TabsContent>
+        ))}
+      </Tabs>
     </div>
   );
 }

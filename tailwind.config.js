@@ -12,7 +12,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
-        this: ["var(--font-this-sans"],
+        rimouski: ['RimouskiRegular', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

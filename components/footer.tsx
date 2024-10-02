@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
 
           <div className="h-96 flex items-center justify-center">
-            <TextHoverEffect className="" text="hellet" />
+            <TextHoverEffect className="font-rimouski" text="helett" />
           </div>
 
           <div className="text-center">

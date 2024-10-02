@@ -93,7 +93,7 @@ export const TextHoverEffect = ({
       </defs>
       <text
         className={cn(
-          "font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-7xl  ",
+          "font-[helvetica] stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-7xl  ",
           className,
         )}
         dominantBaseline="middle"
@@ -111,7 +111,7 @@ export const TextHoverEffect = ({
           strokeDasharray: 1000,
         }}
         className={cn(
-          "font-[helvetica] font-bold fill-transparent text-7xl   stroke-neutral-200 dark:stroke-neutral-800",
+          "font-[helvetica] fill-transparent text-7xl   stroke-neutral-200 dark:stroke-neutral-800",
           className,
         )}
         dominantBaseline="middle"
@@ -129,7 +129,7 @@ export const TextHoverEffect = ({
       </motion.text>
       <text
         className={cn(
-          "font-[helvetica] font-bold fill-transparent text-7xl  ",
+          "font-[helvetica] fill-transparent text-7xl  ",
           className,
         )}
         dominantBaseline="middle"
