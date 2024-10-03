@@ -37,21 +37,21 @@ export default function Navbar({ className }: { className?: string }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
         animate={{
           y: visible ? 0 : -100,
           opacity: visible ? 1 : 0,
         }}
+        className={cn(
+          "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 ",
+          className,
+        )}
+        initial={{
+          opacity: 1,
+          y: -100,
+        }}
         transition={{
           duration: 0.2,
         }}
-        className={cn(
-          "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 ",
-          className
-        )}
       >
         <Menu setActive={setActive}>
           <MenuItem active={active} item="Category" setActive={setActive}>

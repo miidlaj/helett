@@ -59,7 +59,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
                 <div
                   className={cn(
                     "flex flex-col md:flex-row justify-center items-center h-screen",
-                    index % 2 === 0 ? "md:flex-row-reverse" : ""
+                    index % 2 === 0 ? "md:flex-row-reverse" : "",
                   )}
                 >
                   <div className="w-full md:w-1/2 flex justify-center items-center h-4/5">

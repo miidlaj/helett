@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,29 +26,6 @@ export const MenuItem = ({
   item: string;
   children?: React.ReactNode;
 }) => {
-
-  const { scrollYProgress } = useScroll();
-  
-  const [visible, setVisible] = useState(false);
-
-  useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
-    if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
- 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
-      }
-    }
-  });
- 
-
   return (
     <div className="relative " onMouseEnter={() => setActive(item)}>
       <motion.p
@@ -67,13 +44,10 @@ export const MenuItem = ({
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-                layoutId="active" 
+                layoutId="active"
                 transition={transition}
               >
-                <motion.div
-                  layout
-                  className="w-max h-full p-4"
-                >
+                <motion.div layout className="w-max h-full p-4">
                   {children}
                 </motion.div>
               </motion.div>
