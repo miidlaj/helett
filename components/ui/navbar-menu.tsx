@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,6 +26,29 @@ export const MenuItem = ({
   item: string;
   children?: React.ReactNode;
 }) => {
+
+  const { scrollYProgress } = useScroll();
+  
+  const [visible, setVisible] = useState(false);
+
+  useMotionValueEvent(scrollYProgress, "change", (current) => {
+    // Check if current is not undefined and is a number
+    if (typeof current === "number") {
+      let direction = current! - scrollYProgress.getPrevious()!;
+ 
+      if (scrollYProgress.get() < 0.05) {
+        setVisible(false);
+      } else {
+        if (direction < 0) {
+          setVisible(true);
+        } else {
+          setVisible(false);
+        }
+      }
+    }
+  });
+ 
+
   return (
     <div className="relative " onMouseEnter={() => setActive(item)}>
       <motion.p
@@ -44,11 +67,11 @@ export const MenuItem = ({
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-                layoutId="active" // layoutId ensures smooth animation
+                layoutId="active" 
                 transition={transition}
               >
                 <motion.div
-                  layout // layout ensures smooth animation
+                  layout
                   className="w-max h-full p-4"
                 >
                   {children}
@@ -71,8 +94,8 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      className="relative rounded-full border border-transparent dark:bg-black/30 backdrop-filter backdrop-blur-sm dark:border-white/[0.2] bg-white/30 shadow-input flex justify-center space-x-4 px-8 py-4 "
-      onMouseLeave={() => setActive(null)} // resets the state
+      className="relative rounded-full border border-black/[0.2] dark:bg-black/30 backdrop-filter backdrop-blur-sm dark:border-white/[0.2] bg-white/30 shadow-input flex justify-center space-x-4 px-8 py-4 "
+      onMouseLeave={() => setActive(null)}
     >
       <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
         <Logo height={80} width={80} />

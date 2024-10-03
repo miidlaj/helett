@@ -11,8 +11,8 @@
 }
 
 @font-face {
-  font-family: 'RimouskiRegular';
-  src: url('../public/fonts/Rimouski\ Regular.ttf') format('truetype');
+  font-family: "RimouskiRegular";
+  src: url("../public/fonts/Rimouski\ Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -114,7 +114,19 @@
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
 }
- 
+
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+::-webkit-scrollbar {
+  @apply w-2.5 h-2.5 bg-transparent;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-black/30 dark:bg-white/30 border-[1px] border-black/20 dark:border-white/20 border-solid bg-clip-padding;
 }

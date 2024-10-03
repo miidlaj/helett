@@ -8,7 +8,6 @@ import { fontSans } from "@/config/fonts";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/footer";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 // export const metadata: Metadata = {
 //   title: {
@@ -38,21 +37,19 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "relative bg-background font-sans antialiased",
+          "relative bg-background font-sans antialiased h-screen w-full bg-white dark:bg-black",
           fontSans.variable,
         )}
       >
-        <ScrollArea className="h-screen w-full bg-white dark:bg-black">
-          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <Navbar className="top-2 z-50" />
-            {children}
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <Navbar className="top-2 z-50" />
+          {children}
 
-            <Footer />
-            <div className="fixed right-4 bottom-4 z-50">
-              <ThemeSwitch />
-            </div>
-          </Providers>
-        </ScrollArea>
+          <Footer />
+          <div className="fixed right-4 bottom-4 z-50">
+            <ThemeSwitch />
+          </div>
+        </Providers>
       </body>
     </html>
   );

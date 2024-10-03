@@ -29,6 +29,7 @@
     "@tabler/icons-react": "^3.19.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.3.0",
     "framer-motion": "~11.1.9",
     "intl-messageformat": "^10.5.0",
     "lucide-react": "^0.446.0",

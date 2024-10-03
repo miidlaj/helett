@@ -25,9 +25,7 @@ const questions = [
 function FrequentQuestions() {
   return (
     <div className="h-screen md:mx-52 my-auto text-black dark:text-white">
-      <h1 className="text-3xl font-new-york-large py-20 text-center">
-        Frequent Questions
-      </h1>
+      <h1 className="text-3xl py-20 text-center">Frequent Questions</h1>
 
       <div>
         {questions.map(({ id, question, answer }) => (
@@ -37,7 +35,7 @@ function FrequentQuestions() {
             tabIndex={id}
           >
             <div className="flex cursor-pointer items-center justify-between">
-              <span className="text-2xl">{question}</span>
+              <span className="text-xl">{question}</span>
 
               <ChevronDown
                 className="transition-all dark:block hidden duration-500 group-focus:-rotate-180"

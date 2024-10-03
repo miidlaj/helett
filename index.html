@@ -101,7 +101,7 @@
             content: messageContent,
             userUUID: selectedUser.uuid,
           };
-          stompClient.send("/app/ai/chat", {}, JSON.stringify(messageData));
+          stompClient.send("/app/api/chat", {}, JSON.stringify(messageData));
 
           document.getElementById("chat").value = "";
         }
@@ -113,7 +113,7 @@
 
         stompClient.connect({}, function (frame) {
           console.log("Connected: " + frame);
-          stompClient.subscribe("/topic/ai/chat", function (message) {
+          stompClient.subscribe("/topic/api/chat", function (message) {
             const msgDatas = JSON.parse(message.body);
             appendMessage(msgDatas);
           });
