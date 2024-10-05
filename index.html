@@ -17,20 +17,27 @@
     </style>
   </head>
   <body class="bg-gray-50">
-    <div class="max-w-lg mx-auto p-5 bg-white rounded shadow mt-10">
+    <div class="max-w-5xl mx-auto p-5 bg-white rounded shadow mt-10">
       <div class="w-full" id="messages"></div>
 
       <div
         class="w-full pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-2 inline-flex justify-between mt-5"
       >
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 w-full">
           <select
             id="userSelect"
             class="text-xs font-medium text-black leading-4 bg-white border border-gray-300 rounded px-2 py-1 focus:outline-none"
           ></select>
 
+          <select
+            id="chatSelect"
+            class="text-xs font-medium text-black leading-4 bg-white border border-gray-300 rounded px-2 py-1 focus:outline-none"
+          ></select>
+
+          <button id="new-chat-button" title="New Chat" class="text-sm border-gray-300 px-2 py-1 rounded-md border">+</button>
+
           <input
-            class="grow shrink basis-0 text-black text-xs font-medium leading-4 focus:outline-none"
+            class="grow shrink basis-0 text-black text-xs font-medium leading-4 focus:outline-none w-full"
             id="chat"
             placeholder="Type here..."
           />
@@ -64,6 +71,7 @@
     <script>
       let stompClient = null;
       let selectedUser = null;
+      let selectedChat = null;
 
       function fetchUsers() {
         fetch("http://localhost:8082/api/users")
@@ -88,21 +96,56 @@
                 selectedUser = data.data.content.find(
                   (user) => user.uuid === selectedUuid
                 );
-                fetchMessages();
+                fetchChats();
               });
             }
           })
+          .then(() => fetchChats())
           .catch((err) => console.error("Error fetching users:", err));
       }
+
+      function fetchChats() {
+        if (selectedUser) {
+          fetch(`http://localhost:8082/api/chats?userUUID=${selectedUser.uuid}`)
+            .then((response) => response.json())
+            .then((data) => {
+              const chatSelect = document.getElementById("chatSelect");
+              chatSelect.innerHTML = '';
+
+              if (data && data.data && data.data.content.length > 0) {
+                data.data.content.forEach((chat, index) => {
+                  const option = document.createElement("option");
+                  option.value = chat.uuid;
+                  option.text = chat.uuid;
+                  chatSelect.appendChild(option);
+
+                  if (index === 0) {
+                    selectedChat = chat;
+                  }
+                });
+                chatSelect.addEventListener("change", function () {
+                  const selectedUuid = this.value;
+                  selectedChat = data.data.content.find(
+                    (chat) => chat.uuid === selectedUuid
+                  );
+                  fetchMessages();
+                });
+              }
+            })
+            .then(() => fetchMessages())
+            .catch((err) => console.error("Error fetching users:", err));
+        }
+      }
+
       function sendMessage() {
         const messageContent = document.getElementById("chat").value;
-        if (messageContent && stompClient && selectedUser) {
+        if (messageContent && stompClient && selectedUser && selectedChat) {
           const messageData = {
             content: messageContent,
             userUUID: selectedUser.uuid,
+            chatUUID: selectedChat.uuid,
           };
-          stompClient.send("/app/api/chat", {}, JSON.stringify(messageData));
-
+          stompClient.send("/app/ai/chat", {}, JSON.stringify(messageData));
           document.getElementById("chat").value = "";
         }
       }
@@ -113,7 +156,7 @@
 
         stompClient.connect({}, function (frame) {
           console.log("Connected: " + frame);
-          stompClient.subscribe("/topic/api/chat", function (message) {
+          stompClient.subscribe("/topic/ai/chat", function (message) {
             const msgDatas = JSON.parse(message.body);
             appendMessage(msgDatas);
           });
@@ -165,24 +208,41 @@
       }
 
       function fetchMessages() {
-        fetch("http://localhost:8082/api/chat")
-          .then((response) => response.json())
-          .then((data) => {
-            if (data && data.data && data.data.content) {
-              data.data.content.forEach((msg) => {
-                appendMessage(msg);
-              });
-            }
-          })
-          .catch((err) => console.error("Error fetching messages:", err));
+        const messagesDiv = document.getElementById("messages");
+        messagesDiv.innerHTML = "";
+        if (selectedChat) {
+          fetch(`http://localhost:8082/api/messages?chatUUID=${selectedChat.uuid}`)
+            .then((response) => response.json())
+            .then((data) => {
+              if (data && data.data && data.data.content) {
+                data.data.content.forEach((msg) => {
+                  appendMessage(msg);
+                });
+              }
+            })
+            .catch((err) => console.error("Error fetching messages:", err));
+        }
+      }
+
+      function newChat() {
+          fetch(`http://localhost:8082/api/chats?userUUID=${selectedUser.uuid}`,{
+            method: "POST", 
+          } )
+            .then((response) => response.json())
+            .then((data) => {
+              fetchChats();
+            })
+            .catch((err) => console.error("Error fetching messages:", err));
+        
       }
 
       window.onload = function () {
         connect();
         fetchUsers();
-        fetchMessages();
 
         document.getElementById("sendButton").onclick = sendMessage;
+
+        document.getElementById("new-chat-button").onclick = newChat;
       };
     </script>
   </body>

@@ -109,7 +109,7 @@ const LandingCarousel = () => {
       ),
     },
     {
-      image: "/banners/Artboard 2.png",
+      image: "/banners/Artboard 5.png",
       content: (
         <div className="z-10 relative">
           <div className="flex gap-2 items-end">
