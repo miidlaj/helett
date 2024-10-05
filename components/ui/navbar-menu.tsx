@@ -71,9 +71,12 @@ export const Menu = ({
       className="relative rounded-full border border-black/[0.2] dark:bg-black/30 backdrop-filter backdrop-blur-sm dark:border-white/[0.2] bg-white/30 shadow-input flex justify-center space-x-4 px-8 py-4 "
       onMouseLeave={() => setActive(null)}
     >
+      <Link href="/">
       <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
         <Logo height={80} width={80} />
       </div>
+      </Link>
+      
       {children}
     </nav>
   );

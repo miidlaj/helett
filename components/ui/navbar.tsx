@@ -44,7 +44,7 @@ export default function Navbar({ className }: { className?: string }) {
         }}
         className={cn(
           "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 ",
-          className,
+          className
         )}
         initial={{
           opacity: 1,
@@ -67,25 +67,25 @@ export default function Navbar({ className }: { className?: string }) {
             <div className="  text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
                 description="Helett® HT410 Wired 1D & 2D Barcode Scanner"
-                href="https://www.amazon.in/helett-HT410-Handheld-Indicator-Induction/dp/B0CBC9G7W2/ref=sr_1_6?sr=8-6"
+                href="products/helette-h65c"
                 src="https://m.media-amazon.com/images/I/61Ij6iC-fhL._SX679_.jpg"
                 title="Barcode Scanner"
               />
               <ProductItem
                 description="Helett H65C Portable Bluetooth Thermal Label Printer"
-                href="https://www.amazon.in/H65C-Portable-Bluetooth-Printing-Resolution/dp/B0D1P7SC46/ref=sr_1_3?sr=8-3"
+                href="products/helette-h65c"
                 src="https://m.media-amazon.com/images/I/51pi4DwBZGL._SY450_.jpg"
                 title="Label Printer"
               />
               <ProductItem
-                description="Axor Helmets Apex Hex-2 Helmet (Neon Yellow Blue, Large)"
-                href="https://www.amazon.in/Helmets-Hex-2-Helmet-Yellow-Large/dp/B0BDZLB872/ref=sr_1_29?sr=8-29"
-                src="https://m.media-amazon.com/images/I/61RWzFIHe-L._SX569_.jpg"
-                title="Helmets "
+                description="Helett HT15 2D&1D Hands-Free USB Desktop Barcode Scanner"
+                href="products/helette-h65c"
+                src="https://m.media-amazon.com/images/I/51fwsV7G8BL._SL1080_.jpg"
+                title="Barcode Scanner"
               />
               <ProductItem
                 description="Helett® AC1200 Dual Band (2.4GHz & 5GHz) 1200 Mbps 6 Wi-Fi Router"
-                href="https://www.amazon.in/AC1200-High-Gain-Antennas-Repeater-Ethernet/dp/B0DGF32QRT/ref=sr_1_14?sr=8-14"
+                href="products/helette-h65c"
                 src="https://m.media-amazon.com/images/I/41OV3cPzUhL._SX300_SY300_QL70_FMwebp_.jpg"
                 title="Wi-Fi Router"
               />
