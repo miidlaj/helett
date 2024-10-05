@@ -15,6 +15,7 @@ import {
 
 interface CarouselSlide {
   image: string;
+  className: string;
   content: React.ReactNode;
 }
 
@@ -36,7 +37,11 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
 
   if (slides.length === 0) {
     return (
-      <div className="w-full h-screen flex items-center justify-center bg-white dark:bg-black">
+      <div
+        className={cn(
+          "w-full h-screen flex items-center justify-center bg-white dark:bg-black",
+        )}
+      >
         <p className="text-xl text-muted-foreground">No slides to display</p>
       </div>
     );
@@ -53,8 +58,11 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
     >
       <CarouselContent className="h-full">
         {slides.map((slide, index) => (
-          <CarouselItem key={index} className="relative h-full">
-            <Card className="w-full h-full rounded-none bg-white dark:bg-black">
+          <CarouselItem
+            key={index}
+            className={cn("relative h-full", slide.className)}
+          >
+            <Card className="w-full h-full rounded-none bg-transparent border-none text-white">
               <CardContent className="p-0 h-full">
                 <div
                   className={cn(

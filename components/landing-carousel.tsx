@@ -7,6 +7,7 @@ const LandingCarousel = () => {
   const carouselSlides = [
     {
       image: "/banners/Artboard 1.png",
+      className: "bg-gradient-to-r from-emerald-500 to-emerald-900",
       content: (
         <div className="z-10 relative">
           <div className="flex gap-2 items-end">
@@ -23,7 +24,7 @@ const LandingCarousel = () => {
           </p>
           <HoverBorderGradient
             as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            className="bg-black text-white flex items-center space-x-2"
             containerClassName="rounded-full"
           >
             View More
@@ -33,6 +34,7 @@ const LandingCarousel = () => {
     },
     {
       image: "/banners/Artboard 2.png",
+      className: "bg-gradient-to-r from-teal-200 to-teal-500",
       content: (
         <div className="z-10 relative">
           <div className="flex gap-2 items-end">
@@ -49,7 +51,7 @@ const LandingCarousel = () => {
           </p>
           <HoverBorderGradient
             as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            className="bg-black text-white flex items-center space-x-2"
             containerClassName="rounded-full"
           >
             View More
@@ -60,6 +62,7 @@ const LandingCarousel = () => {
 
     {
       image: "/banners/Artboard 3.png",
+      className: "bg-gradient-to-r from-violet-200 to-pink-200",
       content: (
         <div className="z-10 relative">
           <div className="flex gap-2 items-end">
@@ -76,7 +79,7 @@ const LandingCarousel = () => {
           </p>
           <HoverBorderGradient
             as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            className="bg-black text-white flex items-center space-x-2"
             containerClassName="rounded-full"
           >
             View More
@@ -86,6 +89,7 @@ const LandingCarousel = () => {
     },
     {
       image: "/banners/Artboard 4.png",
+      className: "bg-gradient-to-r from-teal-200 to-teal-500",
       content: (
         <div className="z-10 relative">
           <div className="flex gap-2 items-end">
@@ -100,7 +104,7 @@ const LandingCarousel = () => {
           </p>
           <HoverBorderGradient
             as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            className="bg-black text-white flex items-center space-x-2"
             containerClassName="rounded-full"
           >
             View More
@@ -110,6 +114,7 @@ const LandingCarousel = () => {
     },
     {
       image: "/banners/Artboard 5.png",
+      className: "bg-gradient-to-r from-rose-400 to-red-500",
       content: (
         <div className="z-10 relative">
           <div className="flex gap-2 items-end">
@@ -126,7 +131,7 @@ const LandingCarousel = () => {
           </p>
           <HoverBorderGradient
             as="button"
-            className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+            className="bg-black text-white flex items-center space-x-2"
             containerClassName="rounded-full"
           >
             View More
