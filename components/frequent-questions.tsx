@@ -28,7 +28,7 @@ function FrequentQuestions() {
   return (
     <div className="h-screen md:mx-52 my-auto text-black dark:text-white">
       <Heading className="text-center py-10  text-3xl">
-        Featured Products
+        Frequent Questions
       </Heading>
       <div>
         {questions.map(({ id, question, answer }) => (
