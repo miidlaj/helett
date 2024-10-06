@@ -20,20 +20,36 @@ export const MenuItem = ({
   active,
   item,
   children,
+  link,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
+  link?: string;
 }) => {
   return (
     <div className="relative " onMouseEnter={() => setActive(item)}>
-      <motion.p
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
-        transition={{ duration: 0.3 }}
-      >
-        {item}
-      </motion.p>
+      {link && (
+        <Link href={link}>
+          <motion.p
+            className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+            transition={{ duration: 0.3 }}
+          >
+            {item}
+          </motion.p>
+        </Link>
+      )}
+
+      {!link && (
+        <motion.p
+          className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+          transition={{ duration: 0.3 }}
+        >
+          {item}
+        </motion.p>
+      )}
+
       {active !== null && (
         <motion.div
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -68,15 +84,15 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      className="relative rounded-full border border-black/[0.2] dark:bg-black/30 backdrop-filter backdrop-blur-sm dark:border-white/[0.2] bg-white/30 shadow-input flex justify-center space-x-4 px-8 py-4 "
+      className="relative rounded-full border border-grey/30 dark:border-white/30 backdrop-filter backdrop-blur-sm bg-primary/15 shadow-input flex justify-center space-x-4 px-8 py-4"
       onMouseLeave={() => setActive(null)}
     >
       <Link href="/">
-      <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
-        <Logo height={80} width={80} />
-      </div>
+        <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
+          <Logo height={80} width={80} />
+        </div>
       </Link>
-      
+
       {children}
     </nav>
   );
@@ -106,7 +122,7 @@ export const ProductItem = ({
         <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300">
+        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300 line-clamp-4">
           {description}
         </p>
       </div>

@@ -4,7 +4,7 @@ import FrequentQuestions from "@/components/frequent-questions";
 
 export default function Home() {
   return (
-    <main className="">
+    <main>
       <LandingCarousel />
       <FeaturedProducts />
       <FrequentQuestions />

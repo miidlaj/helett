@@ -6,18 +6,12 @@ import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { ProductType } from "@/constants/products";
 
 interface CarouselProps {
   items: JSX.Element[];
   initialScroll?: number;
 }
-
-type Card = {
-  src: string;
-  title: string;
-  category: string;
-  content: React.ReactNode;
-};
 
 export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
@@ -119,14 +113,14 @@ export const Card = ({
   card,
   layout = false,
 }: {
-  card: Card;
+  card: ProductType;
   index: number;
   layout?: boolean;
 }) => {
   return (
     <>
       <AnimatePresence />
-      <Link href="/products/helette-h65c">
+      <Link href={`/products/${card.slug}`}>
         <motion.button
           className="rounded-[22px] max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
           layoutId={layout ? `card-${card.title}` : undefined}
@@ -135,17 +129,16 @@ export const Card = ({
             alt={card.title}
             className="object-contain rounded-[22px] shadow-md hover:scale-105 transform transition duration-200 ease-in-out"
             height="400"
-            src={card.src}
+            loading="lazy"
+            src={`${card.src}/${card.thumbnail}`}
             width="400"
           />
           <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
             {card.title}
           </p>
 
-          <p className="text-sm text-muted-foreground">
-            The Air Jordan 4 Retro Reimagined Bred will release on Saturday,
-            February 17, 2024. Your best opportunity to get these right now is
-            by entering raffles and waiting for the official releases.
+          <p className="text-sm text-muted-foreground line-clamp-3">
+            {card.description}
           </p>
           <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-bold bg-black">
             <span>Details </span>
