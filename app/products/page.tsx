@@ -40,7 +40,7 @@ function ProductPage() {
       selectedCategory.length !== 0 ||
         selectedSubCat.length !== 0 ||
         selectedBrand.length !== 0 ||
-        searchValue.length > 0,
+        searchValue.length > 0
     );
     setProductData(filteredData);
   }, [selectedBrand, selectedCategory, selectedSubCat, searchValue]);
@@ -71,7 +71,7 @@ function ProductPage() {
         </Heading>
 
         <div className="flex items-center justify-between flex-col gap-10">
-          <div className="flex flex-1 items-center space-x-2">
+          <div className="flex flex-1 items-center space-x-2 w-max">
             <Input
               className="w-[150px] lg:w-[250px]"
               placeholder="Search..."
