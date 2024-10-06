@@ -8,27 +8,25 @@ import { FeatureType } from "@/constants/products";
 
 export function FeaturesSection({ features }: { features: FeatureType[] }) {
   return (
-    <div className="py-20 lg:py-40">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
-        {features.map((feature) => (
-          <div
-            key={feature.title}
-            className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden hover-scale"
-          >
-            <Grid size={20} />
-            <div className="flex justify-start gap-2 items-center">
-              {feature.icon}
-              <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
-                {feature.title}
-              </p>
-            </div>
-
-            <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
-              {feature.description}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
+      {features.map((feature) => (
+        <div
+          key={feature.title}
+          className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden hover-scale"
+        >
+          <Grid size={20} />
+          <div className="flex justify-start gap-2 items-center">
+            {feature.icon}
+            <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
+              {feature.title}
             </p>
           </div>
-        ))}
-      </div>
+
+          <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+            {feature.description}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }

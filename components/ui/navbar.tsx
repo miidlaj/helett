@@ -45,7 +45,7 @@ export default function Navbar({ className }: { className?: string }) {
         }}
         className={cn(
           "fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 ",
-          className
+          className,
         )}
         initial={{
           opacity: 1,
@@ -72,15 +72,18 @@ export default function Navbar({ className }: { className?: string }) {
             setActive={setActive}
           >
             <div className="text-sm grid grid-cols-2 gap-10 p-4">
-              {products.slice(0, 4).map((item, index) => (
-                <ProductItem
-                  key={index}
-                  description={item.description}
-                  href={`products/${item.slug}`}
-                  src={`${item.src}/${item.thumbnail}`}
-                  title={item.title}
-                />
-              ))}
+              {[...products]
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 4)
+                .map((item, index) => (
+                  <ProductItem
+                    key={index}
+                    description={item.description}
+                    href={`products/${item.slug}`}
+                    src={`${item.src}/${item.thumbnail}`}
+                    title={item.title}
+                  />
+                ))}
             </div>
           </MenuItem>
         </Menu>

@@ -971,42 +971,49 @@ export type FeatureType = {
 };
 
 export const categories = Array.from(
-  new Set(products.map((product) => product.category))
+  new Set(products.map((product) => product.category)),
 );
 
 export const brands = Array.from(
-  new Set(products.map((product) => product.brand))
+  new Set(products.map((product) => product.brand)),
 );
 
-export const getSubCategories = (cat: string)  => {
-  const cat_products = products.filter((product) => product.category === cat && product.subCategory)
-  return Array.from(
-    new Set(cat_products.map((product) => product.subCategory))
+export const getSubCategories = (cat: string) => {
+  const cat_products = products.filter(
+    (product) => product.category === cat && product.subCategory,
   );
-}
+
+  return Array.from(
+    new Set(cat_products.map((product) => product.subCategory)),
+  );
+};
 
 interface FilterOptions {
-  cats?: string[];   
-  brands?: string[];  
-  subCats?: string[]; 
+  cats?: string[];
+  brands?: string[];
+  subCats?: string[];
   search?: string;
 }
 export const filterProduct = (options: FilterOptions = {}): ProductType[] => {
-  const { cats, brands, subCats, search } = options;
-  console.log(options);
-  
+  const { brands = [], subCats = [], cats = [], search = "" } = options;
 
   return products.filter((product) => {
-    const matchesCategory = cats?.length === 0 || cats?.includes(product.category);
-    const matchesBrand = brands?.length === 0 || brands?.some(brand => product.title.toLowerCase().includes(brand.toLowerCase()));
-    const matchesSubCategory = subCats?.length === 0 || subCats?.includes(product.subCategory);
+    const matchesCategory =
+      cats?.length === 0 || cats?.includes(product.category);
+    const matchesBrand =
+      brands?.length === 0 ||
+      brands?.some((brand) =>
+        product.title.toLowerCase().includes(brand.toLowerCase()),
+      );
+    const matchesSubCategory =
+      subCats?.length === 0 || subCats?.includes(product.subCategory);
     const matchesSearch =
       !search ||
       product.title.toLowerCase().includes(search.toLowerCase()) ||
       product.description.toLowerCase().includes(search.toLowerCase());
 
-      console.log(!cats);
-      
-    return matchesCategory && matchesBrand && matchesSubCategory && matchesSearch;
+    return (
+      matchesCategory && matchesBrand && matchesSubCategory && matchesSearch
+    );
   });
 };

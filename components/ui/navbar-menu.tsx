@@ -84,7 +84,7 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      className="relative rounded-full border border-grey/30 dark:border-white/30 backdrop-filter backdrop-blur-sm bg-primary/15 shadow-input flex justify-center space-x-4 px-8 py-4"
+      className="relative rounded-full border border-white/30 backdrop-filter backdrop-blur-sm bg-primary/15 shadow-input flex justify-center space-x-4 px-8 py-4"
       onMouseLeave={() => setActive(null)}
     >
       <Link href="/">

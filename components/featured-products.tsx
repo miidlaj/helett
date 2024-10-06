@@ -1,9 +1,9 @@
 "use client";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 import { Card, Carousel } from "./ui/apple-cards-carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import { Heading } from "./Heading";
 
 import {
   categories,
@@ -17,7 +17,9 @@ export function FeaturedProducts() {
   const [selectedTab, setSelectedTab] = useState<string>("");
 
   useEffect(() => {
-    setCardData(filterProduct({ cats: Array.from(selectedTab) }));
+    if (selectedTab) {
+      setCardData(filterProduct({ cats: [selectedTab] }));
+    }
   }, [selectedTab]);
 
   const cards = cardData.map((card, index) => (
@@ -26,9 +28,9 @@ export function FeaturedProducts() {
 
   return (
     <div className="w-full h-full py-20 max-w-full overflow-hidden">
-      <h1 className="text-3xl font-new-york-large py-5 text-center">
+      <Heading className="text-center py-5  text-3xl">
         Featured Products
-      </h1>
+      </Heading>
 
       <Tabs
         className="w-full"

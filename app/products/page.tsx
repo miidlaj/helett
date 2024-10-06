@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Trash } from "lucide-react";
 import { Input } from "@nextui-org/input";
+import { motion } from "framer-motion";
 
 import { ProductsFilter } from "./components/FilterItem";
 
@@ -34,17 +35,13 @@ function ProductPage() {
       subCats: selectedSubCat,
       search: searchValue,
     });
-    
-    if (
+
+    setIsFiltered(
       selectedCategory.length !== 0 ||
-      selectedSubCat.length !== 0 ||
-      selectedBrand.length !== 0 ||
-      searchValue
-    ) {
-      setIsFiltered(true);
-    } else {
-        setIsFiltered(false);
-    }
+        selectedSubCat.length !== 0 ||
+        selectedBrand.length !== 0 ||
+        searchValue.length > 0,
+    );
     setProductData(filteredData);
   }, [selectedBrand, selectedCategory, selectedSubCat, searchValue]);
 
@@ -125,7 +122,19 @@ function ProductPage() {
 
           <div className="grid w-full sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {productData.map((item, index) => (
-              <Card key={item.title} card={item} index={index} />
+              <motion.div
+                key={`${item.title}-${index}`}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 20 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2 * index,
+                  ease: "easeOut",
+                }}
+              >
+                <Card card={item} index={index} />
+              </motion.div>
             ))}
           </div>
         </div>

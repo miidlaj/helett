@@ -1,6 +1,8 @@
 import { ChevronDown } from "lucide-react";
 import React from "react";
 
+import { Heading } from "./Heading";
+
 const questions = [
   {
     id: 1,
@@ -25,8 +27,9 @@ const questions = [
 function FrequentQuestions() {
   return (
     <div className="h-screen md:mx-52 my-auto text-black dark:text-white">
-      <h1 className="text-3xl py-20 text-center">Frequent Questions</h1>
-
+      <Heading className="text-center py-10  text-3xl">
+        Featured Products
+      </Heading>
       <div>
         {questions.map(({ id, question, answer }) => (
           <div

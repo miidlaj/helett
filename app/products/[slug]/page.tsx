@@ -10,7 +10,9 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
-  const product = products.find((p) => p.slug === slug) as ProductType | undefined;
+  const product = products.find((p) => p.slug === slug) as
+    | ProductType
+    | undefined;
 
   if (product) {
     return {

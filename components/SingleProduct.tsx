@@ -16,7 +16,7 @@ import { ProductType } from "@/constants/products";
 
 export const SingleProduct = ({ product }: { product: ProductType }) => {
   const [activeImage, setActiveImage] = useState<StaticImageData | string>(
-    product.thumbnail
+    product.thumbnail,
   );
 
   const features = [
@@ -188,9 +188,7 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
             className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
             url={product.href}
           >
-            <Heading className="font-black mb-2 pb-1 text-primary">
-              {product.title}
-            </Heading>
+            <Heading className="font-black mb-2 pb-1">{product.title}</Heading>
           </LinkPreview>
           <div className="flex space-x-2 md:mb-1 mt-2 md:mt-0">
             {product.stack?.map((stack: string) => (
@@ -214,13 +212,15 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
         {product?.content}
       </div>
 
-      <FeaturesSection features={features} />
+      <div className="flex flex-col gap-5 py-20 lg:py-40">
+        <Heading as="h3" className="text-center text-3xl">
+          Features
+        </Heading>
 
-      <div className="max-w-2xl mx-auto">
-        <ProductDetails details={details} />
+        <FeaturesSection features={features} />
       </div>
 
-      <div className="h-max mt-10 w-full bg-white dark:bg-black flex flex-col items-center justify-center overflow-hidden rounded-md gap-0.5">
+      <div className="h-max w-full bg-white dark:bg-black flex flex-col items-center justify-center overflow-hidden rounded-md gap-0.5">
         <HoverBorderGradient
           as="a"
           className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 gap-1"
@@ -247,6 +247,13 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
 
           <div className="absolute inset-0 w-full h-full bg-white dark:bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]" />
         </div>
+      </div>
+
+      <div className="max-w-2xl mx-auto flex flex-col gap-5">
+        <Heading as="h3" className="text-center text-3xl">
+          Technical Details
+        </Heading>
+        <ProductDetails details={details} />
       </div>
     </div>
   );
