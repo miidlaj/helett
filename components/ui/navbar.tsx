@@ -11,7 +11,7 @@ import {
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 
 import { cn } from "@/lib/utils";
-import { categories, products } from "@/constants/products";
+import { brands, categories, products } from "@/constants/products";
 
 export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -84,6 +84,16 @@ export default function Navbar({ className }: { className?: string }) {
                     title={item.title}
                   />
                 ))}
+            </div>
+          </MenuItem>
+
+          <MenuItem active={active} item="Brand" setActive={setActive}>
+            <div className="flex flex-col space-y-4 text-sm">
+              {brands.map((brand, index) => (
+                <HoveredLink key={index} href={`products?brand=${brand}`}>
+                  {brand.charAt(0).toUpperCase() + brand.slice(1).toLowerCase()}
+                </HoveredLink>
+              ))}
             </div>
           </MenuItem>
         </Menu>

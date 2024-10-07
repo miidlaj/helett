@@ -2089,20 +2089,20 @@ export type FeatureType = {
 };
 
 export const categories = Array.from(
-  new Set(products.map((product) => product.category))
+  new Set(products.map((product) => product.category)),
 );
 
 export const brands = Array.from(
-  new Set(products.map((product) => product.brand))
+  new Set(products.map((product) => product.brand)),
 );
 
 export const getSubCategories = (cat: string) => {
   const cat_products = products.filter(
-    (product) => product.category === cat && product.subCategory
+    (product) => product.category === cat && product.subCategory,
   );
 
   return Array.from(
-    new Set(cat_products.map((product) => product.subCategory))
+    new Set(cat_products.map((product) => product.subCategory)),
   );
 };
 
@@ -2121,7 +2121,7 @@ export const filterProduct = (options: FilterOptions = {}): ProductType[] => {
     const matchesBrand =
       brands?.length === 0 ||
       brands?.some((brand) =>
-        product.title.toLowerCase().includes(brand.toLowerCase())
+        product.title.toLowerCase().includes(brand.toLowerCase()),
       );
     const matchesSubCategory =
       subCats?.length === 0 || subCats?.includes(product.subCategory);

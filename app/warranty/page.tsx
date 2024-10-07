@@ -16,21 +16,21 @@ export default function WarrantyPage() {
           <div className="text-sm  prose prose-sm dark:prose-invert">
             {item?.image && (
               <Image
-                src={item.image}
                 alt="blog thumbnail"
-                height="500"
-                width="500"
                 className="rounded-lg mb-10 object-cover dark:hidden"
+                height="500"
+                src={item.image}
+                width="500"
               />
             )}
 
             {item?.darkImage && (
               <Image
-                src={item.darkImage}
                 alt="blog thumbnail"
-                height="500"
-                width="500"
                 className="rounded-lg mb-10 object-cover dark:flex hidden"
+                height="500"
+                src={item.darkImage}
+                width="500"
               />
             )}
             {item.description}
@@ -69,8 +69,8 @@ const dummyContent = [
           <li>
             Contact Helett Customer Support at{" "}
             <a
-              href="mailto:support@helett.com"
               className="text-blue-600 underline"
+              href="mailto:support@helett.com"
             >
               support@helett.com
             </a>{" "}
@@ -102,8 +102,8 @@ const dummyContent = [
           <li>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:support@helett.com"
               className="text-blue-600 underline"
+              href="mailto:support@helett.com"
             >
               support@helett.com
             </a>
@@ -113,7 +113,7 @@ const dummyContent = [
           </li>
           <li>
             <strong>Website:</strong>{" "}
-            <a href="http://www.helett.com" className="text-blue-600 underline">
+            <a className="text-blue-600 underline" href="http://www.helett.com">
               www.helett.com
             </a>
           </li>

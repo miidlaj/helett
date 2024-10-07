@@ -23,13 +23,16 @@ import { Button } from "@/components/ui/button";
 function ProductPage() {
   const params = useSearchParams();
   const param_cat = params.get("cat");
+  const param_brand = params.get("brand");
   const defaultCats: string[] = param_cat != null ? [param_cat] : [];
+  const defaultBrands: string[] = param_brand != null ? [param_brand] : [];
+
   const [productData, setProductData] = useState<ProductType[]>(products);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isFiltered, setIsFiltered] = useState(false);
   const [selectedCategory, setSelectedCategory] =
     useState<string[]>(defaultCats);
-  const [selectedBrand, setSelectedBrand] = useState<string[]>([]);
+  const [selectedBrand, setSelectedBrand] = useState<string[]>(defaultBrands);
   const [subCats, setSubCats] = useState<string[]>([]);
   const [selectedSubCat, setSelectedSubCat] = useState<string[]>([]);
 
@@ -45,7 +48,7 @@ function ProductPage() {
       selectedCategory.length !== 0 ||
         selectedSubCat.length !== 0 ||
         selectedBrand.length !== 0 ||
-        searchValue.length > 0
+        searchValue.length > 0,
     );
     setProductData(filteredData);
   }, [selectedBrand, selectedCategory, selectedSubCat, searchValue]);
