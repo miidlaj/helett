@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Trash } from "lucide-react";
 import { Input } from "@nextui-org/input";
 import { motion } from "framer-motion";
+import { useSearchParams } from "next/navigation";
 
 import { ProductsFilter } from "./components/FilterItem";
 
@@ -20,10 +21,14 @@ import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 
 function ProductPage() {
+  const params = useSearchParams();
+  const param_cat = params.get("cat");
+  const defaultCats: string[] = param_cat != null ? [param_cat] : [];
   const [productData, setProductData] = useState<ProductType[]>(products);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isFiltered, setIsFiltered] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string[]>(defaultCats);
   const [selectedBrand, setSelectedBrand] = useState<string[]>([]);
   const [subCats, setSubCats] = useState<string[]>([]);
   const [selectedSubCat, setSelectedSubCat] = useState<string[]>([]);
