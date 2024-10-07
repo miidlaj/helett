@@ -140,7 +140,7 @@ export const Card = ({
           <p className="text-sm text-muted-foreground line-clamp-3">
             {card.description}
           </p>
-          <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-bold bg-black">
+          <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-bold bg-primary">
             <span>Details </span>
             <span className="bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white" />
           </button>

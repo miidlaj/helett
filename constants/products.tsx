@@ -922,40 +922,1158 @@ export const products = [
       { label: "Item Weight", value: "420 g" },
     ],
   },
+  {
+    category: "Digital Door Lock",
+    subCategory: "",
+    title: "Uniy UY610",
+
+    src: "/products/uy610",
+    brand: "uniy",
+    thumbnail: "thumbnail.png",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
+    stack: ["Digital Door Lock"],
+    slug: "uniy-uy610",
+
+    href: "https://www.amazon.in/UNIY-Digital-Fingerprint-Included-Features/dp/B0BFFW365Y/ref=sxin_16_sbv_search_btf?cv_ct_cx=helett+digital+door+lock&nsdOptOutParam=true&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-9131241a-a358-4619-a7b8-0f5a65d91d81",
+    description:
+      "Uniy UY610 Smart Digital Door Lock (Metal) Fingerprint,RFID,PIN Access & Manual Key Included Mortise:Theft Alarm|Low Power Reminder|USB Key Support| 50 Finger Capacity|Suitable 30mm-100mm Door(Black)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Door Type:</strong> Wooden Door
+        </li>
+        <li>
+          <strong>Suit for door standard:</strong> 30-100mm (Below/Exceed
+          thickness can be optional)
+        </li>
+        <li>
+          <strong>Product size:</strong> 260*61*24mm
+        </li>
+        <li>
+          <strong>Battery:</strong> using of 4pcs of AAA Battery
+        </li>
+        <li>
+          <strong>Working Temperature:</strong> -25°- 55°
+        </li>
+        <li>
+          <strong>Fingerprint Collection Methods:</strong> Semiconductor
+        </li>
+        <li>
+          <strong>IC Card storage quantity:</strong> 110 groups
+        </li>
+        <li>
+          <strong>Fingerprint storage quantity:</strong> 100 groups
+        </li>
+        <li>
+          <strong>Material:</strong> Aluminum Alloy
+        </li>
+        <li>
+          <strong>Mortise:</strong> 304 stainless steel
+        </li>
+        <li>
+          <strong>Working Voltage:</strong> up to 182 days working time
+        </li>
+      </ul>
+    ),
+    details: [
+      {
+        label: "Brand",
+        value: "UNIY",
+      },
+      {
+        label: "Special Feature",
+        value: "Auto-Lock, Battery Indicator, theft alarm",
+      },
+      {
+        label: "Lock Type",
+        value: "Biometric",
+      },
+      {
+        label: "Item dimensions (L x W x H)",
+        value: "10 x 6 x 10 Centimeters",
+      },
+      {
+        label: "Material",
+        value: "Alloy",
+      },
+      {
+        label: "Recommended Uses For Product",
+        value: "Smart Digital Door Lock",
+      },
+      {
+        label: "Style",
+        value: "Modern",
+      },
+      {
+        label: "Colour",
+        value: "Black",
+      },
+      {
+        label: "Number of Pieces",
+        value: "1",
+      },
+      {
+        label: "Finish Type",
+        value: "Painted",
+      },
+      {
+        label: "Included Components",
+        value:
+          "1x Mortise, 2x RFID Card, 2x physical Key, 1x Manual Guide, 1x Screw Set",
+      },
+      {
+        label: "Controller Type",
+        value: "Finger Print Control",
+      },
+      {
+        label: "Shape",
+        value: "Rectangular",
+      },
+      {
+        label: "Item Weight",
+        value: "1 Kilogram",
+      },
+      {
+        label: "Control Method",
+        value: "Touch",
+      },
+      {
+        label: "Model Name",
+        value: "UY610",
+      },
+      {
+        label: "Manufacturer",
+        value: "Shenzhen UNIY Technology Co., Ltd",
+      },
+      {
+        label: "Country of Origin",
+        value: "China",
+      },
+      {
+        label: "Item Model Number",
+        value: "UY610",
+      },
+      {
+        label: "Product Dimensions",
+        value: "10 x 6 x 10 cm; 1 kg",
+      },
+      {
+        label: "ASIN",
+        value: "B0BFFW365Y",
+      },
+    ],
+  },
+  {
+    category: "Digital Door Lock",
+    subCategory: "",
+    title: "Uniy UY810",
+
+    src: "/products/uy810",
+    brand: "uniy",
+    thumbnail: "thumbnail.png",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
+    stack: ["Digital Door Lock"],
+    slug: "uniy-uy810",
+
+    href: "https://www.amazon.in/UNIY-810-Required-Fingerprint-PIN-OTP-RFID-Card-Suitable/dp/B0CLYLNCZD/ref=sr_1_1_sspa?nsdOptOutParam=true&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    description:
+      "UNIY 810 Smart Digital WiFi App Door Lock (No Extra Wi-Fi Gateway Required)Fingerprint-PIN-OTP-RFID-Card&Manual Key|Child Lock|5 Bolt Strong Mortis|Suitable for Minimum 35 mm Wooden Doors(Black,Metal)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Product Name:</strong> UNIY 810 Smart Digital WiFi Door Lock
+        </li>
+        <li>
+          <strong>Integration:</strong> Smart Life App
+        </li>
+        <li>
+          <strong>Remote Control:</strong> Yes, without extra gateway
+        </li>
+        <li>
+          <strong>Access Methods:</strong> Fingerprint, PIN, OTP (One-Time
+          Password), RFID Card, Manual Key
+        </li>
+        <li>
+          <strong>Child Lock Feature:</strong> Yes
+        </li>
+        <li>
+          <strong>Safety Enhancement:</strong> Extra layer of security for
+          families
+        </li>
+        <li>
+          <strong>Lock Mechanism:</strong> 5 Bolt Strong Mortis
+        </li>
+        <li>
+          <strong>Security Level:</strong> High
+        </li>
+        <li>
+          <strong>Ideal For:</strong> Wooden doors
+        </li>
+        <li>
+          <strong>Setup:</strong> No additional gateway needed
+        </li>
+      </ul>
+    ),
+    details: [
+      {
+        label: "Brand",
+        value: "UNIY",
+      },
+      {
+        label: "Special Feature",
+        value: "Auto-Lock",
+      },
+      {
+        label: "Lock Type",
+        value: "Biometric",
+      },
+      {
+        label: "Item dimensions (L x W x H)",
+        value: "13.5 x 7.2 x 37.6 Centimeters",
+      },
+      {
+        label: "Material",
+        value: "Alloy",
+      },
+      {
+        label: "Recommended Uses For Product",
+        value: "indoor / outdoor",
+      },
+      {
+        label: "Style",
+        value: "Modern",
+      },
+      {
+        label: "Colour",
+        value: "Black",
+      },
+      {
+        label: "Number of Pieces",
+        value: "1",
+      },
+      {
+        label: "Finish Type",
+        value: "Polished",
+      },
+      {
+        label: "Included Components",
+        value:
+          "2x RFID Card, 1x Mortis, 2x physical Key, 1x Manual Guide, 1x Screw Set",
+      },
+      {
+        label: "Controller Type",
+        value: "Finger Print Control",
+      },
+      {
+        label: "Shape",
+        value: "Rectangular",
+      },
+      {
+        label: "Control Method",
+        value: "App",
+      },
+      {
+        label: "Connectivity Protocol",
+        value: "Wi-Fi",
+      },
+      {
+        label: "Model Name",
+        value: "810",
+      },
+      {
+        label: "Manufacturer",
+        value: "810",
+      },
+      {
+        label: "Model",
+        value: "WIFI",
+      },
+      {
+        label: "Product Dimensions",
+        value: "13.5 x 7.2 x 37.6 cm; 2.94 kg",
+      },
+      {
+        label: "Item model number",
+        value: "WIFI",
+      },
+      {
+        label: "Special Features",
+        value: "Auto-Lock",
+      },
+      {
+        label: "Batteries Required",
+        value: "No",
+      },
+      {
+        label: "Does it contain liquid?",
+        value: "No",
+      },
+      {
+        label: "Country of Origin",
+        value: "China",
+      },
+      {
+        label: "Item Weight",
+        value: "2 kg 940 g",
+      },
+    ],
+  },
+  {
+    //NOT FOUND
+    category: "Digital Door Lock",
+    subCategory: "",
+    title: "Uniy UY720",
+
+    src: "/products/uy720",
+    brand: "uniy",
+    thumbnail: "thumbnail.png",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
+    stack: ["Digital Door Lock"],
+    slug: "uniy-uy720",
+
+    href: "https://www.amazon.in/UNIY-810-Required-Fingerprint-PIN-OTP-RFID-Card-Suitable/dp/B0CLYLNCZD/ref=sr_1_1_sspa?nsdOptOutParam=true&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    description:
+      "UNIY 810 Smart Digital WiFi App Door Lock (No Extra Wi-Fi Gateway Required)Fingerprint-PIN-OTP-RFID-Card&Manual Key|Child Lock|5 Bolt Strong Mortis|Suitable for Minimum 35 mm Wooden Doors(Black,Metal)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Product Name:</strong> UNIY 810 Smart Digital WiFi Door Lock
+        </li>
+        <li>
+          <strong>Integration:</strong> Smart Life App
+        </li>
+        <li>
+          <strong>Remote Control:</strong> Yes, without extra gateway
+        </li>
+        <li>
+          <strong>Access Methods:</strong> Fingerprint, PIN, OTP (One-Time
+          Password), RFID Card, Manual Key
+        </li>
+        <li>
+          <strong>Child Lock Feature:</strong> Yes
+        </li>
+        <li>
+          <strong>Safety Enhancement:</strong> Extra layer of security for
+          families
+        </li>
+        <li>
+          <strong>Lock Mechanism:</strong> 5 Bolt Strong Mortis
+        </li>
+        <li>
+          <strong>Security Level:</strong> High
+        </li>
+        <li>
+          <strong>Ideal For:</strong> Wooden doors
+        </li>
+        <li>
+          <strong>Setup:</strong> No additional gateway needed
+        </li>
+      </ul>
+    ),
+    details: [
+      {
+        label: "Brand",
+        value: "UNIY",
+      },
+      {
+        label: "Special Feature",
+        value: "Auto-Lock",
+      },
+      {
+        label: "Lock Type",
+        value: "Biometric",
+      },
+      {
+        label: "Item dimensions (L x W x H)",
+        value: "13.5 x 7.2 x 37.6 Centimeters",
+      },
+      {
+        label: "Material",
+        value: "Alloy",
+      },
+      {
+        label: "Recommended Uses For Product",
+        value: "indoor / outdoor",
+      },
+      {
+        label: "Style",
+        value: "Modern",
+      },
+      {
+        label: "Colour",
+        value: "Black",
+      },
+      {
+        label: "Number of Pieces",
+        value: "1",
+      },
+      {
+        label: "Finish Type",
+        value: "Polished",
+      },
+      {
+        label: "Included Components",
+        value:
+          "2x RFID Card, 1x Mortis, 2x physical Key, 1x Manual Guide, 1x Screw Set",
+      },
+      {
+        label: "Controller Type",
+        value: "Finger Print Control",
+      },
+      {
+        label: "Shape",
+        value: "Rectangular",
+      },
+      {
+        label: "Control Method",
+        value: "App",
+      },
+      {
+        label: "Connectivity Protocol",
+        value: "Wi-Fi",
+      },
+      {
+        label: "Model Name",
+        value: "810",
+      },
+      {
+        label: "Manufacturer",
+        value: "810",
+      },
+      {
+        label: "Model",
+        value: "WIFI",
+      },
+      {
+        label: "Product Dimensions",
+        value: "13.5 x 7.2 x 37.6 cm; 2.94 kg",
+      },
+      {
+        label: "Item model number",
+        value: "WIFI",
+      },
+      {
+        label: "Special Features",
+        value: "Auto-Lock",
+      },
+      {
+        label: "Batteries Required",
+        value: "No",
+      },
+      {
+        label: "Does it contain liquid?",
+        value: "No",
+      },
+      {
+        label: "Country of Origin",
+        value: "China",
+      },
+      {
+        label: "Item Weight",
+        value: "2 kg 940 g",
+      },
+    ],
+  },
+  {
+    category: "Digital Door Lock",
+    subCategory: "",
+    title: "Helett HT210",
+
+    src: "/products/ht210",
+    brand: "helett",
+    thumbnail: "thumbnail.png",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
+    stack: ["Digital Door Lock"],
+    slug: "helett-ht210",
+
+    href: "https://www.amazon.in/HT210-Fingerprint-Emergency-30mm-100mm-Aluminium/dp/B0CBXG8CLB/ref=sr_1_5?nsdOptOutParam=true&sr=8-5",
+    description:
+      "Helett HT210 Digital Door Lock with 50 Fingerprint Manual Key with Mortise Support USB Emergency Unlock|Suitable for 30mm-55mm Aluminium and Wooden Door fit with Right and Left Door Handle(Black)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Brand:</strong> helett
+        </li>
+        <li>
+          <strong>Special Feature:</strong> easy to install
+        </li>
+        <li>
+          <strong>Lock Type:</strong> Biometric
+        </li>
+        <li>
+          <strong>Item dimensions (L x W x H):</strong> 8 x 5 x 6 Millimeters
+        </li>
+        <li>
+          <strong>Material:</strong> Alloy
+        </li>
+        <li>
+          <strong>About this item:</strong>
+        </li>
+        <ul>
+          <li>
+            <strong>One Touch Unlock</strong>
+          </li>
+          <li>
+            <strong>Up to 50 user capacity</strong>
+          </li>
+          <li>
+            <strong>Premium body</strong>
+          </li>
+        </ul>
+      </ul>
+    ),
+    details: [
+      {
+        label: "Brand",
+        value: "helett",
+      },
+      {
+        label: "Special Feature",
+        value: "easy to install",
+      },
+      {
+        label: "Lock Type",
+        value: "Biometric",
+      },
+      {
+        label: "Item dimensions (L x W x H)",
+        value: "8 x 5 x 6 Millimeters",
+      },
+      {
+        label: "Material",
+        value: "Alloy",
+      },
+      {
+        label: "Recommended Uses For Product",
+        value: "Office, Apartment, Bedroom, Etc",
+      },
+      {
+        label: "Style",
+        value: "Modern",
+      },
+      {
+        label: "Colour",
+        value: "Black",
+      },
+      {
+        label: "Number of Pieces",
+        value: "1",
+      },
+      {
+        label: "Finish Type",
+        value: "Painted",
+      },
+      {
+        label: "Included Components",
+        value: "Screws",
+      },
+      {
+        label: "Controller Type",
+        value: "Finger Print Control, manual Key access",
+      },
+      {
+        label: "Shape",
+        value: "Rectangular",
+      },
+      {
+        label: "Item Weight",
+        value: "500 Grams",
+      },
+      {
+        label: "Control Method",
+        value: "Touch",
+      },
+      {
+        label: "Connectivity Protocol",
+        value: "usb",
+      },
+      {
+        label: "Model Name",
+        value: "HT210 Digital Door Lock",
+      },
+      {
+        label: "Manufacturer",
+        value: "FBN TRADING COMPANY",
+      },
+      {
+        label: "Country of Origin",
+        value: "China",
+      },
+      {
+        label: "Item model number",
+        value: "HT210",
+      },
+      {
+        label: "Product Dimensions",
+        value: "0.8 x 0.5 x 0.6 cm; 500 g",
+      },
+      {
+        label: "ASIN",
+        value: "B0CBXG8CLB",
+      },
+    ],
+  },
+  {
+    category: "Digital Door Lock",
+    subCategory: "",
+    title: "Helett HT320",
+
+    src: "/products/ht320",
+    brand: "helett",
+    thumbnail: "thumbnail.png",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
+    stack: ["Digital Door Lock"],
+    slug: "helett-ht320",
+
+    href: "https://www.amazon.in/HT320-Lightweight-Fingerprint-Emergency-30mm-55mm/dp/B0CRB2KDC6/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
+    description:
+      "Helett HT320 Digital Door Lock (Lightweight) 50 Fingerprint Manual Key| Mortise |Support USB Emergency Unlock|Suitable for 30mm-55mm Aluminium or Wooden Office Cabin and Bedroom Doors (Black)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Advanced Fingerprint Recognition:</strong> Utilizes
+          cutting-edge fingerprint recognition technology to provide seamless
+          access control, ensuring only authorized individuals can enter.
+        </li>
+        <li>
+          <strong>50 Fingerprint Storage Capacity:</strong> Offers the ability
+          to store up to 50 unique fingerprints, accommodating multiple users
+          for enhanced security and convenience.
+        </li>
+        <li>
+          <strong>Manual Key Option:</strong> Includes a manual key for
+          traditional access, providing an alternative method for unlocking the
+          door and ensuring access even in the absence of fingerprint
+          recognition.
+        </li>
+        <li>
+          <strong>Lightweight Design:</strong> Features a lightweight
+          construction for easy installation and effortless operation, reducing
+          installation time and effort.
+        </li>
+        <li>
+          <strong>Mortise Style Lock:</strong> Designed in a mortise style to
+          fit doors with thicknesses ranging from 30mm to 55mm, compatible with
+          both aluminum and wooden office cabin and bedroom doors.
+        </li>
+        <li>
+          <strong>USB Emergency Unlock:</strong> Equipped with a USB emergency
+          unlock feature, allowing users to access the door even in the event of
+          a power outage or other emergencies.
+        </li>
+        <li>
+          <strong>Versatile Use:</strong> Suitable for both residential and
+          commercial environments, providing reliable security solutions for
+          homes, offices, cabins, and other spaces.
+        </li>
+        <li>
+          <strong>Robust Locking Mechanism:</strong> Offers a dependable and
+          robust locking mechanism to ensure the safety and security of the
+          premises, providing peace of mind to users.
+        </li>
+        <li>
+          <strong>Effortless Installation:</strong> Designed for easy
+          installation, suitable for any local carpenter to install with minimal
+          effort. Access dedicated installation videos provided by our customer
+          care team, ensuring a hassle-free setup process.
+        </li>
+        <li>
+          <strong>Convenient Customer Support:</strong> Reach out to our
+          customer care team via WhatsApp video call for personalized assistance
+          and guidance throughout the installation process. Our team is
+          available to address any concerns or queries, offering step-by-step
+          guidance via video call to ensure a smooth installation experience.
+        </li>
+      </ul>
+    ),
+    details: [
+      { label: "Brand", value: "helett" },
+      {
+        label: "Special Feature",
+        value:
+          "USB Emergency Unlock feature, Manual Key Backup for traditional access, Tamper Detection, Low Battery Indicator, Long Battery Life",
+      },
+      { label: "Lock Type", value: "Biometric" },
+      { label: "Item dimensions", value: "8 x 5 x 6 Millimeters" },
+      { label: "Material", value: "Aluminium" },
+      { label: "Recommended Uses For Product", value: "Indoor Use Only" },
+      { label: "Style", value: "Modern" },
+      { label: "Colour", value: "Black" },
+      { label: "Number of Pieces", value: "1" },
+      { label: "Finish Type", value: "Matt & Glossy" },
+      {
+        label: "Included Components",
+        value:
+          "1x Mortis, 2x physical Key, 1x Accessories, 1x Manual Guide, 2x Door Handle, 1x Screw Set",
+      },
+      { label: "Shape", value: "Rectangular" },
+      { label: "Control Method", value: "Touch" },
+      { label: "Manufacturer", value: "FBN TRADING COMPANY" },
+      { label: "Country of Origin", value: "China" },
+      { label: "Item model number", value: "HT320" },
+      { label: "Product Dimensions", value: "0.8 x 0.5 x 0.6 cm; 730 g" },
+      { label: "ASIN", value: "B0CRB2KDC6" },
+    ],
+  },
+  {
+    category: "Microphone",
+    subCategory: "",
+    title: "Uniy U19",
+
+    src: "/products/u19",
+    brand: "uniy",
+    thumbnail: "thumbnail.jpg",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
+    stack: ["Microphone"],
+    slug: "uniy-u19",
+
+    href: "https://www.amazon.in/Wireless-Headset-Mic-Microphone-UHF/dp/B0C72FSCFM/ref=sr_1_1_sspa?sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    description:
+      "Uniy U19 UHF 2.4G Wireless Headset Mic, Microphone System 160ft Distance Ideal for Speakers, Amplifier PA System for Live Streamer, News Presenter with 3.5mm to 6.35mm Port Converter (Black)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Product Name:</strong> U19UHF Wireless Headset Mic
+        </li>
+        <li>
+          <strong>Versatile Audio Solution:</strong> Designed for hands-free
+          microphone use, offering convenience and flexibility for various
+          applications.
+        </li>
+        <li>
+          <strong>Wireless Range:</strong> 160 feet
+        </li>
+        <li>
+          <strong>Optimal Mobility:</strong> Provides performers, live
+          streamers, and news presenters with the freedom to move around without
+          being constrained by cables.
+        </li>
+        <li>
+          <strong>Compatibility:</strong> Receiver compatible with both 3.5mm
+          and 6.35mm audio jacks.
+        </li>
+        <li>
+          <strong>Connection Flexibility:</strong> Can connect to a wide range
+          of devices such as amplifiers, PA systems, and other audio equipment.
+        </li>
+        <li>
+          <strong>Enhanced Audio Quality:</strong> Ideal for live streamers,
+          ensuring clear and crisp vocal delivery.
+        </li>
+        <li>
+          <strong>Professional Tool:</strong> Essential for news presenters,
+          ensuring clear and reliable voice transmission.
+        </li>
+      </ul>
+    ),
+    details: [
+      { label: "Colour", value: "Black" },
+      {
+        label: "Included Components",
+        value:
+          "1x U19 Microphone, 2x Mic Sponge, 1x Manual guide, 1x Dual Charging cable, 1x 3.5mm Female to 6.5mm Male, 1x Receiver",
+      },
+      { label: "Polar Pattern", value: "Omnidirectional" },
+      { label: "Impedance", value: "75 Ohm" },
+      { label: "Item dimensions L x W x H", value: "18 x 15 x 21 Centimeters" },
+      { label: "Power Source", value: "Battery Powered" },
+      {
+        label: "Number of Batteries",
+        value: "2 Lithium Ion batteries required. (included)",
+      },
+      { label: "Material", value: "Plastic" },
+      { label: "Signal-to-Noise Ratio", value: "120 dB" },
+      { label: "Hardware Platform", value: "Karaoke Machine" },
+      { label: "Number of Channels", value: "1" },
+      { label: "Frequency Range", value: "20 Hz - 20 kHz" },
+      { label: "Manufacturer", value: "Fanxui Technology" },
+      { label: "Model", value: "U19" },
+      { label: "Product Dimensions", value: "18 x 15 x 21 cm; 1.35 kg" },
+      {
+        label: "Batteries",
+        value: "2 Lithium Ion batteries required. (included)",
+      },
+      { label: "Item model number", value: "U19" },
+      { label: "Special Features", value: "Wireless" },
+      { label: "Number of items", value: "1" },
+      { label: "Batteries Included", value: "Yes" },
+      { label: "Batteries Required", value: "Yes" },
+      { label: "Battery cell composition", value: "Lithium Ion" },
+      { label: "Includes Rechargeable Battery", value: "Yes" },
+      { label: "Country of Origin", value: "China" },
+      { label: "Item Weight", value: "1 kg 350 g" },
+    ],
+  },
+  {
+    category: "Microphone",
+    subCategory: "",
+    title: "Uniy UY16",
+
+    src: "/products/uy16",
+    brand: "uniy",
+    thumbnail: "thumbnail.jpg",
+    images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
+    stack: ["Microphone"],
+    slug: "uniy-uy16",
+
+    href: "https://www.amazon.in/UNIY-UY16-Professional-Microphone-Performance/dp/B0C8JRN652/ref=sr_1_3?sr=8-3",
+    description:
+      "UNIY UY16 VHF 4(Channel)Professional Wireless Microphone 250 Meters Range True Diversity(Echo Control)LED Display|Metal Head|High Frequency Receiver|Support to Sound Mixer|Big Stage Performance(Black)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Operating Range:</strong> The UNIY UY16 VHF Wireless
+          Microphone boasts an impressive 250 meters operating range, allowing
+          performers to move freely on large stages without compromising audio
+          quality.
+        </li>
+        <li>
+          <strong>True Diversity Technology:</strong> Featuring True Diversity
+          technology, the microphone system actively selects the strongest
+          signal from multiple channels, minimizing interference and ensuring
+          reliable and uninterrupted wireless performance.
+        </li>
+        <li>
+          <strong>Built-in Echo Control:</strong> The built-in Echo Control
+          function provides users with the ability to fine-tune the audio
+          output, allowing for precise control over echo levels. This feature is
+          valuable for achieving optimal sound quality in various performance
+          settings.
+        </li>
+        <li>
+          <strong>LED Display:</strong> The microphone system is equipped with
+          an LED display that facilitates easy navigation and adjustment of
+          settings. Performers can conveniently monitor and customize microphone
+          parameters for an enhanced user experience.
+        </li>
+        <li>
+          <strong>Durable Construction:</strong> With a robust metal head
+          construction, the microphone is designed for durability, ensuring
+          resilience to the rigors of live performances and maintaining reliable
+          functionality over time.
+        </li>
+      </ul>
+    ),
+    details: [
+      {
+        label: "Compatible Devices",
+        value: "Amplifier, Karaoke Machine, Speaker",
+      },
+      {
+        label: "Colour",
+        value: "Black",
+      },
+      {
+        label: "Included Components",
+        value: "Anti Skid Ring",
+      },
+      {
+        label: "Polar Pattern",
+        value: "Omnidirectional",
+      },
+      {
+        label: "Audio Sensitivity",
+        value: "120 dB",
+      },
+      {
+        label: "Item Weight",
+        value: "1.6 Kilograms",
+      },
+      {
+        label: "Impedance",
+        value: "600 Ohm",
+      },
+      {
+        label: "Item dimensions L x W x H",
+        value: "36.5 x 12.9 x 32.9 Centimeters",
+      },
+      {
+        label: "Power Source",
+        value: "Battery Powered",
+      },
+      {
+        label: "Material",
+        value: "Plastic",
+      },
+      {
+        label: "Signal-to-Noise Ratio",
+        value: "90 dB",
+      },
+      {
+        label: "Hardware Platform",
+        value: "Karaoke Machine",
+      },
+      {
+        label: "Number of Channels",
+        value: "4",
+      },
+      {
+        label: "Frequency Range",
+        value: "80 hz - 15 khz",
+      },
+      {
+        label: "Frequency Response",
+        value: "15 KHz",
+      },
+      {
+        label: "Manufacturer",
+        value: "China, FBN TRADING COMPANY",
+      },
+      {
+        label: "Model",
+        value: "UY16 4 channel mic",
+      },
+      {
+        label: "Product Dimensions",
+        value: "36.5 x 12.9 x 32.9 cm; 1.6 kg",
+      },
+      {
+        label: "Item model number",
+        value: "UY16 4 channel mic",
+      },
+      {
+        label: "Special Features",
+        value: "Battery Indicator Light",
+      },
+      {
+        label: "Batteries Included",
+        value: "No",
+      },
+      {
+        label: "Batteries Required",
+        value: "Yes",
+      },
+      {
+        label: "Speaker Output Channel Quantity",
+        value: "4",
+      },
+      {
+        label: "Includes Rechargeable Battery",
+        value: "No",
+      },
+      {
+        label: "Includes remote",
+        value: "No",
+      },
+      {
+        label: "Country of Origin",
+        value: "China",
+      },
+      {
+        label: "Item Weight",
+        value: "1 kg 600 g",
+      },
+    ],
+  },
+  {
+    category: "Home&Office Tech",
+    subCategory: "",
+    title: "Helett AC1200",
+
+    src: "/products/ac1200",
+    brand: "helett",
+    thumbnail: "thumbnail.png",
+    images: [
+      "1.png",
+      "2.png",
+      "3.png",
+      "4.png",
+      "5.png",
+      "6.png",
+      "7.png",
+      "8.png",
+    ],
+    stack: ["Microphone"],
+    slug: "helett-ac1200",
+
+    href: "https://www.amazon.in/AC1200-High-Gain-Antennas-Repeater-Ethernet/dp/B0DGF32QRT/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
+    description:
+      "Helett® AC1200 Dual Band (2.4GHz & 5GHz) 1200 Mbps 6 Wi-Fi Router | 6 High-Gain Antennas(5dBi) 300 Meter Wi-Fi Range | AP, Repeater & Mesh Mode with 1 WAN & 4 Ethernet Ports (1 Year Warranty) White",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>High-Speed Performance:</strong> Delivers up to 867 Mbps
+          wireless speed for fast and reliable internet connectivity.
+        </li>
+        <li>
+          <strong>Enhanced Security:</strong> Equipped with WPA and WPA2
+          encryption for robust network protection.
+        </li>
+        <li>
+          <strong>Multiple Connectivity Options:</strong> Features Fast Ethernet
+          ports (WAN/LAN) for stable wired connections.
+        </li>
+        <li>
+          <strong>Improved Coverage:</strong> High-gain antennas boost signal
+          strength and extend Wi-Fi range throughout your home.
+        </li>
+        <li>
+          <strong>Easy Setup:</strong> Quick and straightforward installation
+          process with user-friendly interface.
+        </li>
+        <li>
+          <strong>Broad Compatibility:</strong> Supports a wide range of devices
+          including smartphones, tablets, laptops, and smart home devices.
+        </li>
+        <li>
+          <strong>Dual-Band Technology:</strong> Operates on both 2.4 GHz and 5
+          GHz bands to reduce interference and optimize network performance.
+        </li>
+      </ul>
+    ),
+    details: [
+      {
+        label: "Brand",
+        value: "helett",
+      },
+      {
+        label: "Manufacturer",
+        value: "helett",
+      },
+      {
+        label: "Model",
+        value: "Helett AC1200",
+      },
+      {
+        label: "Model Name",
+        value: "AC1200",
+      },
+      {
+        label: "Product Dimensions",
+        value: "23.8 x 15.4 x 18.1 cm; 265 g",
+      },
+      {
+        label: "Item model number",
+        value: "Helett AC1200",
+      },
+      {
+        label: "Ram Memory Installed Size",
+        value: "256 MB",
+      },
+      {
+        label: "Compatible Devices",
+        value:
+          "Laptops and Desktops, Gaming Consoles, Smart Home Devices, Smart TVs and Streaming Devices, Smartphones and Tablets",
+      },
+      {
+        label: "Special Features",
+        value:
+          "Dual-Band Support, Smart Band Steering, AI-Powered Optimization, Wi-Fi 6 Technology, MU-MIMO & OFDMA Support",
+      },
+      {
+        label: "Mounting Hardware",
+        value:
+          "1 x Manual Guide, 1 x Host, 1 x Network Cable, 1 x Power Adapter",
+      },
+      {
+        label: "Number of items",
+        value: "1",
+      },
+      {
+        label: "Voltage",
+        value: "12 Volts",
+      },
+      {
+        label: "Batteries Required",
+        value: "No",
+      },
+      {
+        label: "Data Transfer Rate",
+        value: "867 Megabits Per Second",
+      },
+      {
+        label: "Wireless Type",
+        value: "802.11ax",
+      },
+      {
+        label: "GSM frequencies",
+        value: "5 GHz",
+      },
+      {
+        label: "Connector Type",
+        value: "Wi-Fi",
+      },
+      {
+        label: "Country of Origin",
+        value: "China",
+      },
+      {
+        label: "Item Weight",
+        value: "265 g",
+      },
+    ],
+  },
+  {
+    category: "Grooming",
+    subCategory: "",
+    title: "Helett HL96",
+
+    src: "/products/hl96",
+    brand: "helett",
+    thumbnail: "thumbnail.jpg",
+    images: [
+      "1.png",
+      "2.png",
+      "3.png",
+      "4.png",
+      "5.png",
+      "6.png",
+      "7.png",
+      "8.png",
+    ],
+    stack: ["Grooming"],
+    slug: "helett-hl96",
+
+    href: "https://www.amazon.in/HL96-Professional-Technology-Overheat-Protection/dp/B0D9LS2P2F/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
+    description:
+      "Helett® HL96 Professional 2000 Watts Wall Mounted Hair Dryer For Men&Women|Blue Ray Ion Technology|Overheat Protection|Up to 20000 RPM|Low Noise|Rear Metal Mesh Guard|Strong ABS (1Year Warranty)",
+    content: (
+      <ul className="flex flex-col list-disc gap-3">
+        <li>
+          <strong>Powerful Motor:</strong> Delivers high-speed airflow for quick
+          and efficient drying, ensuring salon-quality results at home.
+        </li>
+        <li>
+          <strong>Multiple Heat and Speed Settings:</strong> Customise the
+          airflow to suit your hair type and styling needs, providing versatile
+          options for different hairstyles.
+        </li>
+        <li>
+          <strong>Compact and Lightweight Design:</strong> Easy to handle and
+          store, perfect for busy individuals and travel-friendly for on-the-go
+          styling.
+        </li>
+        <li>
+          <strong>Ionic Technology:</strong> Minimises frizz and static, leaving
+          your hair smooth, shiny, and manageable.
+        </li>
+        <li>
+          <strong>Holder Included:</strong> Convenient holder for storing the
+          dryer, saving space and keeping your styling area organized.
+        </li>
+      </ul>
+    ),
+    details: [
+      { label: "Product Dimensions", value: "9.5 x 17 x 32 cm; 870 g" },
+      { label: "Date First Available", value: "17 July 2024" },
+      { label: "Manufacturer", value: "Helett Enterprises LLP" },
+      { label: "ASIN", value: "B0D9LS2P2F" },
+      { label: "Item Model Number", value: "HL96" },
+      { label: "Country of Origin", value: "China" },
+      { label: "Packer", value: "Helett Enterprises LLP" },
+      { label: "Importer", value: "Helett Enterprises LLP" },
+      { label: "Item Weight", value: "870 g" },
+      { label: "Item Dimensions LxWxH", value: "9.5 x 17 x 32 Centimeters" },
+      { label: "Net Quantity", value: "1.00 count" },
+      {
+        label: "Included Components",
+        value:
+          "1x Manual Guide, 1x Hair Dryer with wall mount, 2x Mounted Sticker, 2x Adhesive Tube",
+      },
+    ],
+  },
   // {
-  //   category: "Digital Door Lock",
-  //   subCategory: "",
-  //   title: "Uniy UY610",
-  // },
-  // {
-  //   category: "Digital Door Lock",
-  //   subCategory: "",
-  //   title: "Uniy UY810",
-  // },
-  // {
-  //   category: "Digital Door Lock",
-  //   subCategory: "",
-  //   title: "Uniy UY720",
-  // },
-  // {
-  //   category: "Digital Door Lock",
-  //   subCategory: "",
-  //   title: "Helett HT210",
-  // },
-  // {
-  //   category: "Digital Door Lock",
-  //   subCategory: "",
-  //   title: "Helett HT320",
-  // },
-  // { category: "Microphone", subCategory: "", title: "Uniy U19" },
-  // { category: "Microphone", subCategory: "", title: "Uniy UY16" },
-  // {
-  //   category: "Home&Office Tech",
-  //   subCategory: "",
-  //   title: "Helett AC1200",
-  // },
-  // { category: "Grooming", subCategory: "", title: "Helett HL96" },
-  // {
+  //   // NOT FOUND
   //   category: "Vehicle Accessories",
   //   subCategory: "",
   //   title: "Helett Z567",
@@ -971,20 +2089,20 @@ export type FeatureType = {
 };
 
 export const categories = Array.from(
-  new Set(products.map((product) => product.category)),
+  new Set(products.map((product) => product.category))
 );
 
 export const brands = Array.from(
-  new Set(products.map((product) => product.brand)),
+  new Set(products.map((product) => product.brand))
 );
 
 export const getSubCategories = (cat: string) => {
   const cat_products = products.filter(
-    (product) => product.category === cat && product.subCategory,
+    (product) => product.category === cat && product.subCategory
   );
 
   return Array.from(
-    new Set(cat_products.map((product) => product.subCategory)),
+    new Set(cat_products.map((product) => product.subCategory))
   );
 };
 
@@ -1003,7 +2121,7 @@ export const filterProduct = (options: FilterOptions = {}): ProductType[] => {
     const matchesBrand =
       brands?.length === 0 ||
       brands?.some((brand) =>
-        product.title.toLowerCase().includes(brand.toLowerCase()),
+        product.title.toLowerCase().includes(brand.toLowerCase())
       );
     const matchesSubCategory =
       subCats?.length === 0 || subCats?.includes(product.subCategory);
