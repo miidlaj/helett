@@ -1,10 +1,5 @@
 "use client";
 import React from "react";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
 
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/ace-ui/label";
@@ -36,10 +31,18 @@ export default function ContactPage() {
             <Input id="lastname" placeholder="Doe" type="text" />
           </LabelInputContainer>
         </div>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="example@gmail.com" type="email" />
-        </LabelInputContainer>
+
+        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+          <LabelInputContainer>
+            <Label htmlFor="email">Email Address</Label>
+            <Input id="email" placeholder="example@gmail.com" type="email" />
+          </LabelInputContainer>
+          <LabelInputContainer>
+            <Label htmlFor="phone">Phone</Label>
+            <Input id="phone" placeholder="+91xxxxxxxxxx" type="number" />
+          </LabelInputContainer>
+        </div>
+
         <LabelInputContainer className="mb-4">
           <Label htmlFor="subject">Subject</Label>
           <Input id="subject" placeholder="Subject" type="text" />
