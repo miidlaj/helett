@@ -5,7 +5,9 @@ import FrequentQuestions from "@/components/frequent-questions";
 export default function Home() {
   return (
     <main>
-      <LandingCarousel />
+      <div className="flex justify-center w-full mt-24">
+        <LandingCarousel />
+      </div>
       <FeaturedProducts />
       <FrequentQuestions />
     </main>

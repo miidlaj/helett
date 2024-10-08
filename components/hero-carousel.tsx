@@ -39,7 +39,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
     return (
       <div
         className={cn(
-          "w-full h-screen flex items-center justify-center bg-white dark:bg-black",
+          "w-full h-screen flex items-center justify-center bg-white dark:bg-black"
         )}
       >
         <p className="text-xl text-muted-foreground">No slides to display</p>
@@ -49,25 +49,25 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
 
   return (
     <Carousel
-      className="w-full h-screen"
+      className="h-full w-full mx-5 rounded-lg overflow-hidden"
       opts={{
         align: "start",
         loop: true,
       }}
       setApi={setApi}
     >
-      <CarouselContent className="h-full">
+      <CarouselContent className="h-full w-full ml-0">
         {slides.map((slide, index) => (
           <CarouselItem
             key={index}
-            className={cn("relative h-full", slide.className)}
+            className={cn("relative pl-0 h-full", slide.className)}
           >
             <Card className="w-full h-full rounded-none bg-transparent border-none text-white">
               <CardContent className="p-0 h-full">
                 <div
                   className={cn(
-                    "flex flex-col md:flex-row justify-center items-center h-screen",
-                    index % 2 === 0 ? "md:flex-row-reverse" : "",
+                    "flex flex-col md:flex-row justify-center items-center h-[70vh]",
+                    index % 2 === 0 ? "md:flex-row-reverse" : ""
                   )}
                 >
                   <div className="w-full md:w-1/2 flex justify-center items-center h-4/5">
@@ -96,7 +96,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
               <Button
                 key={index}
                 aria-label={`Go to slide ${index + 1}`}
-                className="w-3 h-3 p-0 rounded-full"
+                className="w-5 h-1 p-0 rounded-lg"
                 size="sm"
                 variant={current === index ? "default" : "outline"}
                 onClick={() => api?.scrollTo(index)}

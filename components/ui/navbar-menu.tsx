@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
-import Logo from "../common/logo";
+import { cn } from "@/lib/utils";
 
 const transition = {
   type: "spring",
@@ -20,6 +20,7 @@ export const MenuItem = ({
   active,
   item,
   children,
+  noChild = false,
   link,
 }: {
   setActive: (item: string) => void;
@@ -27,6 +28,7 @@ export const MenuItem = ({
   item: string;
   children?: React.ReactNode;
   link?: string;
+  noChild?: boolean;
 }) => {
   return (
     <div className="relative " onMouseEnter={() => setActive(item)}>
@@ -50,13 +52,13 @@ export const MenuItem = ({
         </motion.p>
       )}
 
-      {active !== null && (
+      {active !== null && !noChild && (
         <motion.div
           animate={{ opacity: 1, scale: 1, y: 0 }}
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           transition={transition}
         >
-          {active === item && (
+          {active === item && !noChild && (
             <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
               <motion.div
                 className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
@@ -78,21 +80,20 @@ export const MenuItem = ({
 export const Menu = ({
   setActive,
   children,
+  className,
 }: {
   setActive: (item: string | null) => void;
   children: React.ReactNode;
+  className: string;
 }) => {
   return (
     <nav
-      className="relative rounded-full border border-white/30 backdrop-filter backdrop-blur-sm bg-primary/15 shadow-input flex justify-center space-x-4 px-8 py-4"
+      className={cn(
+        "relative bg-white dark:bg-black shadow-input flex justify-start gap-10 px-8 py-8",
+        className,
+      )}
       onMouseLeave={() => setActive(null)}
     >
-      <Link href="/">
-        <div className="absolute left-5 top-1/2 transform -translate-y-1/2">
-          <Logo height={80} width={80} />
-        </div>
-      </Link>
-
       {children}
     </nav>
   );

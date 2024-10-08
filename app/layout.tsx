@@ -42,7 +42,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <Navbar className="top-2 z-50" />
+          <Navbar className="top-0 z-50" />
           {children}
 
           <Footer />
