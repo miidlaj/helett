@@ -11,7 +11,7 @@ const Footer = () => {
     { name: "About us", href: "/about" },
     { name: "Category", href: "/category" },
     { name: "Store", href: "/store" },
-    { name: "Contact us", href: "/contact" },
+    { name: "Contact us", href: "/contact-us" },
   ];
 
   const socialIcons = [

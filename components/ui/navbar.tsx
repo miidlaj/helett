@@ -31,7 +31,6 @@ export default function Navbar({ className }: { className?: string }) {
       if (scrollYProgress.get() < 0.05) {
         setVisible(true);
         setTop(true);
-
       } else {
         if (direction < 0) {
           setVisible(true);
@@ -60,8 +59,8 @@ export default function Navbar({ className }: { className?: string }) {
         }}
       >
         <Menu
-          setActive={setActive}
           className={`${!top && "backdrop-filter backdrop-blur-sm bg-primary/15"}`}
+          setActive={setActive}
         >
           <Link href="/">
             <div>
@@ -190,11 +189,11 @@ export default function Navbar({ className }: { className?: string }) {
                 noChild
                 active={active}
                 item="Support"
-                link={`products?cat=Barcode%20Scanner`}
+                link={`contact-us`}
                 setActive={setActive}
               />
 
-              <Search className="size-5 cursor-pointer hover-scale" />
+              <Search className="size-5 cursor-pointer text-black dark:text-white hover-scale" />
             </div>
           </div>
         </Menu>
