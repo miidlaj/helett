@@ -34,6 +34,11 @@
             class="text-xs font-medium text-black leading-4 bg-white border border-gray-300 rounded px-2 py-1 focus:outline-none"
           ></select>
 
+          <select
+            id="modelSelect"
+            class="text-xs font-medium text-black leading-4 bg-white border border-gray-300 rounded px-2 py-1 focus:outline-none"
+          ></select>
+
           <button
             id="new-chat-button"
             title="New Chat"
@@ -78,6 +83,7 @@
       let stompClient = null;
       let selectedUser = null;
       let selectedChat = null;
+      let selectedModel = null;
 
       const AuthHeader = {
         headers: {
@@ -149,6 +155,35 @@
         }
       }
 
+      function fetchModels() {
+        fetch(`http://localhost:8082/api/ai/chat/models`)
+          .then((response) => response.json())
+          .then((data) => {
+            const modelSelect = document.getElementById("modelSelect");
+            modelSelect.innerHTML = "";
+
+            if (data && data.data && data.data.content.length > 0) {
+              data.data.content.forEach((model, index) => {
+                const option = document.createElement("option");
+                option.value = model.modelName;
+                option.text = model.modelName;
+                modelSelect.appendChild(option);
+
+                if (index === 0) {
+                  selectedModel = model;
+                }
+              });
+              chatSelect.addEventListener("change", function () {
+                const selectedModelName = this.value;
+                selectedChat = data.data.content.find(
+                  (model) => model.modelName === selectedModelName
+                );
+              });
+            }
+          })
+          .catch((err) => console.error("Error fetching models: ", err));
+      }
+
       function sendMessage() {
         const messageContent = document.getElementById("chat").value;
         if (messageContent && stompClient && selectedUser && selectedChat) {
@@ -156,7 +191,11 @@
             content: messageContent,
             userUUID: selectedUser.uuid,
             chatUUID: selectedChat.uuid,
+            modelName: selectedModel.modelName,
           };
+
+          console.log(messageData);
+          
           stompClient.send("/app/ai/chat", {}, JSON.stringify(messageData));
           document.getElementById("chat").value = "";
         }
@@ -252,6 +291,7 @@
       window.onload = function () {
         connect();
         fetchUsers();
+        fetchModels();
 
         document.getElementById("sendButton").onclick = sendMessage;
 

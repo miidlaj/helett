@@ -10,7 +10,7 @@ import {
 import { Search } from "lucide-react";
 import Link from "next/link";
 
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import Logo from "../common/logo";
 
 import { cn } from "@/lib/utils";
@@ -160,28 +160,18 @@ export default function Navbar({ className }: { className?: string }) {
 
             <div className="flex justify-center space-x-4">
               <MenuItem
+                noChild
                 active={active}
                 item="Drivers"
                 link="drivers"
                 setActive={setActive}
-              >
-                <div className="flex flex-col space-y-4 text-sm">
-                  {products.slice(0, 4).map((product, index) => (
-                    <HoveredLink key={index} href={`drivers/${product.slug}`}>
-                      {product.title.charAt(0).toUpperCase() +
-                        product.title.slice(1).toLowerCase()}
-                    </HoveredLink>
-                  ))}
-
-                  <HoveredLink href={`drivers`}>More...</HoveredLink>
-                </div>
-              </MenuItem>
+              />
 
               <MenuItem
                 noChild
                 active={active}
                 item="Warranty"
-                link={`products?cat=Printer`}
+                link={`warranty`}
                 setActive={setActive}
               />
 

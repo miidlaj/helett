@@ -9,7 +9,9 @@ export const products = [
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
     stack: ["Printer", "Label Printer"],
     slug: "helette-h65c",
-
+    drivers: {
+      mac: "/products/h65c/driver/win/Helett H65c (2120T) windows driver label.exe",
+    },
     href: "https://www.amazon.in/H65C-Portable-Bluetooth-Printing-Resolution/dp/B0D1P7SC46/ref=sr_1_5?sr=8-5",
     title: "Helett H65C",
     description:
@@ -202,6 +204,10 @@ export const products = [
     subCategory: "Label Printer",
     title: "Helett H30C",
     src: "/products/h30c",
+    drivers: {
+      mac: "/products/h30c/driver/mac/prt.4barcode.drv_3.13.2.pkg",
+      win: "/products/h30c/driver/win/4BARCODE_2023.2_M-4.exe",
+    },
     brand: "helett",
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
@@ -2089,20 +2095,20 @@ export type FeatureType = {
 };
 
 export const categories = Array.from(
-  new Set(products.map((product) => product.category)),
+  new Set(products.map((product) => product.category))
 );
 
 export const brands = Array.from(
-  new Set(products.map((product) => product.brand)),
+  new Set(products.map((product) => product.brand))
 );
 
 export const getSubCategories = (cat: string) => {
   const cat_products = products.filter(
-    (product) => product.category === cat && product.subCategory,
+    (product) => product.category === cat && product.subCategory
   );
 
   return Array.from(
-    new Set(cat_products.map((product) => product.subCategory)),
+    new Set(cat_products.map((product) => product.subCategory))
   );
 };
 
@@ -2121,7 +2127,7 @@ export const filterProduct = (options: FilterOptions = {}): ProductType[] => {
     const matchesBrand =
       brands?.length === 0 ||
       brands?.some((brand) =>
-        product.title.toLowerCase().includes(brand.toLowerCase()),
+        product.title.toLowerCase().includes(brand.toLowerCase())
       );
     const matchesSubCategory =
       subCats?.length === 0 || subCats?.includes(product.subCategory);
