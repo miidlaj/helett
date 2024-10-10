@@ -19,7 +19,7 @@ export const products = [
       <ul className="flex flex-col list-disc gap-3">
         <li>
           Versatile Printing: Print labels, price tags with ease, utilizing the
-          printer's 2-inch maximum printing width and 203 DPI resolution,
+          printer&apos;s 2-inch maximum printing width and 203 DPI resolution,
           ensuring crisp and professional-quality results.
         </li>
         <li>
@@ -31,7 +31,7 @@ export const products = [
 
         <li>
           Thermal Printing Technology: Experience lightning-fast printing speeds
-          and exceptional print quality with the printer's advanced thermal
+          and exceptional print quality with the printer&apos;s advanced thermal
           printing technology, eliminating the need for messy ink cartridges and
           toners.
         </li>
