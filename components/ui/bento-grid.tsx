@@ -5,25 +5,27 @@ import { motion } from "framer-motion";
 import { useId } from "react";
 
 import { FeatureType } from "@/constants/products";
+import { IconBrandAmazon } from "@tabler/icons-react";
 
 export function FeaturesSection({ features }: { features: FeatureType[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 md:gap-2 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-2 max-w-7xl mx-auto">
       {features.map((feature) => (
         <div
-          key={feature.title}
+          key={feature.label}
           className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden hover-scale"
         >
           <Grid size={20} />
           <div className="flex justify-start gap-2 items-center">
-            {feature.icon}
+            <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
+
             <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
-              {feature.title}
+              {feature.label}
             </p>
           </div>
 
           <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
-            {feature.description}
+            {feature.value}
           </p>
         </div>
       ))}
@@ -47,7 +49,7 @@ export const Grid = ({
   ];
 
   const [generatedPattern, setGeneratedPattern] = useState(
-    pattern || generatePattern,
+    pattern || generatePattern
   );
 
   useEffect(() => {

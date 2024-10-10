@@ -19,72 +19,7 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
     product.thumbnail,
   );
 
-  const features = [
-    {
-      title: "HIPAA and SOC2",
-      description:
-        "Our applications are HIPAA and SOC2 compliant, your data is safe with us, always.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Automated Social Media",
-      description:
-        "Schedule and automate your social media posts across multiple platforms to save time and maintain a consistent online presence.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Advanced Analytics",
-      description:
-        "Gain insights into your social media performance with detailed analytics and reporting tools to measure engagement and ROI.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Content Calendar",
-      description:
-        "Plan and organize your social media content with an intuitive calendar view, ensuring you never miss a post.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Audience Targeting",
-      description:
-        "Reach the right audience with advanced targeting options, including demographics, interests, and behaviors.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Social Listening",
-      description:
-        "Monitor social media conversations and trends to stay informed about what your audience is saying and respond in real-time.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Customizable Templates",
-      description:
-        "Create stunning social media posts with our customizable templates, designed to fit your brand's unique style and voice.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-    {
-      title: "Collaboration Tools",
-      description:
-        "Work seamlessly with your team using our collaboration tools, allowing you to assign tasks, share drafts, and provide feedback in real-time.",
-      icon: (
-        <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-      ),
-    },
-  ];
+
 
   const details = [
     { label: "Product Dimensions", value: "12D x 15W x 16H Centimeters" },
@@ -217,7 +152,7 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
           Features
         </Heading>
 
-        <FeaturesSection features={features} />
+        <FeaturesSection features={product.features} />
       </div>
 
       <div className="h-max w-full bg-white dark:bg-black flex flex-col items-center justify-center overflow-hidden rounded-md gap-0.5">

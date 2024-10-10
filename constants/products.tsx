@@ -3,12 +3,11 @@ export const products = [
     category: "Printer",
     subCategory: "Label Printers",
     src: "/products/h65C",
-
     brand: "helett",
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
     stack: ["Printer", "Label Printer"],
-    slug: "helette-h65c",
+    slug: "helett-h65c",
     drivers: {
       mac: "/products/h65c/driver/win/Helett H65c (2120T) windows driver label.exe",
     },
@@ -20,7 +19,7 @@ export const products = [
       <ul className="flex flex-col list-disc gap-3">
         <li>
           Versatile Printing: Print labels, price tags with ease, utilizing the
-          printer{"'"}s 2-inch maximum printing width and 203 DPI resolution,
+          printer's 2-inch maximum printing width and 203 DPI resolution,
           ensuring crisp and professional-quality results.
         </li>
         <li>
@@ -32,7 +31,7 @@ export const products = [
 
         <li>
           Thermal Printing Technology: Experience lightning-fast printing speeds
-          and exceptional print quality with the printer{"'"}s advanced thermal
+          and exceptional print quality with the printer's advanced thermal
           printing technology, eliminating the need for messy ink cartridges and
           toners.
         </li>
@@ -51,6 +50,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Versatile Printing",
+        value:
+          "Print labels, price tags with ease, utilizing the printer's 2-inch maximum printing width and 203 DPI resolution, ensuring crisp and professional-quality results.",
+      },
+      {
+        label: "Wireless Connectivity",
+        value:
+          "Seamlessly connect to your Android or iOS smartphone or tablet via Bluetooth for wireless printing convenience, or use the included USB cable to connect directly to your laptop or desktop computer.",
+      },
+      {
+        label: "Thermal Printing Technology",
+        value:
+          "Experience lightning-fast printing speeds and exceptional print quality with the printer's advanced thermal printing technology, eliminating the need for messy ink cartridges and toners.",
+      },
+      {
+        label: "Ready-to-Use",
+        value:
+          "Start printing right out of the box with 250 labels included, allowing you to kickstart your printing tasks immediately without the need for additional supplies, saving you time and money.",
+      },
+      {
+        label: "Exceptional Customer Support",
+        value:
+          "Access prompt assistance for any installation or troubleshooting needs with the Helett H65C Portable Bluetooth Thermal Label Printer.",
+      },
+    ],
     details: [
       { label: "Product Dimensions", value: "12D x 15W x 16H Centimeters" },
       { label: "Controller Type", value: "Android" },
@@ -62,15 +88,9 @@ export const products = [
       },
       { label: "Print Media", value: "Labels" },
       { label: "Scanner Type", value: "Portable" },
-      {
-        label: "Compatible Devices",
-        value: "Smartphones, Laptops پدید",
-      },
+      { label: "Compatible Devices", value: "Smartphones, Laptops پدید" },
       { label: "Sheet Size", value: "58 Millimeters" },
-      {
-        label: "Maximum Black and White Print Resolution",
-        value: "203Dpi",
-      },
+      { label: "Maximum Black and White Print Resolution", value: "203Dpi" },
       { label: "Duplex", value: "Manual" },
       { label: "Hardware Interface", value: "USB" },
       { label: "Resolution", value: "203" },
@@ -83,14 +103,8 @@ export const products = [
         value: "1 Lithium Ion batteries required (included)",
       },
       { label: "Item Model Number", value: "H65C" },
-      {
-        label: "Operating System",
-        value: "Linux, Windows, iOS, Android",
-      },
-      {
-        label: "Printing Technology",
-        value: "Thermal label printer",
-      },
+      { label: "Operating System", value: "Linux, Windows, iOS, Android" },
+      { label: "Printing Technology", value: "Thermal label printer" },
       { label: "Special Features", value: "Portable" },
       { label: "Number of Items", value: "5" },
       { label: "Colour Screen", value: "No" },
@@ -103,19 +117,16 @@ export const products = [
       { label: "Item Weight", value: "235 g" },
     ],
   },
-
   {
     category: "Printer",
     subCategory: "Label Printers",
     title: "Helett HE24",
-
     src: "/products/he24",
     brand: "helett",
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Printer", "Label Printer"],
-    slug: "helette-he24",
-
+    slug: "helett-he24",
     href: "https://www.amazon.in/HE24-Wireless-Bluetooth-Business-Rechargeable/dp/B0DDL3TR1L/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
       "helett® HE24 Wireless Thermal Label Maker Printer Connect iOS & Android Via Bluetooth | Ideal for Home,School,Office & Small Business with 600mAh Inbuilt Rechargeable Battery |1 Year Warranty (White)",
@@ -149,6 +160,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Compact and Portable",
+        value:
+          "The Helett HE24 Label Printer is a USB rechargeable and inkless Bluetooth thermal label maker, making it ideal for use in the kitchen or for stationery items.",
+      },
+      {
+        label: "Versatile Connectivity",
+        value:
+          "This label printer is compatible with both iOS and Android devices, allowing you to print labels from your smartphone or tablet.",
+      },
+      {
+        label: "User-Friendly Design",
+        value:
+          "With its intuitive controls and easy setup, the Helett HE24 Label Printer is perfect for labelling household items, organising your workspace, or creating custom labels.",
+      },
+      {
+        label: "Durable Construction",
+        value:
+          "Built to last, this label printer comes with a 1-year warranty, ensuring reliable performance for all your labelling needs.",
+      },
+      {
+        label: "Efficient Printing",
+        value:
+          "The thermal printing technology eliminates the need for ink or toner, providing a cost-effective and hassle-free labelling solution.",
+      },
+    ],
     details: [
       { label: "Controller Type", value: "iOS, Android" },
       { label: "Printer Media Size Maximum", value: "15mm" },
@@ -159,43 +197,16 @@ export const products = [
       },
       { label: "Print Media", value: "Labels" },
       { label: "Scanner Type", value: "Portable" },
-      { label: "Display Type", value: "Screenless" },
-      {
-        label: "Compatible Devices",
-        value: "Smartphones, Tablets เรยบ",
-      },
-      { label: "Sheet Size", value: "12*40 Millimeters" },
-      { label: "Warranty Type", value: "1 Year Warranty" },
-      { label: "Colour Depth", value: "1 Bit" },
-      { label: "Dual-sided Printing", value: "No" },
-      {
-        label: "Manufacturer",
-        value: "Shenzhen Helett Electronics Co. Ltd",
-      },
+      { label: "Compatible Devices", value: "Smartphones" },
+      { label: "Sheet Size", value: "15 Millimeters" },
+      { label: "Special Features", value: "Rechargeable, Portable, Wireless" },
+      { label: "Number of Items", value: "1" },
+      { label: "Batteries Included", value: "Yes" },
+      { label: "Batteries Required", value: "Yes" },
+      { label: "Battery Cell Composition", value: "Lithium Ion" },
+      { label: "Manufacturer", value: "Helett" },
       { label: "Country of Origin", value: "China" },
-      { label: "Model Number", value: "HE24" },
-      { label: "Form Factor", value: "ABS(Polycarbonate)" },
-      { label: "Number of Memory Sticks", value: "1" },
-      { label: "Item Weight", value: "300 g" },
-      { label: "Product Dimensions", value: "4 x 7 x 7 cm; 300 g" },
-      {
-        label: "Batteries",
-        value: "1 Lithium Ion battery required (included)",
-      },
-      { label: "Item Model Number", value: "HE24" },
-      { label: "Item Height", value: "7 Centimeters" },
-      { label: "Item Width", value: "7 Centimeters" },
-      { label: "Are Batteries Included?", value: "Yes" },
-      {
-        label: "Lithium Battery Energy Content",
-        value: "600 Milliampere Hour (mAh)",
-      },
-      {
-        label: "Lithium Battery Packaging",
-        value: "Batteries contained in equipment",
-      },
-      { label: "Number of Lithium Ion Cells", value: "1" },
-      { label: "Hardware Interface Type", value: "USB" },
+      { label: "Colour", value: "White" },
     ],
   },
 
@@ -212,8 +223,7 @@ export const products = [
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Printer", "Label Printer"],
-    slug: "helette-h30c",
-
+    slug: "helett-h30c",
     href: "https://www.amazon.in/Helett-H30C-Resolution-Shipping-Compatible/dp/B0CJVGCB4K/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
       "Helett® H30C USB Direct 4×6 Shipping Label Printer |Adjustable Label Size| 203DPI Resolution 152mm/s Printing Speed Compatible with Windows,Mac,Linux Chrome OS (1Year Warranty) White",
@@ -283,82 +293,72 @@ export const products = [
       </ul>
     ),
     details: [
-      {
-        label: "Product Dimensions",
-        value: "8.5D x 18.5W x 8.5H Centimeters",
-      },
-      {
-        label: "Controller Type",
-        value: "PC",
-      },
-      {
-        label: "Printer Media Size Maximum",
-        value: "4 x 6 inch",
-      },
+      { label: "Product Dimensions", value: "8.5D x 18.5W x 8.5H Centimeters" },
+      { label: "Controller Type", value: "PC" },
+      { label: "Printer Media Size Maximum", value: "4 x 6 inch" },
       {
         label: "Included Components",
         value:
           "1x H30C Label Printer, 1x Power Adaptor, 1x USB Cable, 1x CD Driver, 1x User Manual",
       },
+      { label: "Print Media", value: "Labels" },
+      { label: "Sheet Size", value: "4x6 Inches" },
+      { label: "Maximum Black and White Print Resolution", value: "203DPI" },
+      { label: "Manufacturer", value: "Shenzen Technology" },
+      { label: "Country of Origin", value: "China" },
+      { label: "Model Number", value: "Helett H30C" },
+      { label: "Number of Memory Sticks", value: "1" },
+      { label: "Item Weight", value: "310 g" },
+      { label: "Item Model Number", value: "Helett H30C" },
+      { label: "Memory Storage Capacity", value: "8 MB" },
+      { label: "Resolution", value: "203 DPI" },
+      { label: "Hardware Platform", value: "PC, Laptop" },
+      { label: "Operating System", value: "Linux, Windows, iOS" },
+      { label: "Hardware Interface Type", value: "USB" },
+    ],
+    features: [
       {
-        label: "Print Media",
-        value: "Labels",
+        label: "High-Speed Printing",
+        value:
+          "The Helett H30C Printer delivers impressive performance with a high printing speed of 152mm per second, significantly boosting your productivity and efficiency.",
       },
       {
-        label: "Sheet Size",
-        value: "4x6 Inches",
+        label: "Versatile Compatibility",
+        value:
+          "Enjoy seamless integration with multiple operating systems as the Helett H30C Printer is fully compatible with Windows, Mac, Linux, and Chrome OS.",
       },
       {
-        label: "Maximum Black and White Print Resolution",
-        value: "203DPI",
+        label: "Adjustable Label Size",
+        value:
+          "The Helett H30C Printer offers the flexibility of adjustable label size, allowing you to customize labels to meet your specific requirements.",
       },
       {
-        label: "Manufacturer",
-        value: "Shenzen Technology",
+        label: "203DPI Resolution",
+        value:
+          "With a print resolution of 203 DPI, the Helett H30C Printer ensures that every label you print is sharp, clear, and professional.",
       },
       {
-        label: "Country of Origin",
-        value: "China",
+        label: "Easy USB Connection",
+        value:
+          "Setting up and connecting the Helett H30C Printer is a breeze with its straightforward USB connection.",
       },
       {
-        label: "Model Number",
-        value: "Helett H30C",
+        label: "Compact Design",
+        value:
+          "The Helett H30C Printer features a sleek and compact design, making it a perfect addition to any workspace, big or small.",
       },
       {
-        label: "Number of Memory Sticks",
-        value: "1",
+        label: "Cost-Effective",
+        value:
+          "The Helett H30C Printer utilizes direct thermal printing technology, which means you won’t need to purchase ink or toner.",
       },
       {
-        label: "Item Weight",
-        value: "310 g",
-      },
-      {
-        label: "Item Model Number",
-        value: "Helett H30C",
-      },
-      {
-        label: "Memory Storage Capacity",
-        value: "8 MB",
-      },
-      {
-        label: "Resolution",
-        value: "203 DPI",
-      },
-      {
-        label: "Hardware Platform",
-        value: "PC, Laptop",
-      },
-      {
-        label: "Operating System",
-        value: "Linux, Windows, iOS",
-      },
-      {
-        label: "Hardware Interface Type",
-        value: "USB",
+        label: "1-Year Warranty",
+        value:
+          "Rest assured that your investment is protected with the Helett H30C USB Direct 4×6 Shipping Label Printer’s 1-year warranty.",
       },
     ],
   },
-
   {
     category: "Printer",
     subCategory: "Receipt Printer",
@@ -368,8 +368,7 @@ export const products = [
     thumbnail: "thumbnail.png",
     images: ["1.jpg", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Printer", "Receipt Printer"],
-    slug: "helette-h58i",
-
+    slug: "helett-h58i",
     href: "https://www.amazon.in/helett-Bluetooth-Thermal-Charging-warranty/dp/B0CXN44J7J/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
       "Helett® H58i Bluetooth Thermal Mobile Receipt POS Printer 58 mm(2 Inches)2600 mAh Battery Backup Support Android, iOS, (Windows PC via USB)with Charging Adaptor,USB Cable&1 Paper Roll (1Year Warranty)",
@@ -388,50 +387,83 @@ export const products = [
         </li>
         <li>
           <strong>Durable Construction:</strong> Designed to withstand everyday
-          use, this printer has undergone rigorous testing, including drop tests
-          from a height of 1.0m to concrete floors, ensuring durability and
-          longevity.
+          use, this printer has undergone rigorous testing, ensuring it can
+          handle the demands of busy point-of-sale (POS) environments with ease.
         </li>
         <li>
-          <strong>Compact and Portable:</strong> With a maximum paper size of
-          48mm, this compact printer is highly portable, ideal for on-the-go
-          businesses or mobile POS systems.
+          <strong>Portable Design:</strong> With a compact and lightweight
+          design, this printer is highly portable and can be carried wherever
+          you go, making it ideal for mobile businesses, on-the-go transactions,
+          and outdoor events.
         </li>
         <li>
-          <strong>Comprehensive Warranty and Support:</strong> Backed by a
-          1-year warranty, customers can rely on reliable after-sales service,
-          including call center assistance and online technical support,
-          ensuring peace of mind with their purchase.
+          <strong>Long Battery Life:</strong> Equipped with a 2600 mAh battery,
+          the H58i Printer offers extended usage, ensuring you can handle a full
+          day’s transactions without needing frequent recharges.
+        </li>
+        <li>
+          <strong>Compatible with Various Systems:</strong> Whether you’re using
+          Android, iOS, or Windows, this printer offers versatile compatibility,
+          making it suitable for a wide range of businesses and POS setups.
         </li>
       </ul>
     ),
     details: [
+      { label: "Product Dimensions", value: "10D x 12W x 8H Centimeters" },
+      { label: "Controller Type", value: "Android,iOS" },
+      { label: "Printer Media Size Maximum", value: "58mm" },
       {
-        label: "Compatible Devices",
-        value: "Smartphones",
+        label: "Included Components",
+        value:
+          "H58i Printer, Charging Adaptor, USB Cable, Paper Roll, User Manual",
+      },
+      { label: "Print Media", value: "Paper (Thermal Roll)" },
+      { label: "Sheet Size", value: "58mm" },
+      { label: "Maximum Print Speed", value: "90mm/s" },
+      { label: "Manufacturer", value: "Shenzen Technology" },
+      { label: "Country of Origin", value: "China" },
+      { label: "Model Number", value: "Helett H58i" },
+      { label: "Item Weight", value: "290 g" },
+      { label: "Item Model Number", value: "Helett H58i" },
+      { label: "Battery Capacity", value: "2600 mAh" },
+      { label: "Resolution", value: "203DPI" },
+      { label: "Hardware Platform", value: "Android, iOS, Windows" },
+      { label: "Hardware Interface Type", value: "USB, Bluetooth" },
+    ],
+    features: [
+      {
+        label: "High-Speed Printing",
+        value:
+          "Achieve efficient printing with a black print speed of 90mm/s, ensuring rapid receipt generation for customers.",
       },
       {
-        label: "Sheet Size",
-        value: "48 millimeters",
+        label: "Versatile Connectivity",
+        value:
+          "Seamlessly connect to devices via Bluetooth or via USB cable through your Windows system.",
       },
       {
-        label: "Warranty Type",
-        value: "Limited",
+        label: "Durable Construction",
+        value:
+          "Designed to withstand everyday use, this printer has undergone rigorous testing, ensuring it can handle the demands of busy POS environments.",
       },
       {
-        label: "Dual-sided Printing",
-        value: "No",
+        label: "Portable Design",
+        value:
+          "With a compact and lightweight design, this printer is highly portable and ideal for mobile businesses.",
       },
       {
-        label: "Number of Items",
-        value: "1",
+        label: "Long Battery Life",
+        value:
+          "Equipped with a 2600 mAh battery, the H58i Printer offers extended usage for a full day’s transactions.",
       },
       {
-        label: "Country of Origin",
-        value: "China",
+        label: "Compatible with Various Systems",
+        value:
+          "Whether you’re using Android, iOS, or Windows, this printer offers versatile compatibility.",
       },
     ],
   },
+
   {
     category: "Printer",
     subCategory: "Receipt Printer",
@@ -442,7 +474,7 @@ export const products = [
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Printer", "Receipt Printer"],
-    slug: "helette-h80i",
+    slug: "helett-h80i",
 
     href: "https://www.amazon.in/H80i-Compatible-Printing-Resolution-Warranty/dp/B0CZ99K438/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
@@ -487,6 +519,34 @@ export const products = [
         </li>
       </ul>
     ),
+
+    features: [
+      {
+        label: "High-Speed Printing",
+        value:
+          "Helett H80i Thermal Printer has a printing speed of up to 250mm/s, capable of printing up to 38 receipts per minute. This ensures fast and efficient transaction processing, reducing customer wait times and improving productivity.",
+      },
+      {
+        label: "Advanced Overheating Protection",
+        value:
+          "Integrated with overheating protection, the Helett H80i Thermal Printer automatically adjusts the temperature to prevent overheating, ensuring reliable performance and prolonging the lifespan of the print head. This feature reduces downtime and maintenance costs, making it cost-effective for businesses.",
+      },
+      {
+        label: "No Ribbon or Cartridge Required",
+        value:
+          "The Helett H80i revolutionizes receipt printing with direct thermal printing technology, eliminating the need for ink ribbons or cartridges, reducing operational costs.",
+      },
+      {
+        label: "Industry-Leading Compatibility",
+        value:
+          "Supports Windows operating systems and ESC/POS print command-based systems, ensuring compatibility with a wide range of POS software. Ideal for retail stores, supermarkets, and restaurants, providing consistent, high-quality prints.",
+      },
+      {
+        label: "Enhanced User Convenience",
+        value:
+          "Features a one-button open cover for easy access to the paper compartment, making maintenance and paper roll replacement hassle-free. The large paper warehouse reduces the need for frequent refills, allowing uninterrupted printing during peak business hours.",
+      },
+    ],
     details: [
       {
         label: "Included Components",
@@ -581,7 +641,7 @@ export const products = [
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Printer", "Receipt Printer"],
-    slug: "helette-he760",
+    slug: "helett-he760",
 
     href: "https://www.amazon.in/helett%C2%AE-HE760-Compatible-Bluetooth-Warranty/dp/B0DGCG6MN4/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
@@ -634,6 +694,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Bluetooth Thermal Printer",
+        value:
+          "The Helett HE760 Direct Thermal Receipt Printer offers seamless connectivity via Bluetooth, making it an ideal choice for businesses looking for a wireless solution. Easily connect your Android or iOS devices for quick and efficient printing on-the-go. Its compact size and light weight ensure that it fits perfectly in any retail environment, providing reliable performance wherever you need it.",
+      },
+      {
+        label: "Portable Receipt Printer",
+        value:
+          "The HE760 is designed for portability and convenience, allowing you to take your printing capabilities anywhere. With its USB connectivity, you can easily connect it to various devices, including Windows PCs. The robust design ensures durability, making it a dependable choice for mobile businesses, pop-up shops, and field operations where reliable receipt printing is essential.",
+      },
+      {
+        label: "Thermal Label Printer",
+        value:
+          "Featuring a high resolution of 203DPI, the Helett HE760 produces sharp and clear labels and receipts, suitable for a wide range of applications. Its compatibility with ESC/POS print commands means it integrates smoothly with most point-of-sale systems. This printer is perfect for businesses that require high-quality thermal labels for their products, enhancing both operational efficiency and customer satisfaction.",
+      },
+      {
+        label: "USB Thermal Printer",
+        value:
+          "The HE760’s versatility extends to its USB connectivity, allowing it to connect effortlessly with Windows PCs. This feature makes it an excellent addition to any fixed workstation setup. Its easy-to-use interface and quick installation process ensure that you can start printing immediately, reducing downtime and increasing productivity.",
+      },
+      {
+        label: "Mobile Receipt Printer",
+        value:
+          "For businesses that need flexibility and mobility, the Helett HE760 is an ideal solution. Its compact and lightweight design makes it easy to carry, while the Bluetooth and USB connectivity options provide versatile printing solutions. Whether you're running a mobile kiosk or need a printer that can move with you, the HE760 delivers high performance and reliable results every time.",
+      },
+    ],
     details: [
       {
         label: "Product Dimensions",
@@ -723,7 +810,7 @@ export const products = [
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Barcode Scanner"],
-    slug: "helette-ht20",
+    slug: "helett-ht20",
 
     href: "https://www.amazon.in/HT20-Wireless-Connectivity-Induction-Supermarket/dp/B0CPDPTHVN/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
@@ -764,6 +851,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Effortless Scanning",
+        value:
+          "Barcode Scanner 2-in-1 Connection 2D Bar code Scanner supports both wireless & wired connection methods, plug and play, no driver needed. Note: Does not support Bluetooth connection.",
+      },
+      {
+        label: "Wireless Barcode Scanner That Keeps Up",
+        value:
+          "Built-in 2200mAh battery that allows continuous scanning for up to 12 hours of working time, and it can be easily charged in only 3 hours through the included USB charging cable.",
+      },
+      {
+        label: "Work Anywhere: Wireless Scanner with Offline Storage",
+        value:
+          "The wireless 2D scanner supports both Instant upload mode and Storage mode. In offline storage mode, it can store up to 1.5 million barcode entries and can be used far from the wireless receiver.",
+      },
+      {
+        label: "Built to Last",
+        value:
+          "Made from environmentally friendly ABS material and equipped with a silicone sleeve, the scanner remains in good condition even after drops.",
+      },
+      {
+        label: "Universal Scanner",
+        value:
+          "Easily scan most 1D, 2D, and QR barcodes on paper labels or screens. Supported types include EAN, UPC, Code 39, Code 128, Industrial 25, Matrix 2 of 5, DataMatrix, PDF417, Aztec, Maxicode, and more.",
+      },
+    ],
     details: [
       { label: "Brand", value: "Helett" },
       {
@@ -801,7 +915,7 @@ export const products = [
     thumbnail: "thumbnail.jpg",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Barcode Scanner"],
-    slug: "helette-ht410",
+    slug: "helett-ht410",
 
     href: "https://www.amazon.in/helett-HT410-Handheld-Indicator-Induction/dp/B0CBC9G7W2/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
@@ -835,6 +949,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Plug & Play",
+        value:
+          "Barcode reader does not need any software or driver. Just insert the USB with your computer and it's ready to go.",
+      },
+      {
+        label: "High Compatibility",
+        value:
+          "Scanner compatible with all systems. It works perfectly on WINDOWS, Linux. Works with Word, Excel, and all common software.",
+      },
+      {
+        label: "Scan Screen",
+        value:
+          "Quick barcode scanning speed, scanner can easily read barcodes on labels, paper, mobile phone or computer displays. It is also able to read dirty and incomplete codes.",
+      },
+      {
+        label: "Application Various",
+        value:
+          "Handheld 2D barcode scanner for business, store, warehouse operations, payment, healthcare, etc.",
+      },
+      {
+        label: "Decode Capability",
+        value:
+          "Using cutting-edge decoding algorithm technology, can decode various complex 1D and 2D codes such as DataMatrix (ECC 200), QR Code, PDF417, UPC-A, UPC-E, EAN-8, EAN-13, Code 39, Code 93, Code 32, Code39 (ASCII), etc.",
+      },
+    ],
     details: [
       { label: "Brand", value: "Helett" },
       { label: "Manufacturer", value: "Shenzen Technology" },
@@ -864,7 +1005,7 @@ export const products = [
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     stack: ["Barcode Scanner"],
-    slug: "helette-ht15",
+    slug: "helett-ht15",
 
     href: "https://www.amazon.in/HT15-Hands-Free-Exposure-Adjustable-Resolution/dp/B0D39NNN57/ref=sr_1_1?nsdOptOutParam=true&sr=8-1",
     description:
@@ -907,6 +1048,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Versatile Scanning Modes",
+        value:
+          "Helett HT15 Desktop Barcode Scanner effortlessly transitions between 1D and 2D scanning modes to accommodate a wide range of barcode types, ensuring compatibility with various inventory systems and product labels.",
+      },
+      {
+        label: "Customizable Sound Options",
+        value:
+          "Helett HT15 Desktop Barcode Scanner tailors your scanning experience to your preference by selecting from a range of sound options. Choose between different types of scanning sounds or opt for silent operation to minimize disruption in quiet environments.",
+      },
+      {
+        label: "Swift and Accurate Scanning",
+        value:
+          "With Helett HT15 Desktop Barcode Scanner, experience rapid and precise barcode detection with the Helett HT15's high-speed scanning capability of up to 200mm/s. This ensures efficient checkout processes and accurate inventory management, even during peak business hours.",
+      },
+      {
+        label: "Hands-Free Convenience",
+        value:
+          "Helett HT15 Desktop Barcode Scanner maximizes efficiency in your workspace with hands-free scanning functionality. The auto-sensing and continuous scanning modes enable seamless operation, allowing you to focus on serving customers or managing inventory without the need for manual adjustments.",
+      },
+      {
+        label: "Durable Construction",
+        value:
+          "Helett HT15 Desktop Barcode Scanner is built to withstand the demands of daily use; the Helett HT15 features a robust construction made from ABS+PC materials. Its sleek black finish not only enhances its durability but also adds a touch of sophistication to your workstation or checkout counter.",
+      },
+    ],
     details: [
       { label: "Brand", value: "helett" },
       { label: "Manufacturer", value: "Helett, 9513784194" },
@@ -981,6 +1149,52 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Door Type",
+        value: "Wooden Door",
+      },
+      {
+        label: "Suit for Door Standard",
+        value: "30-100mm (Below/Exceed thickness can be optional)",
+      },
+      {
+        label: "Product Size",
+        value: "260*61*24mm",
+      },
+      {
+        label: "Battery",
+        value: "Using 4pcs of AAA Battery",
+      },
+      {
+        label: "Working Temperature",
+        value: "-25° - 55°",
+      },
+      {
+        label: "Fingerprint Collection Methods",
+        value: "Semiconductor",
+      },
+      {
+        label: "IC Card Storage Quantity",
+        value: "110 groups",
+      },
+      {
+        label: "Fingerprint Storage Quantity",
+        value: "100 groups",
+      },
+      {
+        label: "Material",
+        value: "Aluminum Alloy",
+      },
+      {
+        label: "Mortise",
+        value: "304 stainless steel",
+      },
+      {
+        label: "Working Voltage",
+        value: "Up to 182 days working time",
+      },
+    ],
     details: [
       {
         label: "Brand",
@@ -1120,6 +1334,50 @@ export const products = [
         </li>
       </ul>
     ),
+
+    features: [
+      {
+        label: "Product Name",
+        value: "UNIY 810 Smart Digital WiFi Door Lock",
+      },
+      {
+        label: "Integration",
+        value: "Smart Life App",
+      },
+      {
+        label: "Remote Control",
+        value: "Yes, without extra gateway",
+      },
+      {
+        label: "Access Methods",
+        value:
+          "Fingerprint, PIN, OTP (One-Time Password), RFID Card, Manual Key",
+      },
+      {
+        label: "Child Lock Feature",
+        value: "Yes",
+      },
+      {
+        label: "Safety Enhancement",
+        value: "Extra layer of security for families",
+      },
+      {
+        label: "Lock Mechanism",
+        value: "5 Bolt Strong Mortis",
+      },
+      {
+        label: "Security Level",
+        value: "High",
+      },
+      {
+        label: "Ideal For",
+        value: "Wooden doors",
+      },
+      {
+        label: "Setup",
+        value: "No additional gateway needed",
+      },
+    ],
     details: [
       {
         label: "Brand",
@@ -1276,6 +1534,49 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Product Name",
+        value: "UNIY 810 Smart Digital WiFi Door Lock",
+      },
+      {
+        label: "Integration",
+        value: "Smart Life App",
+      },
+      {
+        label: "Remote Control",
+        value: "Yes, without extra gateway",
+      },
+      {
+        label: "Access Methods",
+        value:
+          "Fingerprint, PIN, OTP (One-Time Password), RFID Card, Manual Key",
+      },
+      {
+        label: "Child Lock Feature",
+        value: "Yes",
+      },
+      {
+        label: "Safety Enhancement",
+        value: "Extra layer of security for families",
+      },
+      {
+        label: "Lock Mechanism",
+        value: "5 Bolt Strong Mortis",
+      },
+      {
+        label: "Security Level",
+        value: "High",
+      },
+      {
+        label: "Ideal For",
+        value: "Wooden doors",
+      },
+      {
+        label: "Setup",
+        value: "No additional gateway needed",
+      },
+    ],
     details: [
       {
         label: "Brand",
@@ -1428,6 +1729,32 @@ export const products = [
         </ul>
       </ul>
     ),
+    features: [
+      {
+        label: "Brand",
+        value: "helett",
+      },
+      {
+        label: "Special Feature",
+        value: "easy to install",
+      },
+      {
+        label: "Lock Type",
+        value: "Biometric",
+      },
+      {
+        label: "Item dimensions (L x W x H)",
+        value: "8 x 5 x 6 Millimeters",
+      },
+      {
+        label: "Material",
+        value: "Alloy",
+      },
+      {
+        label: "About this item",
+        value: "One Touch Unlock, Up to 50 user capacity, Premium body",
+      },
+    ],
     details: [
       {
         label: "Brand",
@@ -1592,6 +1919,58 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Advanced Fingerprint Recognition",
+        value:
+          "Utilizes cutting-edge fingerprint recognition technology to provide seamless access control, ensuring only authorized individuals can enter.",
+      },
+      {
+        label: "50 Fingerprint Storage Capacity",
+        value:
+          "Offers the ability to store up to 50 unique fingerprints, accommodating multiple users for enhanced security and convenience.",
+      },
+      {
+        label: "Manual Key Option",
+        value:
+          "Includes a manual key for traditional access, providing an alternative method for unlocking the door and ensuring access even in the absence of fingerprint recognition.",
+      },
+      {
+        label: "Lightweight Design",
+        value:
+          "Features a lightweight construction for easy installation and effortless operation, reducing installation time and effort.",
+      },
+      {
+        label: "Mortise Style Lock",
+        value:
+          "Designed in a mortise style to fit doors with thicknesses ranging from 30mm to 55mm, compatible with both aluminum and wooden office cabin and bedroom doors.",
+      },
+      {
+        label: "USB Emergency Unlock",
+        value:
+          "Equipped with a USB emergency unlock feature, allowing users to access the door even in the event of a power outage or other emergencies.",
+      },
+      {
+        label: "Versatile Use",
+        value:
+          "Suitable for both residential and commercial environments, providing reliable security solutions for homes, offices, cabins, and other spaces.",
+      },
+      {
+        label: "Robust Locking Mechanism",
+        value:
+          "Offers a dependable and robust locking mechanism to ensure the safety and security of the premises, providing peace of mind to users.",
+      },
+      {
+        label: "Effortless Installation",
+        value:
+          "Designed for easy installation, suitable for any local carpenter to install with minimal effort. Access dedicated installation videos provided by our customer care team, ensuring a hassle-free setup process.",
+      },
+      {
+        label: "Convenient Customer Support",
+        value:
+          "Reach out to our customer care team via WhatsApp video call for personalized assistance and guidance throughout the installation process. Our team is available to address any concerns or queries, offering step-by-step guidance via video call to ensure a smooth installation experience.",
+      },
+    ],
     details: [
       { label: "Brand", value: "helett" },
       {
@@ -1672,6 +2051,45 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Product Name",
+        value: "U19UHF Wireless Headset Mic",
+      },
+      {
+        label: "Versatile Audio Solution",
+        value:
+          "Designed for hands-free microphone use, offering convenience and flexibility for various applications.",
+      },
+      {
+        label: "Wireless Range",
+        value: "160 feet",
+      },
+      {
+        label: "Optimal Mobility",
+        value:
+          "Provides performers, live streamers, and news presenters with the freedom to move around without being constrained by cables.",
+      },
+      {
+        label: "Compatibility",
+        value: "Receiver compatible with both 3.5mm and 6.35mm audio jacks.",
+      },
+      {
+        label: "Connection Flexibility",
+        value:
+          "Can connect to a wide range of devices such as amplifiers, PA systems, and other audio equipment.",
+      },
+      {
+        label: "Enhanced Audio Quality",
+        value:
+          "Ideal for live streamers, ensuring clear and crisp vocal delivery.",
+      },
+      {
+        label: "Professional Tool",
+        value:
+          "Essential for news presenters, ensuring clear and reliable voice transmission.",
+      },
+    ],
     details: [
       { label: "Colour", value: "Black" },
       {
@@ -1760,6 +2178,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Operating Range",
+        value:
+          "The UNIY UY16 VHF Wireless Microphone boasts an impressive 250 meters operating range, allowing performers to move freely on large stages without compromising audio quality.",
+      },
+      {
+        label: "True Diversity Technology",
+        value:
+          "Featuring True Diversity technology, the microphone system actively selects the strongest signal from multiple channels, minimizing interference and ensuring reliable and uninterrupted wireless performance.",
+      },
+      {
+        label: "Built-in Echo Control",
+        value:
+          "The built-in Echo Control function provides users with the ability to fine-tune the audio output, allowing for precise control over echo levels. This feature is valuable for achieving optimal sound quality in various performance settings.",
+      },
+      {
+        label: "LED Display",
+        value:
+          "The microphone system is equipped with an LED display that facilitates easy navigation and adjustment of settings. Performers can conveniently monitor and customize microphone parameters for an enhanced user experience.",
+      },
+      {
+        label: "Durable Construction",
+        value:
+          "With a robust metal head construction, the microphone is designed for durability, ensuring resilience to the rigors of live performances and maintaining reliable functionality over time.",
+      },
+    ],
     details: [
       {
         label: "Compatible Devices",
@@ -1927,6 +2372,43 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "High-Speed Performance",
+        value:
+          "Delivers up to 867 Mbps wireless speed for fast and reliable internet connectivity.",
+      },
+      {
+        label: "Enhanced Security",
+        value:
+          "Equipped with WPA and WPA2 encryption for robust network protection.",
+      },
+      {
+        label: "Multiple Connectivity Options",
+        value:
+          "Features Fast Ethernet ports (WAN/LAN) for stable wired connections.",
+      },
+      {
+        label: "Improved Coverage",
+        value:
+          "High-gain antennas boost signal strength and extend Wi-Fi range throughout your home.",
+      },
+      {
+        label: "Easy Setup",
+        value:
+          "Quick and straightforward installation process with user-friendly interface.",
+      },
+      {
+        label: "Broad Compatibility",
+        value:
+          "Supports a wide range of devices including smartphones, tablets, laptops, and smart home devices.",
+      },
+      {
+        label: "Dual-Band Technology",
+        value:
+          "Operates on both 2.4 GHz and 5 GHz bands to reduce interference and optimize network performance.",
+      },
+    ],
     details: [
       {
         label: "Brand",
@@ -2059,6 +2541,33 @@ export const products = [
         </li>
       </ul>
     ),
+    features: [
+      {
+        label: "Powerful Motor",
+        value:
+          "Delivers high-speed airflow for quick and efficient drying, ensuring salon-quality results at home.",
+      },
+      {
+        label: "Multiple Heat and Speed Settings",
+        value:
+          "Customise the airflow to suit your hair type and styling needs, providing versatile options for different hairstyles.",
+      },
+      {
+        label: "Compact and Lightweight Design",
+        value:
+          "Easy to handle and store, perfect for busy individuals and travel-friendly for on-the-go styling.",
+      },
+      {
+        label: "Ionic Technology",
+        value:
+          "Minimises frizz and static, leaving your hair smooth, shiny, and manageable.",
+      },
+      {
+        label: "Holder Included",
+        value:
+          "Convenient holder for storing the dryer, saving space and keeping your styling area organized.",
+      },
+    ],
     details: [
       { label: "Product Dimensions", value: "9.5 x 17 x 32 cm; 870 g" },
       { label: "Date First Available", value: "17 July 2024" },
@@ -2089,26 +2598,25 @@ export const products = [
 export type ProductType = (typeof products)[0];
 
 export type FeatureType = {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
+  label: string;
+  value: string;
 };
 
 export const categories = Array.from(
-  new Set(products.map((product) => product.category)),
+  new Set(products.map((product) => product.category))
 );
 
 export const brands = Array.from(
-  new Set(products.map((product) => product.brand)),
+  new Set(products.map((product) => product.brand))
 );
 
 export const getSubCategories = (cat: string) => {
   const cat_products = products.filter(
-    (product) => product.category === cat && product.subCategory,
+    (product) => product.category === cat && product.subCategory
   );
 
   return Array.from(
-    new Set(cat_products.map((product) => product.subCategory)),
+    new Set(cat_products.map((product) => product.subCategory))
   );
 };
 
@@ -2127,7 +2635,7 @@ export const filterProduct = (options: FilterOptions = {}): ProductType[] => {
     const matchesBrand =
       brands?.length === 0 ||
       brands?.some((brand) =>
-        product.title.toLowerCase().includes(brand.toLowerCase()),
+        product.title.toLowerCase().includes(brand.toLowerCase())
       );
     const matchesSubCategory =
       subCats?.length === 0 || subCats?.includes(product.subCategory);
