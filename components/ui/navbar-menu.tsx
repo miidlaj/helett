@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-
 const transition = {
   type: "spring",
   mass: 0.5,
@@ -33,62 +32,72 @@ export const MenuItem = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={className}
-      onMouseEnter={() => setActive(item)}
-      onMouseLeave={() => setActive(null)}
-    >
-      {link && (
-        <Link href={link}>
+    <>
+      <div
+        className={className}
+        onMouseEnter={() => setActive(item)}
+        onMouseLeave={() => setActive(null)}
+      >
+        {link && (
+          <Link href={link}>
+            <motion.p
+              className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white text-sm"
+              transition={{ duration: 0.3 }}
+            >
+              {item}
+            </motion.p>
+          </Link>
+        )}
+
+        {!link && (
           <motion.p
-            className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white text-sm"
+            className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
             transition={{ duration: 0.3 }}
           >
             {item}
           </motion.p>
-        </Link>
-      )}
+        )}
 
-      {!link && (
-        <motion.p
-          className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
-          transition={{ duration: 0.3 }}
-        >
-          {item}
-        </motion.p>
-      )}
-
-      {active !== null && !noChild && (
-        <motion.div
-          key={item}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          style={{
-            width: "100vw",
-            position: "absolute",
-            left: 0,
-            top: "calc(100% + 0rem)",
-            zIndex: 50,
-          }}
-          transition={transition}
-        >
-          {active === item && !noChild && (
+        {active === item && !noChild && (
+          <>
             <motion.div
-              className="bg-white dark:bg-black backdrop-blur-sm overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-              layoutId="active"
+              animate={{ opacity: 1 }}
+              className="fixed top-20 inset-0 bg-black/50 z-40"
+              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
+              transition={transition}
+              onClick={() => setActive(null)}
+            />
+
+            <motion.div
+              key={item}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.85, y: 10 }}
+              style={{
+                width: "100vw",
+                position: "absolute",
+                left: 0,
+                top: "calc(100% + 0rem)",
+                zIndex: 50,
+              }}
               transition={transition}
             >
-              <motion.div layout className="w-full h-full p-4">
-                {children}
+              <motion.div
+                className="bg-white dark:bg-black backdrop-blur-sm overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+                layoutId="active"
+                transition={transition}
+              >
+                <motion.div layout className="w-full h-full p-4">
+                  {children}
+                </motion.div>
               </motion.div>
             </motion.div>
-          )}
-        </motion.div>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+    </>
   );
 };
-
 export const Menu = ({
   setActive,
   children,
@@ -101,7 +110,7 @@ export const Menu = ({
   return (
     <nav
       className={cn(
-        "relative bg-white dark:bg-black shadow-input flex justify-start gap-10 px-8",
+        "relative bg-white dark:bg-black border-b border-neutral-200  flex justify-start gap-10 px-8 z-50 top-0",
         className,
       )}
       onMouseLeave={() => setActive(null)}

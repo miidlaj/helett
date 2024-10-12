@@ -61,7 +61,7 @@ export default function Navbar({ className }: { className?: string }) {
           y: visible ? 0 : -100,
           opacity: visible ? 1 : 0,
         }}
-        className={cn("fixed top-10 inset-x-0 w-full mx-auto z-50 ", className)}
+        className={cn("fixed top-0 inset-x-0 w-full mx-auto z-50", className)}
         initial={{
           opacity: 1,
           y: -100,
@@ -71,10 +71,10 @@ export default function Navbar({ className }: { className?: string }) {
         }}
       >
         <Menu
-          className={`${!top && "backdrop-filter relative backdrop-blur-sm bg-primary/15"}`}
+          className={`${!top && "backdrop-filter relative backdrop-blur-sm bg-primary/15 z-50 "}`}
           setActive={setActive}
         >
-          <Link href="/" className="py-6">
+          <Link className="py-6" href="/">
             <div>
               <Logo height={80} width={80} />
             </div>
@@ -111,16 +111,16 @@ export default function Navbar({ className }: { className?: string }) {
                 </MenuItem>
               );
             })}
-
-            <MenuItem
-              noChild
-              active={active}
-              className="px-2 cursor-pointer py-6"
-              item="Support"
-              link={`contact-us`}
-              setActive={setActive}
-            />
           </div>
+
+          <MenuItem
+            noChild
+            active={active}
+            className="px-2 cursor-pointer py-6"
+            item="Support"
+            link={`contact-us`}
+            setActive={setActive}
+          />
         </Menu>
       </motion.div>
     </AnimatePresence>

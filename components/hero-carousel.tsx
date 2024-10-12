@@ -118,8 +118,8 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
               onClick={() => api?.scrollTo(index)}
             >
               <span
-                className={`w-5 h-1 p-0 rounded-lg ${
-                  current !== index ? "bg-neutral-500" : "bg-primary"
+                className={`w-7 h-0.5 p-0 rounded-lg ${
+                  current !== index ? "bg-neutral-200" : "bg-primary"
                 }`}
               />
             </Button>
