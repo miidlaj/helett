@@ -130,7 +130,6 @@ export default function Navbar({ className }: { className?: string }) {
               <Link href="warranty">
                 <Button variant="link">Warranty</Button>
               </Link>
-          
             </div>
           </MenuItem>
         </Menu>
