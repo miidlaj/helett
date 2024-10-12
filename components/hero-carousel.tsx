@@ -108,7 +108,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
       </WavyBackground>
 
       {slides.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-50">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-40">
           {slides.map((_, index) => (
             <Button
               key={index}

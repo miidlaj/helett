@@ -28,7 +28,7 @@ export function FeaturedProducts() {
 
   return (
     <div className="w-full h-full py-20 max-w-full overflow-hidden">
-      <Heading className="text-center py-5  text-3xl">
+      <Heading className="text-center py-5 font-medium text-3xl">
         Featured Products
       </Heading>
 
