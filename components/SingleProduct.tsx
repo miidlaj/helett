@@ -19,8 +19,6 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
     product.thumbnail,
   );
 
-
-
   const details = [
     { label: "Product Dimensions", value: "12D x 15W x 16H Centimeters" },
     { label: "Controller Type", value: "Android" },
@@ -77,15 +75,21 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
     <div className="py-10">
       <div className="max-w-4xl mx-auto">
         <motion.div
-          key={product.slug}
+          key={activeImage.toString()} // Use key as activeImage to re-trigger animation on change
           animate={{
             opacity: 1,
             y: 0,
+            scale: 1,
           }}
           className="relative shadow-lg shadow-white rounded-md"
+          exit={{
+            opacity: 0,
+            scale: 0.95,
+          }}
           initial={{
             opacity: 0,
             y: 30,
+            scale: 0.95,
           }}
           transition={{
             duration: 0.5,
@@ -95,17 +99,18 @@ export const SingleProduct = ({ product }: { product: ProductType }) => {
             alt="thumbnail"
             className="rounded-md object-contain"
             height="1000"
-            src={`${product.src}/${activeImage}`}
+            src={`${product.src}/${activeImage}`} // Active image to be shown
             width="1000"
           />
           <div className="absolute bottom-0 bg-white rounded-md h-40 w-full [mask-image:linear-gradient(to_bottom,transparent,black)]" />
         </motion.div>
+
         <div className="flex flex-row justify-center my-8 gap-2 flex-wrap">
           {product.images.map((image, idx) => (
             <button
               key={`image-thumbnail-${idx}`}
               className="hover-scale overflow-hidden"
-              onClick={() => setActiveImage(image)}
+              onMouseEnter={() => setActiveImage(image)}
             >
               <Image
                 alt="product thumbnail"
