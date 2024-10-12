@@ -12,6 +12,8 @@ import Link from "next/link";
 import { Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import Logo from "../common/logo";
 
+import { Button } from "./button";
+
 import { cn } from "@/lib/utils";
 import { filterProduct } from "@/constants/products";
 
@@ -114,13 +116,23 @@ export default function Navbar({ className }: { className?: string }) {
           </div>
 
           <MenuItem
-            noChild
             active={active}
             className="px-2 cursor-pointer py-6"
             item="Support"
             link={`contact-us`}
             setActive={setActive}
-          />
+          >
+            <div className="flex justify-center items-center gap-10 h-80">
+              <Link href="contact-us">
+                <Button variant="link">Contact Us</Button>
+              </Link>
+
+              <Link href="warranty">
+                <Button variant="link">Warranty</Button>
+              </Link>
+          
+            </div>
+          </MenuItem>
         </Menu>
       </motion.div>
     </AnimatePresence>
