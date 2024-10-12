@@ -22,20 +22,26 @@ export const MenuItem = ({
   children,
   noChild = false,
   link,
+  className = "",
 }: {
-  setActive: (item: string) => void;
+  setActive: (item: string | null) => void;
   active: string | null;
   item: string;
   children?: React.ReactNode;
   link?: string;
   noChild?: boolean;
+  className?: string;
 }) => {
   return (
-    <div className="relative " onMouseEnter={() => setActive(item)}>
+    <div
+      className={className}
+      onMouseEnter={() => setActive(item)}
+      onMouseLeave={() => setActive(null)}
+    >
       {link && (
         <Link href={link}>
           <motion.p
-            className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+            className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white text-sm"
             transition={{ duration: 0.3 }}
           >
             {item}
@@ -54,22 +60,28 @@ export const MenuItem = ({
 
       {active !== null && !noChild && (
         <motion.div
+          key={item}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
+          style={{
+            width: "100vw",
+            position: "absolute",
+            left: 0,
+            top: "calc(100% + 0rem)",
+            zIndex: 50,
+          }}
           transition={transition}
         >
           {active === item && !noChild && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4">
-              <motion.div
-                className="bg-white dark:bg-black backdrop-blur-sm rounded-2xl overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
-                layoutId="active"
-                transition={transition}
-              >
-                <motion.div layout className="w-max h-full p-4">
-                  {children}
-                </motion.div>
+            <motion.div
+              className="bg-white dark:bg-black backdrop-blur-sm overflow-hidden border border-black/[0.2] dark:border-white/[0.2] shadow-xl"
+              layoutId="active"
+              transition={transition}
+            >
+              <motion.div layout className="w-full h-full p-4">
+                {children}
               </motion.div>
-            </div>
+            </motion.div>
           )}
         </motion.div>
       )}
@@ -89,7 +101,7 @@ export const Menu = ({
   return (
     <nav
       className={cn(
-        "relative bg-white dark:bg-black shadow-input flex justify-start gap-10 px-8 py-8",
+        "relative bg-white dark:bg-black shadow-input flex justify-start gap-10 px-8",
         className,
       )}
       onMouseLeave={() => setActive(null)}
@@ -106,26 +118,34 @@ export const ProductItem = ({
   src,
 }: {
   title: string;
-  description: string;
+  description?: string;
   href: string;
   src: string;
 }) => {
   return (
-    <Link className="flex space-x-2" href={href}>
+    <Link
+      className={cn(
+        "flex space-x-2 hover-scale",
+        description ? "flex-row" : "flex-col",
+      )}
+      href={href}
+    >
       <Image
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-2xl"
+        className="flex-shrink-0 rounded-md"
         height={70}
         src={src}
         width={140}
       />
       <div>
-        <h4 className="text-xl font-bold mb-1 text-black dark:text-white">
+        <h4 className="text-xl font-poppins mb-1 text-black dark:text-white">
           {title}
         </h4>
-        <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300 line-clamp-4">
-          {description}
-        </p>
+        {description && (
+          <p className="text-neutral-700 text-sm max-w-[10rem] dark:text-neutral-300 line-clamp-4">
+            {description}
+          </p>
+        )}
       </div>
     </Link>
   );

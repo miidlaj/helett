@@ -37,7 +37,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
 
     const interval = setInterval(() => {
       api.scrollNext();
-    }, 3000);
+    }, 10000);
 
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
@@ -60,7 +60,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
 
   return (
     <Carousel
-      className="h-full w-full mx-5 rounded-lg overflow-hidden"
+      className="h-full w-full rounded-lg overflow-hidden"
       opts={{
         align: "start",
         loop: true,
@@ -81,7 +81,7 @@ export function HeroCarousel({ slides = [] }: HeroCarouselProps) {
                 <CardContent className="p-0 h-full">
                   <div
                     className={cn(
-                      "flex flex-col md:flex-row justify-center items-center h-[70vh]",
+                      "flex flex-col md:flex-row justify-center items-center h-screen",
                       index % 2 === 0 ? "md:flex-row-reverse" : "",
                     )}
                   >

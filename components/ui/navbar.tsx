@@ -7,14 +7,13 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import { Search } from "lucide-react";
 import Link from "next/link";
 
 import { Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import Logo from "../common/logo";
 
 import { cn } from "@/lib/utils";
-import { filterProduct, products } from "@/constants/products";
+import { filterProduct } from "@/constants/products";
 
 export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -42,6 +41,19 @@ export default function Navbar({ className }: { className?: string }) {
     }
   });
 
+  const categories = [
+    "Laptop",
+    "Projectors",
+    "Printer",
+    "Network Devices",
+    // "Android TV Streaming",
+    "Barcode Scanner",
+    "Digital Door Lock",
+    "Wireless Mic",
+    // "Smart Car Accessories",
+    "Smart Home",
+  ];
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -59,132 +71,55 @@ export default function Navbar({ className }: { className?: string }) {
         }}
       >
         <Menu
-          className={`${!top && "backdrop-filter backdrop-blur-sm bg-primary/15"}`}
+          className={`${!top && "backdrop-filter relative backdrop-blur-sm bg-primary/15"}`}
           setActive={setActive}
         >
-          <Link href="/">
+          <Link href="/" className="py-6">
             <div>
               <Logo height={80} width={80} />
             </div>
           </Link>
-          <div className="flex justify-between w-full space-x-4">
-            <div className="flex justify-center space-x-4">
-              <MenuItem
-                active={active}
-                item="Store"
-                link="products"
-                setActive={setActive}
-              >
-                <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                  {[...products]
-                    .sort(() => 0.5 - Math.random())
-                    .slice(0, 4)
-                    .map((item, index) => (
+
+          <div className="flex justify-center w-full space-x-0">
+            {categories.map((item, index) => {
+              const products = filterProduct({ cats: [item] })
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 4);
+
+              const noChild = products.length === 0;
+
+              return (
+                <MenuItem
+                  key={`${item}-${index}`}
+                  active={active}
+                  className={"px-2 cursor-pointer py-6"}
+                  item={item}
+                  link={`products?cat=${item}`}
+                  noChild={noChild}
+                  setActive={setActive}
+                >
+                  <div className="text-sm flex flex-wrap py-20 justify-center gap-16 p-4 h-80">
+                    {products.map((prod, idx) => (
                       <ProductItem
-                        key={index}
-                        description={item.description}
-                        href={`products/${item.slug}`}
-                        src={`${item.src}/${item.thumbnail}`}
-                        title={item.title}
+                        key={idx}
+                        href={`products/${prod.slug}`}
+                        src={`${prod.src}/${prod.thumbnail}`}
+                        title={prod.title}
                       />
                     ))}
-                </div>
-              </MenuItem>
+                  </div>
+                </MenuItem>
+              );
+            })}
 
-              <MenuItem
-                active={active}
-                item="Printers"
-                link={`products?cat=Printer`}
-                setActive={setActive}
-              >
-                <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                  {[...filterProduct({ cats: ["Printer"] })]
-                    .sort(() => 0.5 - Math.random())
-                    .slice(0, 4)
-                    .map((item, index) => (
-                      <ProductItem
-                        key={index}
-                        description={item.description}
-                        href={`products/${item.slug}`}
-                        src={`${item.src}/${item.thumbnail}`}
-                        title={item.title}
-                      />
-                    ))}
-                </div>
-              </MenuItem>
-
-              <MenuItem
-                active={active}
-                item="Scanners"
-                link={`products?cat=Barcode%20Scanner`}
-                setActive={setActive}
-              >
-                <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                  {[...filterProduct({ cats: ["Barcode Scanner"] })]
-                    .sort(() => 0.5 - Math.random())
-                    .slice(0, 4)
-                    .map((item, index) => (
-                      <ProductItem
-                        key={index}
-                        description={item.description}
-                        href={`products/${item.slug}`}
-                        src={`${item.src}/${item.thumbnail}`}
-                        title={item.title}
-                      />
-                    ))}
-                </div>
-              </MenuItem>
-
-              <MenuItem
-                active={active}
-                item="Door Locks"
-                link={`products?cat=Digital%20Door%20Lock`}
-                setActive={setActive}
-              >
-                <div className="text-sm grid grid-cols-2 gap-10 p-4">
-                  {[...filterProduct({ cats: ["Digital Door Lock"] })]
-                    .sort(() => 0.5 - Math.random())
-                    .slice(0, 4)
-                    .map((item, index) => (
-                      <ProductItem
-                        key={index}
-                        description={item.description}
-                        href={`products/${item.slug}`}
-                        src={`${item.src}/${item.thumbnail}`}
-                        title={item.title}
-                      />
-                    ))}
-                </div>
-              </MenuItem>
-            </div>
-
-            <div className="flex justify-center space-x-4">
-              <MenuItem
-                noChild
-                active={active}
-                item="Drivers"
-                link="drivers"
-                setActive={setActive}
-              />
-
-              <MenuItem
-                noChild
-                active={active}
-                item="Warranty"
-                link={`warranty`}
-                setActive={setActive}
-              />
-
-              <MenuItem
-                noChild
-                active={active}
-                item="Support"
-                link={`contact-us`}
-                setActive={setActive}
-              />
-
-              <Search className="size-5 cursor-pointer text-black dark:text-white hover-scale" />
-            </div>
+            <MenuItem
+              noChild
+              active={active}
+              className="px-2 cursor-pointer py-6"
+              item="Support"
+              link={`contact-us`}
+              setActive={setActive}
+            />
           </div>
         </Menu>
       </motion.div>

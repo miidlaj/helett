@@ -4,21 +4,10 @@ import clsx from "clsx";
 
 import { Providers } from "./providers";
 
-import { fontSans } from "@/config/fonts";
+import { fontPoppins } from "@/config/fonts";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/footer";
 import { ThemeSwitch } from "@/components/theme-switch";
-
-// export const metadata: Metadata = {
-//   title: {
-//     default: siteConfig.name,
-//     template: `%s - ${siteConfig.name}`,
-//   },
-//   description: siteConfig.description,
-//   icons: {
-//     icon: "/favicon.ico",
-//   },
-// };
 
 export const viewport: Viewport = {
   themeColor: [
@@ -37,8 +26,8 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "relative bg-background font-sans antialiased h-screen w-full bg-white dark:bg-black",
-          fontSans.variable,
+          "relative bg-background font-poppins antialiased h-screen w-full bg-white dark:bg-black",
+          fontPoppins.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
