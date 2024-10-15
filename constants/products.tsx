@@ -6,6 +6,7 @@ export const products = [
     brand: "helett",
     thumbnail: "thumbnail.png",
     images: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
+    wideImages: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
     stack: ["Printer", "Label Printer"],
     slug: "helett-h65c",
     drivers: {

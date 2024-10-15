@@ -104,7 +104,7 @@ export default function Navbar({ className }: { className?: string }) {
                     {products.map((prod, idx) => (
                       <ProductItem
                         key={idx}
-                        href={`products/${prod.slug}`}
+                        href={`/products/${prod.slug}`}
                         src={`${prod.src}/${prod.thumbnail}`}
                         title={prod.title}
                       />
@@ -123,11 +123,11 @@ export default function Navbar({ className }: { className?: string }) {
             setActive={setActive}
           >
             <div className="flex justify-center items-center gap-10 h-80">
-              <Link href="contact-us">
+              <Link href="/contact-us">
                 <Button variant="link">Contact Us</Button>
               </Link>
 
-              <Link href="warranty">
+              <Link href="/warranty">
                 <Button variant="link">Warranty</Button>
               </Link>
             </div>

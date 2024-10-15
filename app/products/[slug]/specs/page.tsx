@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+import ProductSpecs from "./components/ProductSpecs";
+
 import { products, ProductType } from "@/constants/products";
-import { SingleProduct } from "./components/SingleProduct";
-import FixedBar from "./components/FixedBar";
-import ImageScroll from "./components/ImageScroll";
+import FixedBar from "../components/FixedBar";
 
 type Props = {
   params: { slug: string };
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function SingleProductPage({
+export default function SingleProductSpecsPage({
   params,
 }: {
   params: { slug: string };
@@ -44,9 +44,9 @@ export default function SingleProductPage({
 
   return (
     <div className="w-full relative">
-      <FixedBar page="overview" product={product} />
+      <FixedBar page="specs" product={product} />
       <div className="mx-auto py-14 px-4 md:px-10">
-        <SingleProduct product={product} />
+        <ProductSpecs product={product} />
       </div>
     </div>
   );
