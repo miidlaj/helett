@@ -21,6 +21,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
         enableSystem={false}
         {...themeProps}
       >
+      
         {children}
       </NextThemesProvider>
     </NextUIProvider>

@@ -13,14 +13,21 @@ import { User } from "@nextui-org/user";
 import { Tooltip } from "@nextui-org/tooltip";
 import { IconBrandApple, IconBrandWindows } from "@tabler/icons-react";
 
-import { products, ProductType } from "@/constants/products";
+import { ProductType } from "@/constants/products";
 
 const columns = [
-  { name: "PRODUCT", uid: "title" },
-  { name: "DOWNLOAD", uid: "actions" },
+  { name: "File Name", uid: "file-name" },
+  { name: "Version", uid: "version" },
+  { name: "File Size", uid: "file-size" },
+  { name: "Release Date", uid: "release-date" },
+  { name: "Action", uid: "action" },
 ];
 
-export default function DriverTable() {
+export default function DriverTable({
+  products,
+}: {
+  products: ProductType[] | any[];
+}) {
   const handleDownload = (filePath: string) => {
     const link = document.createElement("a");
 
@@ -34,16 +41,17 @@ export default function DriverTable() {
   const renderCell = React.useCallback(
     (product: ProductType, columnKey: React.Key) => {
       switch (columnKey) {
-        case "title":
+        case "file-name":
           return (
             <User
               avatarProps={{
                 radius: "lg",
                 src: `${product.src}/${product.thumbnail}`,
               }}
-              name={product.title}
+              name={product.title + " Driver"}
             />
           );
+
         case "actions":
           const hasMacDriver = product.drivers?.mac;
           const hasWinDriver = product.drivers?.win;
@@ -104,7 +112,7 @@ export default function DriverTable() {
             </div>
           );
         default:
-          return null;
+          return <div></div>;
       }
     },
     [],

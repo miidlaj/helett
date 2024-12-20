@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import { products, ProductType } from "@/constants/products";
 import { SingleProduct } from "./components/SingleProduct";
 import FixedBar from "./components/FixedBar";
-import ImageScroll from "./components/ImageScroll";
+
+import { products, ProductType } from "@/constants/products";
 
 type Props = {
   params: { slug: string };

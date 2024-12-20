@@ -45,7 +45,7 @@ export default function SingleProductSpecsPage({
   return (
     <div className="w-full relative">
       <FixedBar page="specs" product={product} />
-      <div className="mx-auto py-14 px-4 md:px-10">
+      <div className="mx-auto px-4 md:px-10">
         <ProductSpecs product={product} />
       </div>
     </div>

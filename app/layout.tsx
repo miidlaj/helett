@@ -32,7 +32,11 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <Navbar />
+
+          <div className="py-20">
           {children}
+
+          </div>
 
           <Footer />
           <div className="fixed right-4 bottom-4 z-50">

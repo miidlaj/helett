@@ -3,12 +3,13 @@ import React from "react";
 import DriverTable from "./components/DriverTable";
 
 import { Heading } from "@/components/Heading";
+import { products } from "@/constants/products";
 
 function DriverPage() {
   return (
-    <div className="my-32 mx-20">
+    <div className="mx-20">
       <Heading className="text-center">Drivers</Heading>
-      <DriverTable />
+      <DriverTable products={products} />
     </div>
   );
 }

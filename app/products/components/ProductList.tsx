@@ -48,7 +48,7 @@ function ProductList() {
       selectedCategory.length !== 0 ||
         selectedSubCat.length !== 0 ||
         selectedBrand.length !== 0 ||
-        searchValue.length > 0
+        searchValue.length > 0,
     );
     setProductData(filteredData);
   }, [selectedBrand, selectedCategory, selectedSubCat, searchValue]);
@@ -73,7 +73,7 @@ function ProductList() {
 
   return (
     <Suspense fallback={<>Loading...</>}>
-      <main className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray- py-6 sm:py-32">
+      <main className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-32">
         <div className="mx-auto max-w-screen-xl px-4 w-full flex flex-col gap-5">
           <Heading as="h1" className="text-center">
             Products
