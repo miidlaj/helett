@@ -47,7 +47,6 @@ export default function SingleProductPage({
       <FixedBar page="overview" product={product} />
       <div className="mx-auto py-14 px-4 md:px-10">
         <SingleProduct product={product} />
-        
       </div>
     </div>
   );

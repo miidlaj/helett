@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import ImageStack from "./ImageStack";
+import ImageScroll from "./ImageScroll";
 
 import { ProductType } from "@/constants/products";
-import ImageScroll from "./ImageScroll";
 
 export const SingleProduct = ({ product }: { product: ProductType }) => {
   const [activeImage, setActiveImage] = useState<StaticImageData | string>(
-    product.thumbnail
+    product.thumbnail,
   );
 
   return (

@@ -112,7 +112,7 @@ export default function DriverTable({
             </div>
           );
         default:
-          return <div></div>;
+          return <div />;
       }
     },
     [],

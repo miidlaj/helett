@@ -1,5 +1,6 @@
-import { productsApi } from "@/api/products";
 import ProductPage from "./components/product-details";
+
+import { productsApi } from "@/api/products";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const { slug } = params;

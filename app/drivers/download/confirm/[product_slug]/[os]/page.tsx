@@ -1,12 +1,28 @@
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import InstallationSteps from "./components/InstallationSteps";
+import TutorialVideos from "./components/TutorialVideos";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ProgressBar from "@/app/drivers/components/ProgressBar";
-import Link from "next/link";
+import { productsApi } from "@/api/products";
 
-export default function DownloadConfirmation() {
+export default async function DownloadConfirmation({
+  params,
+}: {
+  params: { product_slug: string; os: string };
+}) {
   const steps = ["Identify", "Download", "Install"];
+  const { product_slug, os } = params;
+
+  const product = await productsApi.fetchProductBySlug(product_slug);
+
+  if (!product) {
+    notFound();
+  }
 
   return (
     <div className="container mx-auto px-4">
@@ -15,19 +31,14 @@ export default function DownloadConfirmation() {
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         <div>
           <h1 className="text-3xl font-bold text-primary mb-4">
-            Congrats! Your download has started in your browser window.
+            Congrats! Your download for {product.name} has started.
           </h1>
           <p className="mb-4">
-            Next, you&apos;ll need to install your downloaded files...
+            Next, you'll need to install your downloaded files for {os}...
           </p>
-          <p className="mb-4">
-            Locate the file within your browser window, and double-click to
-            begin installing.
-          </p>
-          <p className="text-sm text-gray-600">
-            The file can also be located in the &apos;Downloads&apos; folder on
-            your computer. We recommend restarting your computer after
-            installation.
+          <InstallationSteps os={os} />
+          <p className="text-sm text-gray-600 mt-4">
+            We recommend restarting your computer after installation.
           </p>
         </div>
         <div>
@@ -48,8 +59,10 @@ export default function DownloadConfirmation() {
         </div>
       </div>
 
+      <TutorialVideos tutorials={product.tutorials} />
+
       <div className="mt-8">
-        <Link href="/drivers/choose">
+        <Link href="/drivers">
           <Button variant="link">
             Download more Drivers
             <ChevronRight className="w-4 h-4 ml-2" />

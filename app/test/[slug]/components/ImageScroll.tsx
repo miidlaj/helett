@@ -5,9 +5,10 @@ import Lenis from "lenis";
 import Intro from "./Intro";
 import Description from "./Description";
 import Section from "./Section";
+
 import { ProductType } from "@/constants/products";
 
-export default function ImageScroll({product} : {product: ProductType}) {
+export default function ImageScroll({ product }: { product: ProductType }) {
   useEffect(() => {
     const lenis = new Lenis();
 

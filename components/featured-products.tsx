@@ -29,6 +29,7 @@ export function FeaturedProducts() {
   const fetchCategories = async () => {
     try {
       const response = await categoriesApi.fetchAllCategories();
+
       setCategories(response.data);
       setSelectedTab(response.data[0]?.id.toString());
     } catch (error) {
@@ -38,6 +39,7 @@ export function FeaturedProducts() {
   const fetchProducts = async () => {
     try {
       let response;
+
       if (selectedTab) {
         response = await productsApi.fetchProducts({
           filters: { category: selectedTab },

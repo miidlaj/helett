@@ -8,6 +8,7 @@ import { useSearchParams } from "next/navigation";
 
 // Components for filtering UI
 import { ProductsFilter } from "./FilterItem";
+
 import { Card } from "@/components/ui/apple-cards-carousel";
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
@@ -51,7 +52,8 @@ function ProductList() {
   const [productData, setProductData] = useState<Product[]>([]);
   const [searchValue, setSearchValue] = useState<string>("");
   const [isFiltered, setIsFiltered] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string[]>(defaultCats);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string[]>(defaultCats);
   const [selectedBrand, setSelectedBrand] = useState<string[]>(defaultBrands);
   const [loading, setLoading] = useState<boolean>(false);
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -65,7 +67,9 @@ function ProductList() {
     setLoading(true);
     try {
       const queryParams: ProductQueryParams = { filters };
-      const response: ApiResponse<Product> = await productsApi.fetchProducts(queryParams);
+      const response: ApiResponse<Product> =
+        await productsApi.fetchProducts(queryParams);
+
       setProductData(response.data || []);
     } catch (error) {
       console.error("Error fetching products", error);
@@ -76,14 +80,17 @@ function ProductList() {
   }, []);
 
   // Memoize the search handler
-  const handleSearchChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  }, []);
+  const handleSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchValue(event.target.value);
+    },
+    [],
+  );
 
   // Effect for fetching products based on filters
   useEffect(() => {
     const filters: Record<string, any> = {};
-    
+
     if (debouncedSearch.trim().length > 0) {
       filters.search = debouncedSearch.trim();
     }
@@ -99,7 +106,7 @@ function ProductList() {
     setIsFiltered(
       selectedCategory.length !== 0 ||
         selectedBrand.length !== 0 ||
-        debouncedSearch.length > 0
+        debouncedSearch.length > 0,
     );
 
     fetchProducts(filters);
@@ -111,15 +118,16 @@ function ProductList() {
       try {
         const [categoriesRes, brandsRes] = await Promise.all([
           categoriesApi.fetchAllCategories(),
-          brandsApi.fetchAllBrands()
+          brandsApi.fetchAllBrands(),
         ]);
+
         setCategories(categoriesRes.data);
         setBrands(brandsRes.data);
       } catch (error) {
         console.error("Error fetching initial data", error);
       }
     };
-    
+
     fetchInitialData();
   }, []);
 

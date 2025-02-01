@@ -16,11 +16,12 @@ class ProductsApiService {
     if (!ProductsApiService.instance) {
       ProductsApiService.instance = new ProductsApiService();
     }
+
     return ProductsApiService.instance;
   }
 
   async fetchProducts(
-    params: ProductQueryParams = {}
+    params: ProductQueryParams = {},
   ): Promise<ApiResponse<Product>> {
     try {
       const queryString = this.buildQueryString(params);
@@ -31,7 +32,7 @@ class ProductsApiService {
             revalidate: 3600,
             tags: ["products"],
           },
-        }
+        },
       );
 
       if (!response.ok) {
@@ -55,6 +56,7 @@ class ProductsApiService {
       };
 
       const response = await this.fetchProducts(params);
+
       return response.data[0] || null;
     } catch (error) {
       console.error("Error fetching product by slug:", error);
@@ -81,13 +83,13 @@ class ProductsApiService {
         if (value !== undefined) {
           if (key === "search") {
             queryParts.push(
-              `filters[$or][0][title][$containsi]=${encodeURIComponent(value)}`
+              `filters[$or][0][title][$containsi]=${encodeURIComponent(value)}`,
             );
             queryParts.push(
-              `filters[$or][1][description][$containsi]=${encodeURIComponent(value)}`
+              `filters[$or][1][description][$containsi]=${encodeURIComponent(value)}`,
             );
             queryParts.push(
-              `filters[$or][2][short_description][$containsi]=${encodeURIComponent(value)}`
+              `filters[$or][2][short_description][$containsi]=${encodeURIComponent(value)}`,
             );
           } else if (Array.isArray(value)) {
             value.forEach((v) => {
@@ -102,11 +104,13 @@ class ProductsApiService {
 
     if (params.sort) {
       const { field, order } = params.sort;
+
       queryParts.push(`sort=${order === "desc" ? "-" : ""}${field}`);
     }
 
     if (params.pagination) {
       const { page, pageSize = this.defaultPageSize } = params.pagination;
+
       queryParts.push(`pagination[page]=${page}`);
       queryParts.push(`pagination[pageSize]=${pageSize}`);
     }

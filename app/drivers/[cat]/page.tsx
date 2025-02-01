@@ -1,40 +1,35 @@
-import {
-  Printer,
-  Laptop,
-  Search,
-  Projector,
-  Network,
-  Tv,
-  Lock,
-  Barcode,
-  Mic,
-  Car,
-  Home,
-  ShieldQuestion,
-} from "lucide-react";
 import Link from "next/link";
 
 import ProgressBar from "../components/ProgressBar";
 import NotFoundWhatYouLookingFor from "../components/NotFound";
 import ImageCarousel from "../components/ImageCarousel";
 
-import { Input } from "@/components/ui/input";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { filterProduct } from "@/constants/products";
+import SearchProduct from "./components/SearchProduct";
 
-function ProductTypeIcon({ Icon, selected }: { Icon: any; selected: boolean }) {
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { productsApi } from "@/api/products";
+import { categoriesApi } from "@/api/categories";
+
+function ProductTypeIcon({
+  img,
+  selected,
+}: {
+  img: string;
+  selected: boolean;
+}) {
   return (
     <div
       className={`p-2 rounded-full ${selected ? "bg-blue-500" : "bg-gray-200"}`}
     >
-      <Icon
+      <img
         className={`w-6 h-6 ${selected ? "text-white" : "text-gray-600"}`}
+        src={img}
       />
     </div>
   );
 }
 
-export default function Component({
+export default async function Component({
   params,
 }: {
   params: {
@@ -43,20 +38,13 @@ export default function Component({
 }) {
   const cat = params.cat;
   const steps = ["Identify", "Download", "Install"];
-  const productTypes = [
-    { name: "Laptop", icon: Laptop },
-    { name: "Projector", icon: Projector },
-    { name: "Printers", icon: Printer },
-    { name: "Network Device", icon: Network },
-    { name: "Android TV Streaming", icon: Tv },
-    { name: "Barcode Scanner", icon: Barcode },
-    { name: "Digital Door Lock", icon: Lock },
-    { name: "Wireless Mic", icon: Mic },
-    { name: "Smart Car Accessories", icon: Car },
-    { name: "Smart Home", icon: Home },
-    { name: "Other", icon: ShieldQuestion },
-  ];
-  const products = filterProduct({ cats: [cat] });
+
+  const categories = (await categoriesApi.fetchAllCategories()).data;
+  const products = (
+    await productsApi.fetchProducts({
+      filters: { category: categories.find((x) => x.slug === cat)?.id },
+    })
+  ).data;
 
   return (
     <div className="container mx-auto px-4">
@@ -74,12 +62,14 @@ export default function Component({
         </span>
         <ScrollArea className="w-96 py-5">
           <div className="space-x-4 flex">
-            {productTypes.map((type, index) => (
-              <ProductTypeIcon
-                key={index}
-                Icon={type.icon}
-                selected={index === 0}
-              />
+            {categories.map((catergoy) => (
+              <Link key={catergoy.id} href={`/drivers/${catergoy.slug}`}>
+                <ProductTypeIcon
+                  key={catergoy.id}
+                  img={catergoy.image?.url}
+                  selected={catergoy.slug === cat}
+                />
+              </Link>
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
@@ -94,22 +84,13 @@ export default function Component({
           <p className="mb-4">
             Enter your serial number, product number or product name
           </p>
-          <div className="relative">
-            <Input
-              className="pl-10 pr-4 py-2"
-              placeholder="Example: Helett H65C"
-              type="text"
-            />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          </div>
+          <SearchProduct />
         </div>
         <div>
           <h3 className="text-lg font-semibold mb-4">
             Examples of where to find your product name
           </h3>
-          <ImageCarousel
-            images={products.map((x) => x.src + "/" + x.thumbnail)}
-          />
+          <ImageCarousel images={products.map((x) => x.thumbnail.url)} />
         </div>
       </div>
 
@@ -123,7 +104,7 @@ export default function Component({
             className="text-blue-600 hover:underline"
             href={`/drivers/download/${product.slug}`}
           >
-            {product.title}
+            {product.name}
           </Link>
         ))}
       </div>

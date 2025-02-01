@@ -25,7 +25,9 @@ export default function Navbar({ className }: { className?: string }) {
   const [visible, setVisible] = useState(true);
   const [top, setTop] = useState(true);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [categoryProducts, setCategoryProducts] = useState<Record<number, Product[]>>({});
+  const [categoryProducts, setCategoryProducts] = useState<
+    Record<number, Product[]>
+  >({});
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
@@ -51,6 +53,7 @@ export default function Navbar({ className }: { className?: string }) {
       try {
         const categoryResponse = await categoriesApi.fetchAllCategories();
         const cats = categoryResponse.data;
+
         setCategories(cats);
 
         const productsPromises = cats.map(async (cat: Category) => {
@@ -58,11 +61,13 @@ export default function Navbar({ className }: { className?: string }) {
             filters: { category: cat.id },
             pagination: { page: 0, pageSize: 3 },
           });
+
           return { catId: cat.id, products: prodResponse.data };
         });
 
         const productsResults = await Promise.all(productsPromises);
         const productsMap: Record<number, Product[]> = {};
+
         productsResults.forEach(({ catId, products }) => {
           productsMap[catId] = products;
         });
@@ -139,6 +144,10 @@ export default function Navbar({ className }: { className?: string }) {
             setActive={setActive}
           >
             <div className="flex justify-center items-center gap-10 h-80">
+              <Link href="/drivers">
+                <Button variant="link">Drivers</Button>
+              </Link>
+
               <Link href="/contact-us">
                 <Button variant="link">Contact Us</Button>
               </Link>

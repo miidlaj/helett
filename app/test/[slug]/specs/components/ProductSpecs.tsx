@@ -6,7 +6,6 @@ import React from "react";
 import ProductDetails from "@/components/details-table";
 import { Heading } from "@/components/Heading";
 import { Paragraph } from "@/components/Paragraph";
-import { FeaturesSection } from "@/components/ui/bento-grid";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { SparklesCore } from "@/components/ui/sparkles";

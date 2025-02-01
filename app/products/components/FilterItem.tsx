@@ -62,7 +62,9 @@ export function ProductsFilter({
                   </Badge>
                 ) : (
                   options
-                    .filter((option) => selectedValues.includes(option.value.toString()))
+                    .filter((option) =>
+                      selectedValues.includes(option.value.toString()),
+                    )
                     .map((option) => (
                       <Badge
                         key={option.value}
@@ -85,7 +87,9 @@ export function ProductsFilter({
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup>
               {options.map((option) => {
-                const isSelected = selectedValues.includes(option.value.toString());
+                const isSelected = selectedValues.includes(
+                  option.value.toString(),
+                );
 
                 return (
                   <CommandItem
@@ -96,7 +100,9 @@ export function ProductsFilter({
                           selectedValues.filter((x) => x !== option.value),
                         );
                       } else {
-                        setSelectedValues(selectedValues.concat(option.value.toString()));
+                        setSelectedValues(
+                          selectedValues.concat(option.value.toString()),
+                        );
                       }
                     }}
                   >

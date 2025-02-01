@@ -13,6 +13,7 @@ class CategoriesApiService {
     if (!CategoriesApiService.instance) {
       CategoriesApiService.instance = new CategoriesApiService();
     }
+
     return CategoriesApiService.instance;
   }
 
@@ -20,7 +21,7 @@ class CategoriesApiService {
     try {
       const queryString = this.buildQueryString();
       const response = await fetch(
-        `${this.baseUrl}/api/categories${queryString}`
+        `${this.baseUrl}/api/categories${queryString}`,
       );
 
       if (!response.ok) {

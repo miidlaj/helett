@@ -12,7 +12,7 @@ export interface ProductFeature {
 
 export interface ProductDriver {
   id: number;
-  OS: string;
+  OS: "WINDOWS" | "MAC" | "LINUX";
   link: string;
 }
 

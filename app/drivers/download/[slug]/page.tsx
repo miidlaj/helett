@@ -1,22 +1,20 @@
-import { ChevronDown, ChevronRight, Download, HelpCircle } from "lucide-react";
+import { ChevronRight, HelpCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { IconBrandWindows } from "@tabler/icons-react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import DriverSelector from "./components/DriverSelector";
+
 import ProgressBar from "@/app/drivers/components/ProgressBar";
-import { products, ProductType } from "@/constants/products";
-import DriverTable from "../../components/DriverTable";
+import { productsApi } from "@/api/products";
 
-export default function SoftwareDriversDownload({
+export default async function SoftwareDriversDownload({
   params,
 }: {
   params: { slug: string };
 }) {
   const steps = ["Identify", "Download", "Install"];
   const { slug } = params;
-  const product = products.find((x) => x.slug === slug);
+  const product = await productsApi.fetchProductBySlug(slug);
 
   return (
     <div className="container mx-auto px-4">
@@ -25,10 +23,10 @@ export default function SoftwareDriversDownload({
       <div className="flex flex-col md:flex-row gap-8 mb-8">
         <div className="md:w-1/3">
           <Image
-            alt="HP LaserJet 1020 Printer series"
+            alt={product?.name || "Product image"}
             className="w-full"
             height={200}
-            src={`${product?.src}/${product?.thumbnail}`}
+            src={product?.thumbnail.url || "/placeholder.svg"}
             width={300}
           />
         </div>
@@ -36,7 +34,7 @@ export default function SoftwareDriversDownload({
           <h1 className="text-2xl font-semibold text-primary mb-2">
             Welcome to Software and Drivers for
           </h1>
-          <h2 className="text-3xl font-bold mb-4">{product?.title}</h2>
+          <h2 className="text-3xl font-bold mb-4">{product?.name}</h2>
           <div className="flex gap-4 mb-4">
             <Link
               className="text-blue-600 hover:underline flex items-center"
@@ -53,23 +51,9 @@ export default function SoftwareDriversDownload({
               Choose a different product
             </Link>
           </div>
-          <div className="flex items-center gap-2">
-            <span>Detected operating system:</span>
-            <IconBrandWindows className="w-4 h-4" />
-            <span>Windows 10 (64-bit)</span>
-            <Link className="text-blue-600 hover:underline ml-2" href="#">
-              Choose a different OS
-            </Link>
-          </div>
+          <DriverSelector drivers={product?.drivers} />
         </div>
       </div>
-
-      <h3 className="text-2xl font-bold mb-4">
-        Select your software and drivers below:
-      </h3>
-
-      <DriverTable products={[product]} />
-
     </div>
   );
 }

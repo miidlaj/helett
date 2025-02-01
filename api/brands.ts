@@ -13,6 +13,7 @@ class BrandsApiService {
     if (!BrandsApiService.instance) {
       BrandsApiService.instance = new BrandsApiService();
     }
+
     return BrandsApiService.instance;
   }
 

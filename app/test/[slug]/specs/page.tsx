@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+import FixedBar from "../components/FixedBar";
+
 import ProductSpecs from "./components/ProductSpecs";
 
 import { products, ProductType } from "@/constants/products";
-import FixedBar from "../components/FixedBar";
 
 type Props = {
   params: { slug: string };

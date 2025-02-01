@@ -15,15 +15,21 @@ import {
 import { Image } from "@/api/types";
 import { cn } from "@/lib/utils";
 
-export function ImageCarousel({ images, className }: { images: Image[], className?: string }) {
+export function ImageCarousel({
+  images,
+  className,
+}: {
+  images: Image[];
+  className?: string;
+}) {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: true }),
   );
 
   return (
     <Carousel
-      plugins={[plugin.current]}
       className={cn("w-full max-w-sm", className)}
+      plugins={[plugin.current]}
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
@@ -35,12 +41,12 @@ export function ImageCarousel({ images, className }: { images: Image[], classNam
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <motion.img
                     key={image.url + index}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    src={image.url}
                     alt={image.name}
+                    animate={{ opacity: 1 }}
                     className="w-full h-full object-cover"
+                    initial={{ opacity: 0 }}
+                    src={image.url}
+                    transition={{ duration: 0.3 }}
                   />
                 </CardContent>
               </Card>

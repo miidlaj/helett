@@ -6,7 +6,6 @@ import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { ProductType } from "@/constants/products";
 import { Product } from "@/api/types";
 
 interface CarouselProps {

@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useId } from "react";
-
 import { IconBrandAmazon } from "@tabler/icons-react";
+
 import { ProductFeature } from "@/api/types";
 
 export function FeaturesSection({ features }: { features: ProductFeature[] }) {
@@ -13,8 +13,8 @@ export function FeaturesSection({ features }: { features: ProductFeature[] }) {
       {features.map((feature, idx) => (
         <motion.div
           key={idx}
-          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3, delay: idx * 0.1 }}
         >
           <div
@@ -56,7 +56,7 @@ export const Grid = ({
   ];
 
   const [generatedPattern, setGeneratedPattern] = useState(
-    pattern || generatePattern
+    pattern || generatePattern,
   );
 
   useEffect(() => {
