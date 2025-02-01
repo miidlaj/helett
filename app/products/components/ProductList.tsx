@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useState, useCallback } from "react";
 import { Trash } from "lucide-react";
-import { Input } from "@nextui-org/input";
+import { Input } from "@heroui/input";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 

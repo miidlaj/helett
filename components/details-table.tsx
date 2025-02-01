@@ -5,7 +5,7 @@ import {
   TableBody,
   TableRow,
   TableCell,
-} from "@nextui-org/table";
+} from "@heroui/table";
 
 export default function ProductDetails({
   details,

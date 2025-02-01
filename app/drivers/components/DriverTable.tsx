@@ -8,9 +8,9 @@ import {
   TableBody,
   TableRow,
   TableCell,
-} from "@nextui-org/table";
-import { User } from "@nextui-org/user";
-import { Tooltip } from "@nextui-org/tooltip";
+} from "@heroui/table";
+import { User } from "@heroui/user";
+import { Tooltip } from "@heroui/tooltip";
 import { IconBrandApple, IconBrandWindows } from "@tabler/icons-react";
 
 import { ProductType } from "@/constants/products";
