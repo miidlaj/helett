@@ -62,6 +62,7 @@ export default async function DriverChoosingPage() {
             <Link href={`/drivers/${cat.slug}`}>
               <CardContent className="flex flex-col items-center justify-center p-4 h-full">
                 <img
+                  alt={cat.name}
                   className="w-10 h-10 text-primary mb-3"
                   src={cat.image?.url || ""}
                 />

@@ -34,7 +34,7 @@ export default async function DownloadConfirmation({
             Congrats! Your download for {product.name} has started.
           </h1>
           <p className="mb-4">
-            Next, you'll need to install your downloaded files for {os}...
+            Next, you&apos;ll need to install your downloaded files for {os}...
           </p>
           <InstallationSteps os={os} />
           <p className="text-sm text-gray-600 mt-4">

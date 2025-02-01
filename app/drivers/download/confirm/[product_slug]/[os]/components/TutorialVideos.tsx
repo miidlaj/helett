@@ -23,7 +23,7 @@ const TutorialVideos: React.FC<TutorialVideosProps> = ({ tutorials }) => {
               className="w-full h-full"
               frameBorder="0"
               src={`https://www.youtube.com/embed/${getYouTubeId(tutorial.link)}`}
-              title="tutorial"
+              title={tutorial.link}
             />
           </div>
         ))}
