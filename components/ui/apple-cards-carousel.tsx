@@ -55,14 +55,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       >
         <div
           className={cn(
-            "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l",
+            "absolute right-0  z-[1000] h-auto  w-[5%] overflow-hidden bg-gradient-to-l"
           )}
         />
 
         <div
           className={cn(
             "flex flex-row justify-start gap-4 pl-4",
-            "max-w-7xl mx-auto", // remove max-w-4xl if you want the carousel to span the full width of its container
+            "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
           )}
         >
           {items.map((item, index) => (
@@ -119,33 +119,34 @@ export const Card = ({
 }) => {
   return (
     <>
-      <AnimatePresence />
-      <Link href={`/products/${card.slug}`}>
-        <motion.button
-          className="rounded-[22px] max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
-          layoutId={layout ? `card-${card.name}` : undefined}
-        >
-          <Image
-            alt={card.name}
-            className="object-contain rounded-[22px] shadow-md hover:scale-105 transform transition duration-200 ease-in-out"
-            height="400"
-            loading="lazy"
-            src={card.thumbnail.url}
-            width="400"
-          />
-          <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
-            {card.name}
-          </p>
+      <AnimatePresence>
+        <Link href={`/products/${card.slug}`}>
+          <motion.button
+            className="rounded-[22px] max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
+            layoutId={layout ? `card-${card.name}` : undefined}
+          >
+            <Image
+              alt={card.name}
+              className="object-contain rounded-[22px] shadow-md hover:scale-105 transform transition duration-200 ease-in-out"
+              height="400"
+              loading="lazy"
+              src={card.thumbnail.url}
+              width="400"
+            />
+            <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
+              {card.name}
+            </p>
 
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {card.description}
-          </p>
-          <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-bold bg-primary">
-            <span>Details </span>
-            <span className="bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white" />
-          </button>
-        </motion.button>
-      </Link>
+            <p className="text-sm text-muted-foreground line-clamp-3">
+              {card.description}
+            </p>
+            <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-bold bg-primary">
+              <span>Details </span>
+              <span className="bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white" />
+            </button>
+          </motion.button>
+        </Link>
+      </AnimatePresence>
     </>
   );
 };
@@ -167,7 +168,7 @@ export const BlurImage = ({
       className={cn(
         "transition duration-300",
         isLoading ? "blur-sm" : "blur-0",
-        className,
+        className
       )}
       decoding="async"
       height={height}
