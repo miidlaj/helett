@@ -16,7 +16,7 @@ module.exports = {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
         poppins: ["var(--font-poppins)"],
-        rimouski: ['RimouskiRegular', 'sans-serif'],
+        rimouski: ["RimouskiRegular", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
