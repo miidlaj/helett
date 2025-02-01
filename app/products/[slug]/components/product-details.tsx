@@ -260,12 +260,12 @@ function ProductPage({ product }: { product: Product }) {
                       <div className="aspect-video">
                         <iframe
                           allowFullScreen
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           className="border-0"
                           height="100%"
-                          width="100%"
                           src={`https://www.youtube.com/embed/${extractYouTubeID(tutorial.link)}`}
-                          // title={tutorial.title}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          title={tutorial.link}
+                          width="100%"
                         />
                       </div>
                       <div className="p-4">

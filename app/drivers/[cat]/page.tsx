@@ -22,6 +22,7 @@ function ProductTypeIcon({
       className={`p-2 rounded-full ${selected ? "bg-blue-500" : "bg-gray-200"}`}
     >
       <img
+        alt="Cateogry Icon"
         className={`w-6 h-6 ${selected ? "text-white" : "text-gray-600"}`}
         src={img}
       />

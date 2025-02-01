@@ -84,7 +84,7 @@ function ProductList() {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setSearchValue(event.target.value);
     },
-    [],
+    []
   );
 
   // Effect for fetching products based on filters
@@ -106,7 +106,7 @@ function ProductList() {
     setIsFiltered(
       selectedCategory.length !== 0 ||
         selectedBrand.length !== 0 ||
-        debouncedSearch.length > 0,
+        debouncedSearch.length > 0
     );
 
     fetchProducts(filters);
