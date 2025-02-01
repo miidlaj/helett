@@ -24,9 +24,6 @@ class ProductsApiService {
   ): Promise<ApiResponse<Product>> {
     try {
       const queryString = this.buildQueryString(params);
-
-      console.log(`${this.baseUrl}/api/products${queryString}`);
-
       const response = await fetch(
         `${this.baseUrl}/api/products${queryString}`,
         {
