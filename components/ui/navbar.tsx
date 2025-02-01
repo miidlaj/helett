@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -15,19 +15,22 @@ import Logo from "../common/logo";
 import { Button } from "./button";
 
 import { cn } from "@/lib/utils";
-import { filterProduct } from "@/constants/products";
+import { categoriesApi } from "@/api/categories";
+import { Category, Product } from "@/api/types";
+import { productsApi } from "@/api/products";
 
 export default function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
-
   const { scrollYProgress } = useScroll();
-
   const [visible, setVisible] = useState(true);
   const [top, setTop] = useState(true);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [categoryProducts, setCategoryProducts] = useState<Record<number, Product[]>>({});
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+      const previous = scrollYProgress.getPrevious() || 0;
+      const direction = current - previous;
 
       if (scrollYProgress.get() < 0.05) {
         setVisible(true);
@@ -43,18 +46,34 @@ export default function Navbar({ className }: { className?: string }) {
     }
   });
 
-  const categories = [
-    "Laptop",
-    "Projectors",
-    "Printer",
-    "Network Devices",
-    // "Android TV Streaming",
-    "Barcode Scanner",
-    "Digital Door Lock",
-    "Wireless Mic",
-    // "Smart Car Accessories",
-    "Smart Home",
-  ];
+  useEffect(() => {
+    const fetchCategoriesAndProducts = async () => {
+      try {
+        const categoryResponse = await categoriesApi.fetchAllCategories();
+        const cats = categoryResponse.data;
+        setCategories(cats);
+
+        const productsPromises = cats.map(async (cat: Category) => {
+          const prodResponse = await productsApi.fetchProducts({
+            filters: { category: cat.id },
+            pagination: { page: 0, pageSize: 3 },
+          });
+          return { catId: cat.id, products: prodResponse.data };
+        });
+
+        const productsResults = await Promise.all(productsPromises);
+        const productsMap: Record<number, Product[]> = {};
+        productsResults.forEach(({ catId, products }) => {
+          productsMap[catId] = products;
+        });
+        setCategoryProducts(productsMap);
+      } catch (error) {
+        console.error("Error fetching categories or products:", error);
+      }
+    };
+
+    fetchCategoriesAndProducts();
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
@@ -84,29 +103,26 @@ export default function Navbar({ className }: { className?: string }) {
 
           <div className="flex justify-center w-full space-x-0">
             {categories.map((item, index) => {
-              const products = filterProduct({ cats: [item] })
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 4);
-
+              const products = categoryProducts[item.id] || [];
               const noChild = products.length === 0;
 
               return (
                 <MenuItem
-                  key={`${item}-${index}`}
+                  key={`${item.id}-${index}`}
                   active={active}
-                  className={"px-2 cursor-pointer py-6"}
-                  item={item}
-                  link={`products?cat=${item}`}
+                  className="px-2 cursor-pointer py-6"
+                  item={item.name}
+                  link={`/products?cat=${item.id}`}
                   noChild={noChild}
                   setActive={setActive}
                 >
                   <div className="text-sm flex flex-wrap py-20 justify-center gap-16 p-4 h-80">
                     {products.map((prod, idx) => (
                       <ProductItem
-                        key={idx}
+                        key={prod.id || idx}
                         href={`/products/${prod.slug}`}
-                        src={`${prod.src}/${prod.thumbnail}`}
-                        title={prod.title}
+                        src={prod.thumbnail.url}
+                        title={prod.name}
                       />
                     ))}
                   </div>
@@ -119,7 +135,7 @@ export default function Navbar({ className }: { className?: string }) {
             active={active}
             className="px-2 cursor-pointer py-6"
             item="Support"
-            link={`contact-us`}
+            link={`/contact-us`}
             setActive={setActive}
           >
             <div className="flex justify-center items-center gap-10 h-80">

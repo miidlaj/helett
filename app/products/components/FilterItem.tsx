@@ -26,7 +26,7 @@ interface Props {
   setSelectedValues: (val: string[]) => void;
   options: {
     label: string;
-    value: string;
+    value: string | number;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
 }
@@ -62,7 +62,7 @@ export function ProductsFilter({
                   </Badge>
                 ) : (
                   options
-                    .filter((option) => selectedValues.includes(option.value))
+                    .filter((option) => selectedValues.includes(option.value.toString()))
                     .map((option) => (
                       <Badge
                         key={option.value}
@@ -85,7 +85,7 @@ export function ProductsFilter({
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup>
               {options.map((option) => {
-                const isSelected = selectedValues.includes(option.value);
+                const isSelected = selectedValues.includes(option.value.toString());
 
                 return (
                   <CommandItem
@@ -96,7 +96,7 @@ export function ProductsFilter({
                           selectedValues.filter((x) => x !== option.value),
                         );
                       } else {
-                        setSelectedValues(selectedValues.concat(option.value));
+                        setSelectedValues(selectedValues.concat(option.value.toString()));
                       }
                     }}
                   >

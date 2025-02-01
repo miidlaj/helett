@@ -51,7 +51,7 @@ function ProductSpecs({ product }: { product: ProductType }) {
           Features
         </Heading>
 
-        <FeaturesSection features={product.features} />
+        {/* <FeaturesSection features={product.features} /> */}
       </div>
 
       <div className="h-max w-full bg-white dark:bg-black flex flex-col items-center justify-center overflow-hidden rounded-md gap-0.5">

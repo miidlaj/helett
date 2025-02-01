@@ -4,30 +4,37 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useId } from "react";
 
-import { FeatureType } from "@/constants/products";
 import { IconBrandAmazon } from "@tabler/icons-react";
+import { ProductFeature } from "@/api/types";
 
-export function FeaturesSection({ features }: { features: FeatureType[] }) {
+export function FeaturesSection({ features }: { features: ProductFeature[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-2 max-w-7xl mx-auto">
-      {features.map((feature) => (
-        <div
-          key={feature.label}
-          className="relative bg-gradient-to-b dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 to-white p-6 rounded-3xl overflow-hidden hover-scale"
+    <div className=" mx-auto">
+      {features.map((feature, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: idx * 0.1 }}
         >
-          <Grid size={20} />
-          <div className="flex justify-start gap-2 items-center">
-            <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
+          <div
+            key={feature.label}
+            className="relative bg-gradient-to-b lg:mx-10 dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 min-h-20 to-white p-6 rounded-3xl overflow-hidden hover-scale"
+          >
+            <Grid size={20} />
+            <div className="flex justify-start gap-2 items-center">
+              <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
 
-            <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
-              {feature.label}
+              <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
+                {feature.label}
+              </p>
+            </div>
+
+            <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
+              {feature.value}
             </p>
           </div>
-
-          <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
-            {feature.value}
-          </p>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

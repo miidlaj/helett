@@ -1,12 +1,13 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Image as ImageType } from "@/api/types";
+import Image from "next/image";
 
-function ImageCarousel({ images }: { images: string[] }) {
+function ImageCarousel({ images }: { images: ImageType[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -15,7 +16,7 @@ function ImageCarousel({ images }: { images: string[] }) {
     setTimeout(() => {
       setCurrentIndex(newIndex);
       setIsTransitioning(false);
-    }, 300); // Adjust the duration to match your CSS transition
+    }, 300); 
   };
 
   const prevImage = () => {
@@ -42,7 +43,7 @@ function ImageCarousel({ images }: { images: string[] }) {
           alt={`Image ${currentIndex + 1}`}
           className="rounded-lg"
           objectFit="contain"
-          src={images[currentIndex]}
+          src={images[currentIndex].url}
         />
       </div>
       <Button

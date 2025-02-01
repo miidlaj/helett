@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { ProductType } from "@/constants/products";
+import { Product } from "@/api/types";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -113,7 +114,7 @@ export const Card = ({
   card,
   layout = false,
 }: {
-  card: ProductType;
+  card: Product;
   index: number;
   layout?: boolean;
 }) => {
@@ -123,18 +124,18 @@ export const Card = ({
       <Link href={`/products/${card.slug}`}>
         <motion.button
           className="rounded-[22px] max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
-          layoutId={layout ? `card-${card.title}` : undefined}
+          layoutId={layout ? `card-${card.name}` : undefined}
         >
           <Image
-            alt={card.title}
+            alt={card.name}
             className="object-contain rounded-[22px] shadow-md hover:scale-105 transform transition duration-200 ease-in-out"
             height="400"
             loading="lazy"
-            src={`${card.src}/${card.thumbnail}`}
+            src={card.thumbnail.url}
             width="400"
           />
           <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
-            {card.title}
+            {card.name}
           </p>
 
           <p className="text-sm text-muted-foreground line-clamp-3">
