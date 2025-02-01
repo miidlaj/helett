@@ -119,9 +119,10 @@ export const Card = ({
 }) => {
   return (
     <>
-      <AnimatePresence>
-        <Link href={`/products/${card.slug}`}>
+      <AnimatePresence key={card.slug}>
+        <Link key={card.slug} href={`/products/${card.slug}`}>
           <motion.button
+            key={card.slug}
             className="rounded-[22px] max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
             layoutId={layout ? `card-${card.name}` : undefined}
           >
