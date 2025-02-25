@@ -102,3 +102,35 @@ export interface ProductQueryParams {
   };
   populate?: string[];
 }
+
+// /types/user.ts
+export interface ApiResponse<T> {
+  jwt?: string;
+  user?: T;
+  message?: any;
+}
+
+export interface User {
+  id: number;
+  username: string;
+  email: string;
+  country?: string;
+  name?: string;
+  mobile?: string;
+  product?: string;
+}
+
+export interface RegisterUserPayload {
+  username: string;
+  email: string;
+  password: string;
+  country?: string;
+  name?: string;
+  mobile?: string;
+  product?: string;
+}
+
+export interface LoginUserPayload {
+  identifier: string;
+  password: string;
+}

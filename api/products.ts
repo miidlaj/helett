@@ -21,7 +21,7 @@ class ProductsApiService {
   }
 
   async fetchProducts(
-    params: ProductQueryParams = {},
+    params: ProductQueryParams = {}
   ): Promise<ApiResponse<Product>> {
     try {
       const queryString = this.buildQueryString(params);
@@ -32,7 +32,7 @@ class ProductsApiService {
             revalidate: 3600,
             tags: ["products"],
           },
-        },
+        }
       );
 
       if (!response.ok) {
@@ -83,13 +83,17 @@ class ProductsApiService {
         if (value !== undefined) {
           if (key === "search") {
             queryParts.push(
-              `filters[$or][0][title][$containsi]=${encodeURIComponent(value)}`,
+              `filters[$or][0][title][$containsi]=${encodeURIComponent(value)}`
             );
             queryParts.push(
-              `filters[$or][1][description][$containsi]=${encodeURIComponent(value)}`,
+              `filters[$or][1][description][$containsi]=${encodeURIComponent(
+                value
+              )}`
             );
             queryParts.push(
-              `filters[$or][2][short_description][$containsi]=${encodeURIComponent(value)}`,
+              `filters[$or][2][short_description][$containsi]=${encodeURIComponent(
+                value
+              )}`
             );
           } else if (Array.isArray(value)) {
             value.forEach((v) => {

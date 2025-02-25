@@ -1,63 +1,55 @@
-import { ChevronDown } from "lucide-react";
-import React from "react";
+"use client";
 
 import { Heading } from "./Heading";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
 
 const questions = [
   {
-    id: 1,
-    question: "Lorem ipsum dolor sit amet?",
+    id: "item-1",
+    question: "What type of products does Helett sell?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Helett specializes in consumer electronics and commercial electronic products, including thermal receipt printers, barcode scanners, label printers, digital door locks and more.",
   },
   {
-    id: 2,
-    question: "Lorem ipsum dolor sit amet?",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    id: "item-2",
+    question: "Where can I buy Helett products?",
+    answer: "You can purchase Helett products from Amazon India.",
   },
   {
-    id: 3,
-    question: "Lorem ipsum dolor sit amet?",
+    id: "item-3",
+    question: "Do Helett products come with a warranty?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Yes, all Helett products come with a 1-year warranty unless otherwise specified.",
+  },
+  {
+    id: "item-4",
+    question: "How can I contact customer support?",
+    answer:
+      "You can reach our support team at [Phone: +91 9513784194] or email us at [care.helett@gmail.com].",
   },
 ];
 
 function FrequentQuestions() {
   return (
-    <div className="h-screen md:mx-52 my-auto text-black dark:text-white">
-      <Heading className="text-center py-10  text-3xl">
-        Frequent Questions
+    <div className="container mx-auto px-4 py-16 max-w-3xl">
+      <Heading className="text-center mb-10 text-3xl font-normal">
+        Frequently Asked Questions
       </Heading>
-      <div>
+      <Accordion collapsible className="w-full" type="single">
         {questions.map(({ id, question, answer }) => (
-          <div
-            key={id}
-            className="group flex flex-col gap-2 rounded-lg p-5"
-            tabIndex={id}
-          >
-            <div className="flex cursor-pointer items-center justify-between">
-              <span className="text-xl">{question}</span>
-
-              <ChevronDown
-                className="transition-all dark:block hidden duration-500 group-focus:-rotate-180"
-                color="white"
-                size={20}
-              />
-              <ChevronDown
-                className="transition-all dark:hidden duration-500 group-focus:-rotate-180"
-                color="black"
-                size={20}
-              />
-            </div>
-            <div className="text-[16px] mt-5 font-poppins invisible h-auto max-h-0 items-center opacity-0 transition-all group-focus:visible group-focus:max-h-screen group-focus:opacity-100 group-focus:duration-1000">
-              {answer}
-            </div>
-            <hr className="h-[0.1px] bg-primary mt-5" />
-          </div>
+          <AccordionItem key={id} value={id}>
+            <AccordionTrigger className="text-left">
+              {question}
+            </AccordionTrigger>
+            <AccordionContent>{answer}</AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
     </div>
   );
 }
