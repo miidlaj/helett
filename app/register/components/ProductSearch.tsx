@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 "use client";
-
 import { useState, useCallback, useEffect } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import debounce from "lodash/debounce";
@@ -31,17 +30,18 @@ export function ProductSearch({ onValueChange, value }: ProductSearchProps) {
   const [open, setOpen] = useState(false);
   const [products, setProducts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchProducts = useCallback(
-    debounce(async (searchQuery: string) => {
+    debounce(async (query: string) => {
       setIsLoading(true);
       try {
         const queryParams: any = {
           pagination: { page: 1, pageSize: 5 },
         };
 
-        if (searchQuery.trim() !== "") {
-          queryParams.filters = { search: searchQuery };
+        if (query.trim() !== "") {
+          queryParams.filters = { search: query };
         }
         const response = await productsApi.fetchProducts(queryParams);
 
@@ -61,6 +61,7 @@ export function ProductSearch({ onValueChange, value }: ProductSearchProps) {
   }, [fetchProducts]);
 
   const handleSearch = (query: string) => {
+    setSearchQuery(query);
     fetchProducts(query);
   };
 
@@ -74,7 +75,8 @@ export function ProductSearch({ onValueChange, value }: ProductSearchProps) {
           variant="outline"
         >
           {value
-            ? products.find((product) => product.id === value)?.name
+            ? products.find((product) => product.id.toString() === value)
+                ?.name || "Select product..."
             : "Select product..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -83,6 +85,7 @@ export function ProductSearch({ onValueChange, value }: ProductSearchProps) {
         <Command>
           <CommandInput
             placeholder="Search product..."
+            value={searchQuery}
             onValueChange={handleSearch}
           />
           <CommandList>
@@ -93,17 +96,18 @@ export function ProductSearch({ onValueChange, value }: ProductSearchProps) {
               {products.map((product) => (
                 <CommandItem
                   key={product.id}
-                  onSelect={() => {
-                    onValueChange(
-                      product.id === value ? "" : product.id.toString()
-                    );
+                  value={product.id.toString()}
+                  onSelect={(currentValue) => {
+                    onValueChange(currentValue);
                     setOpen(false);
                   }}
                 >
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === product.id ? "opacity-100" : "opacity-0"
+                      value === product.id.toString()
+                        ? "opacity-100"
+                        : "opacity-0"
                     )}
                   />
                   {product.name}
