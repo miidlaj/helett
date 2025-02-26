@@ -30,11 +30,7 @@ function ProductTypeIcon({
   );
 }
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: { cat: string };
-}) {
+const Page = async ({ params }: { params: { cat: string } }) => {
   const { cat } = await params;
   const steps = ["Identify", "Download", "Install"];
 
@@ -109,4 +105,6 @@ export default async function CategoryPage({
       </div>
     </div>
   );
-}
+};
+
+export default Page;
