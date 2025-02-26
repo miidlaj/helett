@@ -35,7 +35,7 @@ export default async function CategoryPage({
 }: {
   params: { cat: string };
 }) {
-  const { cat } = params;
+  const { cat } = await params;
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
