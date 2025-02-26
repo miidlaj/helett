@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { NextPage } from "next";
 
 import ProgressBar from "../components/ProgressBar";
 import NotFoundWhatYouLookingFor from "../components/NotFound";
@@ -10,8 +11,11 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
 
-const Page = async ({ params }: { params: { cat: string } }) => {
-  const { cat } = await params;
+interface Props {
+  params: { cat: string };
+}
+
+const Page: NextPage<Props> = async ({ params: { cat } }) => {
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
