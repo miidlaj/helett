@@ -11,11 +11,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
 
-interface Props {
-  params: { cat: string };
-}
-
-const Page: NextPage<Props> = async ({ params: { cat } }) => {
+export default async function Page({ params }: { params: { cat: string } }) {
+  const { cat } = await params;
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
@@ -89,9 +86,7 @@ const Page: NextPage<Props> = async ({ params: { cat } }) => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}
 
 function ProductTypeIcon({
   img,
