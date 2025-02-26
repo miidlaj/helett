@@ -10,15 +10,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import ProgressBar from "@/app/drivers/components/ProgressBar";
 import { productsApi } from "@/api/products";
 
-export default async function DownloadConfirmation({
-  params,
-}: {
-  params: { product_slug: string; os: string };
-}) {
-  const steps = ["Identify", "Download", "Install"];
-  const { product_slug, os } = params;
+type tParams = Promise<{ product_slug: string[]; os: string[] }>;
 
-  const product = await productsApi.fetchProductBySlug(product_slug);
+export default async function Page(props: { params: tParams }) {
+  const { os, product_slug } = await props.params;
+  const productSlug = product_slug[1];
+  const OS = os[1];
+
+  const steps = ["Identify", "Download", "Install"];
+
+  const product = await productsApi.fetchProductBySlug(productSlug);
 
   if (!product) {
     notFound();
@@ -36,7 +37,7 @@ export default async function DownloadConfirmation({
           <p className="mb-4">
             Next, you&apos;ll need to install your downloaded files for {os}...
           </p>
-          <InstallationSteps os={os} />
+          <InstallationSteps os={OS} />
           <p className="text-sm text-gray-600 mt-4">
             We recommend restarting your computer after installation.
           </p>
