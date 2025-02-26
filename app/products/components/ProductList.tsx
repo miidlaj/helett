@@ -2,7 +2,6 @@
 
 import React, { Suspense, useEffect, useState, useCallback } from "react";
 import { Trash } from "lucide-react";
-import { Input } from "@heroui/input";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 
@@ -24,6 +23,7 @@ import {
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
 import { brandsApi } from "@/api/brands";
+import { Input } from "@/components/ui/input";
 
 // Custom hook for debouncing
 const useDebounce = <T,>(value: T, delay: number): T => {
@@ -67,8 +67,9 @@ function ProductList() {
     setLoading(true);
     try {
       const queryParams: ProductQueryParams = { filters };
-      const response: ApiResponse<Product> =
-        await productsApi.fetchProducts(queryParams);
+      const response: ApiResponse<Product> = await productsApi.fetchProducts(
+        queryParams
+      );
 
       setProductData(response.data || []);
     } catch (error) {

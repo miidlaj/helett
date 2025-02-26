@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 
 import { Providers } from "./providers";
 import Document from "./_document";
+import { inter, poppins } from "./fonts";
 
 import { fontPoppins } from "@/config/fonts";
 import Navbar from "@/components/ui/navbar";
@@ -23,7 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning className="light" lang="en">
+    <html
+      suppressHydrationWarning
+      className={`light ${inter.variable} ${poppins.variable}`}
+      lang="en"
+    >
       <head />
       <body
         className={clsx(

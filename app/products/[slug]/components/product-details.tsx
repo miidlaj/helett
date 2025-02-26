@@ -1,17 +1,17 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Youtube, Tags } from "lucide-react";
+import { Tags, Youtube } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Product } from "@/api/types";
+import { Badge } from "@/components/ui/badge";
 import { FeaturesSection } from "@/components/ui/bento-grid";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { LinkPreview } from "@/components/ui/link-preview";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 function ProductPage({ product }: { product: Product }) {
   const [currentImage, setCurrentImage] = useState(product.thumbnail.url);
@@ -263,7 +263,9 @@ function ProductPage({ product }: { product: Product }) {
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           className="border-0"
                           height="100%"
-                          src={`https://www.youtube.com/embed/${extractYouTubeID(tutorial.link)}`}
+                          src={`https://www.youtube.com/embed/${extractYouTubeID(
+                            tutorial.link
+                          )}`}
                           title={tutorial.link}
                           width="100%"
                         />
