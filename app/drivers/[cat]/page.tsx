@@ -31,7 +31,7 @@ function ProductTypeIcon({
 }
 
 const Page = async ({ params }: { params: { cat: string } }) => {
-  const { cat } = await params;
+  const { cat } = params;
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
