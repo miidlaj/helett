@@ -30,14 +30,12 @@ function ProductTypeIcon({
   );
 }
 
-export default async function Component({
+export default async function CategoryPage({
   params,
 }: {
-  params: {
-    cat: string;
-  };
+  params: { cat: string };
 }) {
-  const cat = params.cat;
+  const { cat } = params;
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
