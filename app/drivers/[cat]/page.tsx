@@ -10,28 +10,8 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
 
-function ProductTypeIcon({
-  img,
-  selected,
-}: {
-  img: string;
-  selected: boolean;
-}) {
-  return (
-    <div
-      className={`p-2 rounded-full ${selected ? "bg-blue-500" : "bg-gray-200"}`}
-    >
-      <img
-        alt="Cateogry Icon"
-        className={`w-6 h-6 ${selected ? "text-white" : "text-gray-600"}`}
-        src={img}
-      />
-    </div>
-  );
-}
-
 const Page = async ({ params }: { params: { cat: string } }) => {
-  const { cat } = params;
+  const { cat } = await params;
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
@@ -108,3 +88,23 @@ const Page = async ({ params }: { params: { cat: string } }) => {
 };
 
 export default Page;
+
+function ProductTypeIcon({
+  img,
+  selected,
+}: {
+  img: string;
+  selected: boolean;
+}) {
+  return (
+    <div
+      className={`p-2 rounded-full ${selected ? "bg-blue-500" : "bg-gray-200"}`}
+    >
+      <img
+        alt="Cateogry Icon"
+        className={`w-6 h-6 ${selected ? "text-white" : "text-gray-600"}`}
+        src={img}
+      />
+    </div>
+  );
+}
