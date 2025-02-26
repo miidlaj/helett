@@ -11,14 +11,18 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
 
-export default async function Page({ params }: { params: { cat: string } }) {
-  const { cat } = await params;
+type tParams = Promise<{ cat: string[] }>;
+
+export default async function Page(props: { params: tParams }) {
+  const { cat } = await props.params;
+  const category = cat[1];
+
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
   const products = (
     await productsApi.fetchProducts({
-      filters: { category: categories.find((x) => x.slug === cat)?.id },
+      filters: { category: categories.find((x) => x.slug === category)?.id },
     })
   ).data;
 
@@ -43,7 +47,7 @@ export default async function Page({ params }: { params: { cat: string } }) {
                 <ProductTypeIcon
                   key={catergoy.id}
                   img={catergoy.image?.url}
-                  selected={catergoy.slug === cat}
+                  selected={catergoy.slug === category}
                 />
               </Link>
             ))}
