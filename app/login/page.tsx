@@ -9,10 +9,10 @@ type LoginPageProps = {
   };
 };
 
-export default async function LoginPage({ searchParams }: LoginPageProps) {
-  const { email_verification } = await searchParams;
+export default function LoginPage({ searchParams }: LoginPageProps) {
+  const { email_verification } = searchParams;
   const emailVerified = email_verification === "true";
-  
+
   return (
     <div className="container mx-auto py-10">
       <Suspense fallback={<div>Loading...</div>}>
