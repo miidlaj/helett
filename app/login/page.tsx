@@ -3,14 +3,15 @@ import { Suspense } from "react";
 import LoginForm from "./components/LoginForm";
 
 type LoginPageProps = {
-  searchParams: {
+  searchParams: Promise<{
     email_verification?: string;
     [key: string]: string | string[] | undefined;
-  };
+  }>;
 };
 
-export default function LoginPage({ searchParams }: LoginPageProps) {
-  const { email_verification } = searchParams;
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const { email_verification } = resolvedSearchParams;
   const emailVerified = email_verification === "true";
 
   return (
