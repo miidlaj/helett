@@ -7,15 +7,12 @@ import DriverSelector from "./components/DriverSelector";
 import ProgressBar from "@/app/drivers/components/ProgressBar";
 import { productsApi } from "@/api/products";
 
-type tParams = Promise<{ slug: string[] }>;
+type tParams = Promise<{ slug: string }>;
 
 export default async function Page(props: { params: tParams }) {
   const { slug } = await props.params;
-  const productSlug = slug[1];
-
   const steps = ["Identify", "Download", "Install"];
-
-  const product = await productsApi.fetchProductBySlug(productSlug);
+  const product = await productsApi.fetchProductBySlug(slug);
 
   return (
     <div className="container mx-auto px-4">
@@ -52,7 +49,7 @@ export default async function Page(props: { params: tParams }) {
               Choose a different product
             </Link>
           </div>
-          <DriverSelector drivers={product?.drivers} />
+          <DriverSelector product={product} />
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import Logo from "./common/logo";
 import { HeroCarousel } from "./hero-carousel";
 
@@ -67,29 +69,33 @@ const CarouselSlideContent = ({
       </div>
 
       <div className="flex items-center space-x-4">
-        <button className="bg-black hover-scale text-white py-2 px-4 rounded-full focus:outline-none">
-          Buy
-        </button>
+        <Link href="/products">
+          <button className="bg-black hover-scale text-white py-2 px-4 rounded-full focus:outline-none">
+            Buy
+          </button>
+        </Link>
 
-        <div className="flex items-center text-gray-800 transition-transform duration-200 group cursor-pointer">
-          Learn More
-          <svg
-            className="ml-1 transition-transform duration-200 transform group-hover:translate-x-1"
-            fill="none"
-            height="1em"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9 5l7 7-7 7"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
+        <Link href="/products">
+          <div className="flex items-center text-gray-800 transition-transform duration-200 group cursor-pointer">
+            Learn More
+            <svg
+              className="ml-1 transition-transform duration-200 transform group-hover:translate-x-1"
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+        </Link>
       </div>
     </div>
   );

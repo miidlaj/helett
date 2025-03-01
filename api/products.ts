@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ProductQueryParams, ApiResponse, Product } from "./types";
 
 class ProductsApiService {

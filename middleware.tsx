@@ -9,9 +9,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
+  if (token && ["/login", "/register"].includes(request.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL("/drivers", request.url));
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: "/drivers/:path*",
+  matcher: ["/drivers/:path*", "/login", "/register"],
 };

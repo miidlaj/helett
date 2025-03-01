@@ -105,9 +105,7 @@ export function ProductSearch({ onValueChange, value }: ProductSearchProps) {
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === product.id.toString()
-                        ? "opacity-100"
-                        : "opacity-0"
+                      value === product.id ? "opacity-100" : "opacity-0"
                     )}
                   />
                   {product.name}

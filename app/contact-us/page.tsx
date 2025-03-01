@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/ace-ui/input";
 export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
   };
 
   return (

@@ -1,13 +1,17 @@
+/* eslint-disable no-console */
 "use client";
-import React, { useEffect, useState } from "react";
+import type { Category, Product } from "@/api/types";
+
+import { useEffect, useState } from "react";
 
 import { Card, Carousel } from "./ui/apple-cards-carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Heading } from "./Heading";
+import { EmptyState } from "./empty-state";
 
-import { Category, Product } from "@/api/types";
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
+
 
 export function FeaturedProducts() {
   const [cardData, setCardData] = useState<Product[]>([]);
@@ -15,6 +19,7 @@ export function FeaturedProducts() {
   const [selectedTab, setSelectedTab] = useState<string>(
     categories[0]?.id.toString() || ""
   );
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (selectedTab) {
@@ -36,13 +41,15 @@ export function FeaturedProducts() {
       console.error("Error fetching categories:", error);
     }
   };
+
   const fetchProducts = async () => {
+    setIsLoading(true);
     try {
       let response;
 
       if (selectedTab) {
         response = await productsApi.fetchProducts({
-          filters: { category: selectedTab },
+          filters: { category: selectedTab, featured: true },
         });
       } else {
         response = await productsApi.fetchProducts();
@@ -50,12 +57,27 @@ export function FeaturedProducts() {
       setCardData(response.data);
     } catch (error) {
       console.error("Error fetching products:", error);
+      setCardData([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const cards = cardData.map((card, index) => (
     <Card key={card.id} layout card={card} index={index} />
   ));
+
+  const renderContent = () => {
+    if (isLoading) {
+      return <div className="py-20 text-center">Loading products...</div>;
+    }
+
+    if (cardData.length === 0) {
+      return <EmptyState />;
+    }
+
+    return <Carousel items={cards} />;
+  };
 
   return (
     <div className="w-full h-full py-20 max-w-full overflow-hidden">
@@ -76,12 +98,10 @@ export function FeaturedProducts() {
           ))}
         </TabsList>
 
-        <TabsContent value={""}>
-          <Carousel items={cards} />
-        </TabsContent>
+        <TabsContent value={""}>{renderContent()}</TabsContent>
         {categories.map((cat) => (
           <TabsContent key={cat.id} value={cat.id.toString()}>
-            <Carousel items={cards} />
+            {renderContent()}
           </TabsContent>
         ))}
       </Tabs>

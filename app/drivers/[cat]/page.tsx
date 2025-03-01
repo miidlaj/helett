@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { NextPage } from "next";
 
 import ProgressBar from "../components/ProgressBar";
 import NotFoundWhatYouLookingFor from "../components/NotFound";
@@ -11,18 +10,17 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { productsApi } from "@/api/products";
 import { categoriesApi } from "@/api/categories";
 
-type tParams = Promise<{ cat: string[] }>;
+type tParams = Promise<{ cat: string }>;
 
 export default async function Page(props: { params: tParams }) {
   const { cat } = await props.params;
-  const category = cat[1];
 
   const steps = ["Identify", "Download", "Install"];
 
   const categories = (await categoriesApi.fetchAllCategories()).data;
   const products = (
     await productsApi.fetchProducts({
-      filters: { category: categories.find((x) => x.slug === category)?.id },
+      filters: { category: categories.find((x) => x.slug === cat)?.id },
     })
   ).data;
 
@@ -47,7 +45,7 @@ export default async function Page(props: { params: tParams }) {
                 <ProductTypeIcon
                   key={catergoy.id}
                   img={catergoy.image?.url}
-                  selected={catergoy.slug === category}
+                  selected={catergoy.slug === cat}
                 />
               </Link>
             ))}

@@ -2,7 +2,7 @@
 
 import type { LoginUserPayload } from "@/api/types";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -39,7 +39,10 @@ const formSchema = z.object({
   }),
 });
 
-export default function LoginForm() {
+interface LoginFormProps {
+  emailVerified: boolean;
+}
+export default function LoginForm({ emailVerified }: LoginFormProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,6 +53,14 @@ export default function LoginForm() {
       password: "",
     },
   });
+
+  useEffect(() => {
+    if (emailVerified) {
+      toast.success("Email verified successfully!", {
+        description: "Please login to continue.",
+      });
+    }
+  }, [emailVerified]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);

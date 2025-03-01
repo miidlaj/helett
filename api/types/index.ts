@@ -127,7 +127,7 @@ export interface RegisterUserPayload {
   country?: string;
   name?: string;
   mobile?: string;
-  product?: string;
+  product?: any;
 }
 
 export interface LoginUserPayload {

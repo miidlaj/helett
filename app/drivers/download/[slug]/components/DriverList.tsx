@@ -1,5 +1,5 @@
 import type React from "react";
-import type { ProductDriver } from "@/api/types";
+import type { Product } from "@/api/types";
 import type { OSType } from "./OSDetector";
 
 import { Download } from "lucide-react";
@@ -8,11 +8,13 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 interface DriverListProps {
-  drivers: ProductDriver[] | undefined;
+  product: Product | null;
   selectedOS: OSType;
 }
 
-const DriverList: React.FC<DriverListProps> = ({ drivers, selectedOS }) => {
+const DriverList: React.FC<DriverListProps> = ({ product, selectedOS }) => {
+  const drivers = product?.drivers;
+
   const getOSKey = (os: OSType): "WINDOWS" | "MAC" | "LINUX" | "UNKNOWN" => {
     switch (os) {
       case "Windows":
@@ -27,13 +29,15 @@ const DriverList: React.FC<DriverListProps> = ({ drivers, selectedOS }) => {
   };
 
   const filteredDrivers = drivers?.filter(
-    (driver) => driver.OS === getOSKey(selectedOS),
+    (driver) => driver.OS === getOSKey(selectedOS)
   );
 
   const router = useRouter();
   const handleDownload = (link: string) => {
     window.open(link, "_blank");
-    router.push("/drivers/download/confirm");
+    router.push(
+      "/drivers/download/confirm/" + product?.slug + "/" + selectedOS
+    );
   };
 
   if (!drivers || drivers.length === 0) {

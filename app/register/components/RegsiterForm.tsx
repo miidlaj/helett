@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "sonner";
+import Link from "next/link";
 
 import { CountrySelect } from "./CountrySelect";
 import { ProductSearch } from "./ProductSearch";
@@ -81,24 +82,30 @@ export default function RegisterForm() {
       };
       const registerData = await userApi.registerUser(registrationPayload);
 
-      if (registerData.jwt && registerData.user?.id) {
-        localStorage.setItem("jwt", registerData.jwt);
-
+      if (registerData.user?.id) {
         const profileUpdatePayload = {
           country: values.country,
           name: values.name,
           mobile: values.mobile,
-          product: values.product,
+          product: parseInt(values.product),
         };
 
         await userApi.updateUserProfile(
           registerData.user.id,
-          profileUpdatePayload,
-          registerData.jwt
+          profileUpdatePayload
         );
-
         toast.success("Registration successful!", {
-          description: "You will be redirected to the login page.",
+          description:
+            "You will get a verification mail. Please verify your email address to login.",
+          action: (
+            <Link
+              href="https://mail.google.com/mail/u/0/#inbox"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Button variant="link">Open Gmail</Button>
+            </Link>
+          ),
         });
 
         setTimeout(() => {

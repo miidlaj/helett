@@ -8,14 +8,13 @@ import { TextHoverEffect } from "./ui/text-hover-effect";
 const Footer = () => {
   const links = [
     { name: "Home", href: "/" },
-    { name: "About us", href: "/about" },
-    { name: "Category", href: "/category" },
-    { name: "Store", href: "/store" },
+    { name: "Shop", href: "/products" },
+    { name: "Warranty", href: "/warranty" },
     { name: "Contact us", href: "/contact-us" },
   ];
 
   const socialIcons = [
-    { icon: Mail, href: "mailto:hello@mail.com", label: "send mail" },
+    { icon: Mail, href: "mailto:heletteditor@gmail.com", label: "Send mail" },
     { icon: Facebook, href: "#", label: "facebook" },
     { icon: Instagram, href: "#", label: "instagram" },
   ];

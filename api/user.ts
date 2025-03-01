@@ -11,8 +11,7 @@ class UserApiService {
   private readonly baseUrl: string;
 
   private constructor() {
-    this.baseUrl =
-      process.env.NEXT_PUBLIC_API_URL || "https://helett-admin.onrender.com";
+    this.baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
   }
 
   public static getInstance(): UserApiService {
@@ -62,9 +61,7 @@ class UserApiService {
       if (!response.ok) {
         const errorData = await response.json();
 
-        throw new Error(
-          errorData.message?.[0]?.messages?.[0]?.message || "Login failed"
-        );
+        throw new Error(errorData.error?.message || "Login failed");
       }
 
       return await response.json();
@@ -76,15 +73,14 @@ class UserApiService {
 
   async updateUserProfile(
     userId: number,
-    profileData: Partial<RegisterUserPayload>,
-    jwt: string
+    profileData: Partial<RegisterUserPayload>
   ): Promise<ApiResponse<User>> {
     try {
       const response = await fetch(`${this.baseUrl}/api/users/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${jwt}`,
+          // Authorization: `Bearer ${jwt}`,
         },
         body: JSON.stringify(profileData),
       });
