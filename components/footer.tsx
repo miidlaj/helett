@@ -9,6 +9,7 @@ const Footer = () => {
   const links = [
     { name: "Home", href: "/" },
     { name: "Shop", href: "/products" },
+    { name: "Drivers", href: "/drivers" },
     { name: "Warranty", href: "/warranty" },
     { name: "Contact us", href: "/contact-us" },
   ];
