@@ -11,7 +11,8 @@ class UserApiService {
   private readonly baseUrl: string;
 
   private constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
+    this.baseUrl =
+      process.env.NEXT_PUBLIC_API_URL || "https://helett-admin.onrender.com";
   }
 
   public static getInstance(): UserApiService {
