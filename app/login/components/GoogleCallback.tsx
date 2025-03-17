@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
+
 import { ProfileCompletionModal } from "./ProfileCompleteModal";
+import { userApi } from "@/api/user";
 
 export default function GoogleCallback() {
   const router = useRouter();
@@ -16,6 +18,7 @@ export default function GoogleCallback() {
     const handleCallback = async () => {
       // Get the access_token and any error from URL params
       const accessToken = searchParams.get("access_token");
+      const idToken = searchParams.get("id_token");
       const error = searchParams.get("error");
 
       if (error) {
@@ -23,28 +26,22 @@ export default function GoogleCallback() {
           description: error,
         });
         router.push("/login");
+
         return;
       }
 
-      if (!accessToken) {
+      if (!accessToken || !idToken) {
         toast.error("Authentication failed", {
           description: "No access token received",
         });
         router.push("/login");
+
         return;
       }
 
       try {
-        // Exchange the access token for a JWT from Strapi
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/google/callback`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/google/callback${location.search}`
         );
 
         const data = await response.json();
@@ -62,8 +59,8 @@ export default function GoogleCallback() {
           body: JSON.stringify({ token: data.jwt }),
         });
 
-        // Check if this is a new user
-        if (data.user && (!data.user.username || !data.user.phone)) {
+        localStorage.setItem("user", JSON.stringify(data));
+        if (data.user && !data.user.phone) {
           setIsNewUser(true);
           setShowProfileModal(true);
         } else {
@@ -83,29 +80,19 @@ export default function GoogleCallback() {
   }, [searchParams, router]);
 
   const handleProfileComplete = async (profileData: {
-    username: string;
+    product: string;
     country?: string;
     phone: string;
   }) => {
     try {
-      // Update user profile
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/users/me`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            // We need to include the JWT token here, but we don't have direct access to it
-            // from the HTTP-only cookie, so we'll need to create a server endpoint for this
-          },
-          credentials: "include", // This will send the cookies
-          body: JSON.stringify(profileData),
-        }
-      );
+      const userId = JSON.parse(localStorage.getItem("user") || "")?.user.id;
+      const profileUpdatePayload = {
+        country: profileData.country,
+        mobile: profileData.phone,
+        product: parseInt(profileData.product),
+      };
 
-      if (!response.ok) {
-        throw new Error("Failed to update profile");
-      }
+      await userApi.updateUserProfile(userId, profileUpdatePayload);
 
       setShowProfileModal(false);
       toast.success("Profile updated successfully!");
@@ -121,9 +108,9 @@ export default function GoogleCallback() {
     <div className="flex min-h-screen items-center justify-center">
       {showProfileModal ? (
         <ProfileCompletionModal
+          isNewUser={isNewUser}
           isOpen={showProfileModal}
           onComplete={handleProfileComplete}
-          isNewUser={isNewUser}
         />
       ) : (
         <div className="flex flex-col items-center justify-center gap-4">

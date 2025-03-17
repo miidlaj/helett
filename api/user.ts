@@ -12,7 +12,7 @@ class UserApiService {
 
   private constructor() {
     this.baseUrl =
-      process.env.NEXT_PUBLIC_API_URL || "https://helett-admin.onrender.com";
+      process.env.NEXT_PUBLIC_STRAPI_URL || "https://helett-admin.onrender.com";
   }
 
   public static getInstance(): UserApiService {

@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
 
 import {
   Dialog,
@@ -24,11 +25,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { ProductSearch } from "@/app/register/components/ProductSearch";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  product: z.string().min(1, {
+    message: "Please select a product.",
   }),
   country: z.string().optional(),
   phone: z.string().min(5, {
@@ -52,33 +53,20 @@ export function ProfileCompletionModal({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
       country: "",
       phone: "",
+      product: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      // First update the profile through our server endpoint
-      const response = await fetch("/api/user/profile", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || "Failed to update profile");
-      }
-
       onComplete(values);
     } catch (error: any) {
       toast.error("Profile update failed", {
-        description: error.message || "An error occurred during profile update.",
+        description:
+          error.message || "An error occurred during profile update.",
       });
     } finally {
       setIsSubmitting(false);
@@ -97,20 +85,7 @@ export function ProfileCompletionModal({
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="username"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Username</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your username" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+          <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
               name="phone"
@@ -133,14 +108,28 @@ export function ProfileCompletionModal({
                   <FormControl>
                     <Input placeholder="Your country" {...field} />
                   </FormControl>
-                  <FormDescription>
-                    This field is optional.
-                  </FormDescription>
+                  <FormDescription>This field is optional.</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isSubmitting} className="w-full">
+            <FormField
+              control={form.control}
+              name="product"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Preferred Product</FormLabel>
+                  <FormControl>
+                    <ProductSearch
+                      value={field.value}
+                      onValueChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button className="w-full" disabled={isSubmitting} type="submit">
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
