@@ -6,8 +6,7 @@ class CategoriesApiService {
   private readonly baseUrl: string;
 
   private constructor() {
-    this.baseUrl =
-      process.env.NEXT_PUBLIC_STRAPI_URL || "https://helett-admin.onrender.com";
+    this.baseUrl = this.baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
   }
 
   public static getInstance(): CategoriesApiService {
@@ -22,7 +21,7 @@ class CategoriesApiService {
     try {
       const queryString = this.buildQueryString();
       const response = await fetch(
-        `${this.baseUrl}/api/categories${queryString}`,
+        `${this.baseUrl}/api/categories${queryString}`
       );
 
       if (!response.ok) {

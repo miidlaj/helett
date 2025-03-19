@@ -11,8 +11,7 @@ class UserApiService {
   private readonly baseUrl: string;
 
   private constructor() {
-    this.baseUrl =
-      process.env.NEXT_PUBLIC_STRAPI_URL || "https://helett-admin.onrender.com";
+    this.baseUrl = this.baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL!;
   }
 
   public static getInstance(): UserApiService {
