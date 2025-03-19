@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import Link from "next/link";
 
 import { CountrySelect } from "./CountrySelect";
-import { ProductSearch } from "./ProductSearch";
+import { ProductSearch } from "../../login/components/ProductSearch";
 
 import { Button } from "@/components/ui/button";
 import {

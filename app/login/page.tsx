@@ -15,7 +15,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   const emailVerified = email_verification === "true";
 
   return (
-    <div className="container mx-auto py-10">
+    <div>
       <Suspense fallback={<div>Loading...</div>}>
         <LoginForm emailVerified={emailVerified} />
       </Suspense>

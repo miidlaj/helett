@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { ProductSearch } from "@/app/register/components/ProductSearch";
+import { ProductSearch } from "@/app/login/components/ProductSearch";
 
 const formSchema = z.object({
   product: z.string().min(1, {

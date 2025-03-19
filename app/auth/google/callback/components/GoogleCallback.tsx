@@ -5,7 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
-import { ProfileCompletionModal } from "./ProfileCompleteModal";
+import { ProfileCompletionModal } from "../../../../login/components/ProfileCompleteModal";
+
 import { userApi } from "@/api/user";
 
 export default function GoogleCallback() {
@@ -16,7 +17,6 @@ export default function GoogleCallback() {
 
   useEffect(() => {
     const handleCallback = async () => {
-      // Get the access_token and any error from URL params
       const accessToken = searchParams.get("access_token");
       const idToken = searchParams.get("id_token");
       const error = searchParams.get("error");
@@ -50,7 +50,6 @@ export default function GoogleCallback() {
           throw new Error("Failed to get JWT token");
         }
 
-        // Store the JWT in an HTTP-only cookie
         await fetch("/api/auth/login", {
           method: "POST",
           headers: {

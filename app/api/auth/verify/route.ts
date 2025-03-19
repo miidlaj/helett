@@ -9,7 +9,5 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Here you would typically verify the token with your authentication service
-  // For this example, we'll just check if it exists
   return NextResponse.json({ valid: true });
 }
