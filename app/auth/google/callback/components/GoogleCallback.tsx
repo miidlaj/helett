@@ -25,7 +25,7 @@ export default function GoogleCallback() {
         toast.error("Authentication failed", {
           description: error,
         });
-        router.push("/login");
+        router.replace("/login");
 
         return;
       }
@@ -34,7 +34,7 @@ export default function GoogleCallback() {
         toast.error("Authentication failed", {
           description: "No access token received",
         });
-        router.push("/login");
+        router.replace("/login");
 
         return;
       }
@@ -59,19 +59,19 @@ export default function GoogleCallback() {
         });
 
         localStorage.setItem("user", JSON.stringify(data));
-        if (data.user && !data.user.phone) {
+        if (data.user && !data.user.mobile) {
           setIsNewUser(true);
           setShowProfileModal(true);
         } else {
           toast.success("Login successful!");
-          router.push("/drivers");
+          router.replace("/drivers");
         }
       } catch (error: any) {
         toast.error("Authentication failed", {
           description:
             error.message || "An error occurred during authentication",
         });
-        router.push("/login");
+        router.replace("/login");
       }
     };
 

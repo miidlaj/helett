@@ -1,12 +1,17 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import GoogleCallback from "./components/GoogleCallback";
 
 export const metadata: Metadata = {
-  title: "Google Authentication | Your App Name",
+  title: "Google Authentication | Helett",
   description: "Processing Google authentication",
 };
 
 export default function GoogleCallbackPage() {
-  return <GoogleCallback />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <GoogleCallback />
+    </Suspense>
+  );
 }
