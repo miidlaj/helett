@@ -189,7 +189,7 @@ function ProductPage({ product }: { product: Product }) {
                   initial={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
                 >
-                  {product.wide_images.map((img, idx) => (
+                  {product.wide_images?.map((img, idx) => (
                     <Card key={idx}>
                       <CardContent className="p-6">
                         <div className="aspect-[16/9] rounded-lg overflow-hidden bg-white">

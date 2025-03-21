@@ -134,7 +134,7 @@ export const ProductItem = ({
   return (
     <Link
       className={cn(
-        "flex space-x-2 hover-scale",
+        "flex items-center justify-center space-x-2 hover-scale",
         description ? "flex-row" : "flex-col",
       )}
       href={href}
