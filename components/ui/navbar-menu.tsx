@@ -111,7 +111,7 @@ export const Menu = ({
     <nav
       className={cn(
         "relative bg-white dark:bg-black border-b border-neutral-200  flex justify-start gap-10 px-8 z-50 top-0",
-        className,
+        className
       )}
       onMouseLeave={() => setActive(null)}
     >
@@ -135,7 +135,7 @@ export const ProductItem = ({
     <Link
       className={cn(
         "flex items-center justify-center space-x-2 hover-scale",
-        description ? "flex-row" : "flex-col",
+        description ? "flex-row" : "flex-col"
       )}
       href={href}
     >

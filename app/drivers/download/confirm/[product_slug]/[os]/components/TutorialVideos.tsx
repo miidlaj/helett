@@ -22,7 +22,9 @@ const TutorialVideos: React.FC<TutorialVideosProps> = ({ tutorials }) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               className="w-full h-full"
               frameBorder="0"
-              src={`https://www.youtube.com/embed/${getYouTubeId(tutorial.link)}`}
+              src={`https://www.youtube.com/embed/${getYouTubeId(
+                tutorial.link
+              )}`}
               title={tutorial.link}
             />
           </div>
@@ -34,7 +36,7 @@ const TutorialVideos: React.FC<TutorialVideosProps> = ({ tutorials }) => {
 
 function getYouTubeId(url: string) {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
+  const match = url?.match(regExp);
 
   return match && match[2].length === 11 ? match[2] : null;
 }
