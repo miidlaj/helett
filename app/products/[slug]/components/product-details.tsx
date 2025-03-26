@@ -144,9 +144,6 @@ function ProductPage({ product }: { product: Product }) {
                             src={product.brand.image.url}
                             width={60}
                           />
-                          <h3 className="text-xl font-semibold ml-4">
-                            {product.brand.name}
-                          </h3>
                         </div>
                         <p className="text-gray-600 flex-grow">
                           {product.brand.description}
