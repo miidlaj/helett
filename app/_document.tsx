@@ -53,7 +53,6 @@ const Document = () => {
     
     removeBranding();
     var tick = 500;
-    console.log("Hi");
     setInterval(removeBranding, tick);
   `}
       </Script>
