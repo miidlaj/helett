@@ -131,7 +131,7 @@ export const Card = ({
               className="object-contain rounded-[22px] shadow-md hover:scale-105 transform transition duration-200 ease-in-out"
               height="400"
               loading="lazy"
-              src={card.thumbnail.url}
+              src={card?.thumbnail?.url}
               width="400"
             />
             <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
