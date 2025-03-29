@@ -121,10 +121,11 @@ export default function Navbar({ className }: { className?: string }) {
                   noChild={noChild}
                   setActive={setActive}
                 >
-                  <div className="text-sm flex flex-wrap py-20 justify-center gap-16 p-4 h-80">
+                  <div className="text-sm flex flex-wrap py-20 justify-center items-baseline gap-16 p-4 h-80">
                     {products.map((prod, idx) => (
                       <ProductItem
                         key={prod.id || idx}
+                        description={prod.category.name}
                         href={`/products/${prod.slug}`}
                         src={prod.thumbnail.url}
                         title={prod.name}
