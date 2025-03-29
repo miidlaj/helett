@@ -28,10 +28,7 @@ class ProductsApiService {
       const response = await fetch(
         `${this.baseUrl}/api/products${queryString}`,
         {
-          next: {
-            revalidate: 3600,
-            tags: ["products"],
-          },
+          cache: "no-store",
         }
       );
 
