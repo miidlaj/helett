@@ -14,7 +14,7 @@ import { LinkPreview } from "@/components/ui/link-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 function ProductPage({ product }: { product: Product }) {
-  const [currentImage, setCurrentImage] = useState(product.thumbnail.url);
+  const [currentImage, setCurrentImage] = useState(product.thumbnail?.url);
 
   const extractYouTubeID = (url: string) => {
     const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&?\/]+)/);
@@ -44,20 +44,23 @@ function ProductPage({ product }: { product: Product }) {
               />
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {[product.thumbnail, ...product.images].map((img, idx) => (
+              {[
+                ...(product?.thumbnail ? [product.thumbnail] : []),
+                ...(Array.isArray(product?.images) ? product.images : []),
+              ].map((img, idx) => (
                 <motion.div
                   key={idx}
                   className={`aspect-square rounded-lg overflow-hidden bg-white p-2 cursor-pointer border ${
-                    currentImage.match(img.url) ? "ring-primary ring-2" : ""
+                    currentImage === img?.url ? "ring-primary ring-2" : ""
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setCurrentImage(img.url)}
+                  onClick={() => setCurrentImage(img?.url)}
                 >
                   <img
                     alt=""
                     className="w-full h-full object-contain"
-                    src={img.url}
+                    src={img?.url}
                   />
                 </motion.div>
               ))}
@@ -74,7 +77,7 @@ function ProductPage({ product }: { product: Product }) {
               <div className="flex items-center gap-2 mb-2">
                 <Badge className="text-xs" variant="secondary">
                   <Tags className="w-3 h-3 mr-1" />
-                  {product.category.name}
+                  {product?.category?.name}
                 </Badge>
                 <Badge className="text-xs" variant="default">
                   Featured
@@ -90,9 +93,9 @@ function ProductPage({ product }: { product: Product }) {
               </LinkPreview>
 
               <Image
-                alt={product.brand.name}
+                alt={product.brand?.name}
                 height={100}
-                src={product.brand.image.url}
+                src={product.brand?.image.url}
                 width={100}
               />
 
@@ -139,14 +142,14 @@ function ProductPage({ product }: { product: Product }) {
                       <CardContent className="p-6 flex flex-col h-full">
                         <div className="flex items-center mb-4">
                           <Image
-                            alt={product.brand.name}
+                            alt={product.brand?.name}
                             height={60}
-                            src={product.brand.image.url}
+                            src={product.brand?.image.url}
                             width={60}
                           />
                         </div>
                         <p className="text-gray-600 flex-grow">
-                          {product.brand.description}
+                          {product.brand?.description}
                         </p>
                       </CardContent>
                     </Card>
@@ -161,19 +164,19 @@ function ProductPage({ product }: { product: Product }) {
                       <CardContent className="p-6 flex flex-col h-full">
                         <div className="flex items-center mb-4">
                           <Image
-                            alt={product.category.name}
+                            alt={product.category?.name}
                             height={40}
                             src={
-                              product.category.image.url || "/placeholder.svg"
+                              product.category?.image.url || "/placeholder.svg"
                             }
                             width={40}
                           />
                           <h3 className="text-xl font-semibold ml-4">
-                            {product.category.name}
+                            {product.category?.name}
                           </h3>
                         </div>
                         <p className="text-gray-600 flex-grow">
-                          {product.category.description}
+                          {product.category?.description}
                         </p>
                       </CardContent>
                     </Card>
