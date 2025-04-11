@@ -15,7 +15,7 @@ const Footer = () => {
   ];
 
   const socialIcons = [
-    { icon: Mail, href: "mailto:heletteditor@gmail.com", label: "Send mail" },
+    { icon: Mail, href: "mailto:care.helett@gmail.com", label: "Send mail" },
     { icon: Facebook, href: "#", label: "facebook" },
     { icon: Instagram, href: "#", label: "instagram" },
   ];
