@@ -7,6 +7,8 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { Product } from "@/api/types";
+import { Badge } from "./badge";
+import { Tags } from "lucide-react";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -123,7 +125,7 @@ export const Card = ({
         <Link key={card.slug} href={`/products/${card.slug}`}>
           <motion.button
             key={card.slug}
-            className="rounded-[22px] max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
+            className="rounded-[22px] space-y-2 max-w-sm w-max p-4 sm:p-10 bg-white dark:bg-black  text-left border dark:border-none dark:shadow-sm dark:shadow-white"
             layoutId={layout ? `card-${card.name}` : undefined}
           >
             <Image
@@ -134,16 +136,41 @@ export const Card = ({
               src={card?.thumbnail?.url}
               width="400"
             />
-            <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
-              {card.name}
-            </p>
 
-            <p className="text-sm text-muted-foreground line-clamp-3">
-              {card.description}
-            </p>
-            <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-bold bg-primary">
-              <span>Details </span>
-              <span className="bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white" />
+            <div className="space-y-3">
+              <div className="space-y-1">
+                <p className="text-base sm:text-xl mt-4 mb-2 card-foreground">
+                  {card.name}
+                </p>
+
+                <Badge className="text-xs" variant="secondary">
+                  <Tags className="w-3 h-3 mr-1" />
+                  {card?.category?.name}
+                </Badge>
+              </div>
+
+              <p className="text-sm text-muted-foreground line-clamp-3">
+                {card.description}
+              </p>
+            </div>
+
+            <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 mt-4 text-xs font-medium bg-primary">
+              <span>View </span>
+              <svg
+                fill="none"
+                height="16"
+                viewBox="0 0 24 24"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.75 8.75L14.25 12L10.75 15.25"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
             </button>
           </motion.button>
         </Link>

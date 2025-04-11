@@ -70,9 +70,9 @@ const dummyContent = [
             Contact Helett Customer Support at{" "}
             <a
               className="text-blue-600 underline"
-              href="mailto:support@helett.in"
+              href="mailto:care.helett@gmail.com"
             >
-              support@helett.in
+              care.helett@gmail.com
             </a>{" "}
             or call us at [Customer Service Phone Number].
           </li>
@@ -103,9 +103,9 @@ const dummyContent = [
             <strong>Email:</strong>{" "}
             <a
               className="text-blue-600 underline"
-              href="mailto:support@helett.in"
+              href="mailto:care.helett@gmail.com"
             >
-              support@helett.in
+              care.helett@gmail.com
             </a>
           </li>
           <li>
