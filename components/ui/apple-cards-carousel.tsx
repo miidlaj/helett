@@ -4,11 +4,12 @@ import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
+import { Tags } from "lucide-react";
+
+import { Badge } from "./badge";
 
 import { cn } from "@/lib/utils";
 import { Product } from "@/api/types";
-import { Badge } from "./badge";
-import { Tags } from "lucide-react";
 
 interface CarouselProps {
   items: JSX.Element[];
