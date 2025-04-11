@@ -97,7 +97,10 @@ export default function Navbar({ className }: { className?: string }) {
         }}
       >
         <Menu
-          className={`${!top && "backdrop-filter relative backdrop-blur-sm bg-primary/15 z-50 "}`}
+          className={`${
+            !top &&
+            "backdrop-filter relative backdrop-blur-sm bg-primary/15 z-50 "
+          }`}
           setActive={setActive}
         >
           <Link className="py-6" href="/">

@@ -70,9 +70,9 @@ const dummyContent = [
             Contact Helett Customer Support at{" "}
             <a
               className="text-blue-600 underline"
-              href="mailto:support@helett.com"
+              href="mailto:support@helett.in"
             >
-              support@helett.com
+              support@helett.in
             </a>{" "}
             or call us at [Customer Service Phone Number].
           </li>
@@ -103,9 +103,9 @@ const dummyContent = [
             <strong>Email:</strong>{" "}
             <a
               className="text-blue-600 underline"
-              href="mailto:support@helett.com"
+              href="mailto:support@helett.in"
             >
-              support@helett.com
+              support@helett.in
             </a>
           </li>
           <li>
@@ -113,8 +113,8 @@ const dummyContent = [
           </li>
           <li>
             <strong>Website:</strong>{" "}
-            <a className="text-blue-600 underline" href="http://www.helett.com">
-              www.helett.com
+            <a className="text-blue-600 underline" href="http://www.helett.in">
+              www.helett.in
             </a>
           </li>
         </ul>
