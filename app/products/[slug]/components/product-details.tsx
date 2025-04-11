@@ -79,9 +79,11 @@ function ProductPage({ product }: { product: Product }) {
                   <Tags className="w-3 h-3 mr-1" />
                   {product?.category?.name}
                 </Badge>
-                <Badge className="text-xs" variant="default">
-                  Featured
-                </Badge>
+                {product?.featured && (
+                  <Badge className="text-xs" variant="default">
+                    Featured
+                  </Badge>
+                )}
               </div>
               <LinkPreview
                 className="font-bold bg-clip-text text-transparent bg-gradient-to-br from-purple-500 to-pink-500"
