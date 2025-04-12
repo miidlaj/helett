@@ -1,42 +1,65 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import type { ProductFeature } from "@/api/types";
+
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useId } from "react";
-import { IconBrandAmazon } from "@tabler/icons-react";
-
-import { ProductFeature } from "@/api/types";
 
 export function FeaturesSection({ features }: { features: ProductFeature[] }) {
   return (
-    <div className=" mx-auto">
+    <div className="mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {features.map((feature, idx) => (
-        <motion.div
-          key={idx}
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, delay: idx * 0.1 }}
-        >
-          <div
-            key={feature.label}
-            className="relative bg-gradient-to-b lg:mx-10 dark:from-neutral-900 from-neutral-100 dark:to-neutral-950 min-h-20 to-white p-6 rounded-3xl overflow-hidden hover-scale"
-          >
-            <Grid size={20} />
-            <div className="flex justify-start gap-2 items-center">
-              <IconBrandAmazon className="size-10 bg-primary text-white rounded-xl p-2" />
-
-              <p className="text-base font-bold text-neutral-800 dark:text-white relative z-20">
-                {feature.label}
-              </p>
-            </div>
-
-            <p className="text-neutral-600 dark:text-neutral-400 mt-4 text-base font-normal relative z-20">
-              {feature.value}
-            </p>
-          </div>
-        </motion.div>
+        <FeatureCard key={idx} feature={feature} index={idx} />
       ))}
     </div>
+  );
+}
+
+function FeatureCard({
+  feature,
+  index,
+}: {
+  feature: ProductFeature;
+  index: number;
+}) {
+  return (
+    <motion.div
+      animate={{ opacity: 1, y: 0 }}
+      className="group"
+      initial={{ opacity: 0, y: 20 }}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <div className="relative cursor-pointer h-full overflow-hidden rounded-3xl border border-neutral-200 bg-gradient-to-b from-neutral-50 to-white p-6 shadow-sm transition-all duration-200 dark:border-neutral-800 dark:from-neutral-900 dark:to-neutral-950 dark:shadow-none group-hover:shadow-md dark:group-hover:border-neutral-700">
+        <Grid size={20} />
+
+        <div className="flex items-start gap-4">
+          <div className="flex-1">
+            <div className="flex items-center gap-2">
+              <h3 className="text-base font-semibold text-primary dark:text-white">
+                {feature.label}
+              </h3>
+            </div>
+
+            <motion.div
+              animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+            >
+              <p className="mt-2 text-pretty text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
+                {feature.value}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </div>
+    </motion.div>
   );
 }
 
@@ -56,7 +79,7 @@ export const Grid = ({
   ];
 
   const [generatedPattern, setGeneratedPattern] = useState(
-    pattern || generatePattern,
+    pattern || generatePattern()
   );
 
   useEffect(() => {
@@ -68,7 +91,7 @@ export const Grid = ({
   }, []);
 
   return (
-    <div className="pointer-events-none absolute left-1/2 top-0 -ml-20 -mt-2 h-full w-full [mask-image:linear-gradient(white,transparent)]">
+    <div className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(white,transparent)]">
       <div className="absolute inset-0 bg-gradient-to-r [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-zinc-900/30 from-zinc-100/30 to-zinc-300/30 dark:to-zinc-900/30 opacity-100">
         <GridPattern
           className="absolute inset-0 h-full w-full mix-blend-overlay dark:fill-white/10 dark:stroke-white/10 stroke-black/10 fill-black/10"
@@ -116,8 +139,8 @@ export function GridPattern({ width, height, x, y, squares, ...props }: any) {
               initial={{ opacity: 0, scale: 0.5 }}
               strokeWidth="0"
               transition={{
-                delay: index * 0.1, // Delay for each square
-                duration: 0.3, // Animation duration
+                delay: index * 0.1,
+                duration: 0.3,
                 ease: "easeInOut",
               }}
               width={width + 1}
