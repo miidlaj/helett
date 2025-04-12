@@ -289,28 +289,22 @@ function ProductPage({ product }: { product: Product }) {
             </TabsContent>
 
             <TabsContent className="mt-6" value="specs">
-              <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
-                {product.details.map((detail, idx) => (
-                  <motion.div
-                    key={idx}
-                    animate={{ opacity: 1, y: 0 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.3, delay: idx * 0.1 }}
-                  >
-                    <Card>
-                      <CardContent className="p-6">
-                        <h3 className="text-lg font-semibold mb-4">
-                          {detail.label}
-                        </h3>
-                        <div className="space-y-3">
-                          <motion.div className="flex flex-col space-y-1 border-b border-gray-100 last:border-0 pb-2 last:pb-0">
-                            <span className="font-medium">{detail.value}</span>
-                          </motion.div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+              <div className="w-full p-6 bg-white rounded-lg shadow-sm">
+                <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                  {product.details.map((spec, index) => (
+                    <div
+                      key={index}
+                      className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow duration-200"
+                    >
+                      <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">
+                        {spec.label}
+                      </div>
+                      <div className="text-lg font-medium text-gray-800">
+                        {spec.value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </TabsContent>
             <TabsContent className="space-y-6" value="support">
