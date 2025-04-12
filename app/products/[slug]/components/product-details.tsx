@@ -43,28 +43,6 @@ function ProductPage({ product }: { product: Product }) {
                 transition={{ duration: 0.3 }}
               />
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                ...(product?.thumbnail ? [product.thumbnail] : []),
-                ...(Array.isArray(product?.images) ? product.images : []),
-              ].map((img, idx) => (
-                <motion.div
-                  key={idx}
-                  className={`aspect-square rounded-lg overflow-hidden bg-white p-2 cursor-pointer border ${
-                    currentImage === img?.url ? "ring-primary ring-2" : ""
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setCurrentImage(img?.url)}
-                >
-                  <img
-                    alt=""
-                    className="w-full h-full object-contain"
-                    src={img?.url}
-                  />
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           <motion.div
@@ -102,6 +80,29 @@ function ProductPage({ product }: { product: Product }) {
               />
 
               <p>{product.short_description}</p>
+
+              <div className="grid grid-cols-4 gap-4">
+                {[
+                  ...(product?.thumbnail ? [product.thumbnail] : []),
+                  ...(Array.isArray(product?.images) ? product.images : []),
+                ].map((img, idx) => (
+                  <motion.div
+                    key={idx}
+                    className={`aspect-square rounded-lg overflow-hidden bg-white p-2 cursor-pointer border ${
+                      currentImage === img?.url ? "ring-primary ring-2" : ""
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setCurrentImage(img?.url)}
+                  >
+                    <img
+                      alt=""
+                      className="w-full h-full object-contain"
+                      src={img?.url}
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
