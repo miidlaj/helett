@@ -17,7 +17,11 @@ const Footer = () => {
   const socialIcons = [
     { icon: Mail, href: "mailto:care.helett@gmail.com", label: "Send mail" },
     { icon: Facebook, href: "#", label: "facebook" },
-    { icon: Instagram, href: "#", label: "instagram" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/helett.in/",
+      label: "instagram",
+    },
   ];
 
   return (
@@ -60,7 +64,8 @@ const Footer = () => {
 
           <div className="text-center">
             <span className="text-sm tracking-wide">
-              Copyright © helett <span id="year" /> | All rights reserved
+              Copyright © helett <span id="year">2025</span> | All rights
+              reserved
             </span>
           </div>
         </div>
