@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { Viewport } from "next";
+import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { Toaster } from "sonner";
 
@@ -16,6 +16,15 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
+};
+
+export const metadata: Metadata = {
+  title: {
+    default: "Helett",
+    template: "%s | Helett",
+  },
+  description:
+    "Helett is a trusted brand offering a range of high-quality products designed for businesses and retail environments.",
 };
 
 export default function RootLayout({

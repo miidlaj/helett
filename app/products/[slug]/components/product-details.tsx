@@ -79,7 +79,7 @@ function ProductPage({ product }: { product: Product }) {
                 width={100}
               />
 
-              <p>{product.short_description}</p>
+              <p>{product.description}</p>
 
               <div className="grid grid-cols-4 gap-4">
                 {[
@@ -118,7 +118,7 @@ function ProductPage({ product }: { product: Product }) {
 
             <TabsContent className="mt-6 space-y-10" value="overview">
               <div className="grid gap-6 grid-cols-1">
-                <motion.div
+                {/* <motion.div
                   animate={{ opacity: 1, y: 0 }}
                   initial={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3, delay: 0.2 }}
@@ -133,7 +133,7 @@ function ProductPage({ product }: { product: Product }) {
                       />
                     </CardContent>
                   </Card>
-                </motion.div>
+                </motion.div> */}
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <motion.div

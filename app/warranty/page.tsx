@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 
@@ -109,7 +110,10 @@ const dummyContent = [
             </a>
           </li>
           <li>
-            <strong>Phone:</strong> [Customer Service Phone Number]
+            <strong>Phone:</strong>{" "}
+            <a className="text-blue-600 underline" href="tel:9513784194">
+              9513784194
+            </a>
           </li>
           <li>
             <strong>Website:</strong>{" "}
