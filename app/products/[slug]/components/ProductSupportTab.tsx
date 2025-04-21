@@ -35,7 +35,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
 
   const handleDriversRedirect = () => {
     if (hasDrivers) {
-      router.push(`/drivers/download/${product.slug}`,);
+      router.push(`/drivers/download/${product.slug}`);
     }
   };
 
@@ -47,9 +47,13 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
     router.push("/contact-us");
   };
 
+  const handleRegisterRedirect = () => {
+    router.push("/register");
+  };
+
   return (
     <Tabs
-      className="w-full bg-none"
+      className="w-full bg-none space-y-20"
       value={activeTab}
       onValueChange={setActiveTab}
     >
@@ -77,8 +81,8 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
         </TabsTrigger>
       </TabsList>
 
-      <TabsContent className="space-y-6" value="downloads">
-        <div className="grid gap-6 md:grid-cols-2">
+      <div>
+        <TabsContent className="space-y-6" value="downloads">
           <Card>
             <CardContent className="p-6">
               <div className="flex flex-col items-center text-center gap-4">
@@ -89,7 +93,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
                   {product.name}
                 </p>
                 <Button
-                  className="w-full mt-2"
+                  className="w-full mt-2 max-w-md"
                   disabled={!hasDrivers}
                   variant={hasDrivers ? "default" : "outline"}
                   onClick={handleDriversRedirect}
@@ -109,124 +113,129 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
 
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex flex-col items-center text-center gap-4">
-                <ClipboardCheck className="h-12 w-12 text-primary" />
-                <h3 className="text-xl font-medium">Register & Claim</h3>
-                <p className="text-muted-foreground">
-                  Register your product and manage warranty claims
+        <TabsContent className="space-y-6" value="warranty">
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex flex-col space-y-4">
+                  <h3 className="text-xl font-semibold text-primary">
+                    Warranty Information
+                  </h3>
+                  <p>
+                    All {product.brand.name} products come with a standard
+                    warranty to protect against manufacturing defects. Please
+                    refer to your product documentation for specific warranty
+                    terms.
+                  </p>
+
+                  <Alert className="my-4">
+                    <FileWarning className="h-4 w-4" />
+                    <AlertTitle>Important Note</AlertTitle>
+                    <AlertDescription>
+                      Warranty claims require proof of purchase and product
+                      registration. Make sure to keep your receipt and register
+                      your product within 30 days of purchase.
+                    </AlertDescription>
+                  </Alert>
+
+                  <div className="grid gap-4 sm:grid-cols-2 mt-4">
+                    <Button onClick={handleWarrantyRedirect}>
+                      <FileWarning className="mr-2 h-4 w-4" />
+                      Warranty Policy
+                    </Button>
+                    <Button variant="outline" onClick={handleContactRedirect}>
+                      <Contact className="mr-2 h-4 w-4" />
+                      Contact Support
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <ClipboardCheck className="h-12 w-12 text-primary" />
+                  <h3 className="text-xl font-medium">Register & Claim</h3>
+                  <p className="text-muted-foreground">
+                    Register your product and manage warranty claims
+                  </p>
+                  <Button
+                    className="w-full mt-2"
+                    onClick={handleRegisterRedirect}
+                  >
+                    <ClipboardCheck className="mr-2 h-4 w-4" />
+                    Register Product
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent className="space-y-6" value="tutorials">
+          {hasTutorials ? (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {product.tutorials.map((tutorial, idx) => (
+                <Card key={idx} className="overflow-hidden">
+                  <CardContent className="p-0">
+                    <div className="aspect-video">
+                      <iframe
+                        allowFullScreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        className="border-0"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${extractYouTubeID(
+                          tutorial.link
+                        )}`}
+                        title={tutorial.description}
+                        width="100%"
+                      />
+                    </div>
+                    <div className="p-4 space-y-2">
+                      <h3 className="font-medium text-sm line-clamp-2 h-10">
+                        {tutorial.description}
+                      </h3>
+                      <Button asChild className="w-full" variant="outline">
+                        <a
+                          className="flex items-center justify-center"
+                          href={tutorial.link}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <Youtube className="mr-2 h-4 w-4" />
+                          Watch on YouTube
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <Card>
+              <CardContent className="p-6 flex flex-col items-center justify-center text-center py-12">
+                <Youtube className="h-12 w-12 text-muted-foreground mb-4" />
+                <h3 className="text-xl font-medium">No Tutorials Available</h3>
+                <p className="text-muted-foreground mt-2">
+                  There are currently no setup guides or tutorials available for
+                  this product.
                 </p>
                 <Button
-                  className="w-full mt-2"
+                  className="mt-6"
+                  variant="outline"
                   onClick={handleContactRedirect}
                 >
-                  <ClipboardCheck className="mr-2 h-4 w-4" />
-                  Register Product
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </TabsContent>
-
-      {/* Warranty Tab */}
-      <TabsContent className="space-y-6" value="warranty">
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex flex-col space-y-4">
-              <h3 className="text-xl font-semibold text-primary">
-                Warranty Information
-              </h3>
-              <p>
-                All {product.brand.name} products come with a standard warranty
-                to protect against manufacturing defects. Please refer to your
-                product documentation for specific warranty terms.
-              </p>
-
-              <Alert className="my-4">
-                <FileWarning className="h-4 w-4" />
-                <AlertTitle>Important Note</AlertTitle>
-                <AlertDescription>
-                  Warranty claims require proof of purchase and product
-                  registration. Make sure to keep your receipt and register your
-                  product within 30 days of purchase.
-                </AlertDescription>
-              </Alert>
-
-              <div className="grid gap-4 sm:grid-cols-2 mt-4">
-                <Button onClick={handleWarrantyRedirect}>
-                  <FileWarning className="mr-2 h-4 w-4" />
-                  Warranty Policy
-                </Button>
-                <Button variant="outline" onClick={handleContactRedirect}>
                   <Contact className="mr-2 h-4 w-4" />
                   Contact Support
                 </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </TabsContent>
-
-      <TabsContent className="space-y-6" value="tutorials">
-        {hasTutorials ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {product.tutorials.map((tutorial, idx) => (
-              <Card key={idx} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <div className="aspect-video">
-                    <iframe
-                      allowFullScreen
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      className="border-0"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${extractYouTubeID(
-                        tutorial.link
-                      )}`}
-                      title={`Tutorial ${idx + 1}`}
-                      width="100%"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <Button asChild className="w-full" variant="outline">
-                      <a
-                        className="flex items-center justify-center"
-                        href={tutorial.link}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        <Youtube className="mr-2 h-4 w-4" />
-                        Watch on YouTube
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center text-center py-12">
-              <Youtube className="h-12 w-12 text-muted-foreground mb-4" />
-              <h3 className="text-xl font-medium">No Tutorials Available</h3>
-              <p className="text-muted-foreground mt-2">
-                There are currently no setup guides or tutorials available for
-                this product.
-              </p>
-              <Button
-                className="mt-6"
-                variant="outline"
-                onClick={handleContactRedirect}
-              >
-                <Contact className="mr-2 h-4 w-4" />
-                Contact Support
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-      </TabsContent>
+              </CardContent>
+            </Card>
+          )}
+        </TabsContent>
+      </div>
     </Tabs>
   );
 }

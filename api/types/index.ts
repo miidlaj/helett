@@ -62,6 +62,7 @@ export interface Product {
 export interface ProductTutorials {
   id: number;
   link: string;
+  description: string;
 }
 
 export interface ProductApps {

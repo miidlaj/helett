@@ -302,8 +302,10 @@ function ProductPage({ product }: { product: Product }) {
                 </div>
               </div>
             </TabsContent>
-            <TabsContent className="space-y-6" value="support">
-              <ProductSupportTabs product={product} />
+            <TabsContent className="" value="support">
+              <div className="pt-10">
+                <ProductSupportTabs product={product} />
+              </div>
             </TabsContent>
           </Tabs>
         </div>
