@@ -103,7 +103,6 @@ export interface ProductQueryParams {
   populate?: string[];
 }
 
-// /types/user.ts
 export interface ApiResponse<T> {
   jwt?: string;
   user?: T;
