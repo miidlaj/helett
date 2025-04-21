@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Tags, Youtube } from "lucide-react";
+import { Tags } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+
+import { ProductSupportTabs } from "./ProductSupportTab";
 
 import { Product } from "@/api/types";
 import { Badge } from "@/components/ui/badge";
 import { FeaturesSection } from "@/components/ui/bento-grid";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { LinkPreview } from "@/components/ui/link-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -16,14 +17,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 function ProductPage({ product }: { product: Product }) {
   const [currentImage, setCurrentImage] = useState(product.thumbnail?.url);
 
-  const extractYouTubeID = (url: string) => {
-    const match = url.match(/(?:youtube\.com\/.*v=|youtu\.be\/)([^&?\/]+)/);
-
-    return match ? match[1] : null;
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div
@@ -294,7 +289,7 @@ function ProductPage({ product }: { product: Product }) {
                   {product.details.map((spec, index) => (
                     <div
                       key={index}
-                      className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow duration-200"
+                      className="rounded-lg p-4 hover:shadow-md transition-shadow duration-200"
                     >
                       <div className="text-sm text-gray-500 uppercase tracking-wider mb-1">
                         {spec.label}
@@ -308,43 +303,7 @@ function ProductPage({ product }: { product: Product }) {
               </div>
             </TabsContent>
             <TabsContent className="space-y-6" value="support">
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {product.tutorials.map((tutorial, idx) => (
-                  <Card key={idx} className="overflow-hidden">
-                    <CardContent className="p-0">
-                      <div className="aspect-video">
-                        <iframe
-                          allowFullScreen
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          className="border-0"
-                          height="100%"
-                          src={`https://www.youtube.com/embed/${extractYouTubeID(
-                            tutorial.link
-                          )}`}
-                          title={tutorial.link}
-                          width="100%"
-                        />
-                      </div>
-                      <div className="p-4">
-                        {/* <h3 className="text-lg font-semibold mb-2 line-clamp-2">
-                        {tutorial.title}
-                      </h3> */}
-                        <Button asChild className="w-full" variant="outline">
-                          <a
-                            className="flex items-center justify-center"
-                            href={tutorial.link}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            <Youtube className="mr-2 h-4 w-4" />
-                            Watch on YouTube
-                          </a>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              <ProductSupportTabs product={product} />
             </TabsContent>
           </Tabs>
         </div>
