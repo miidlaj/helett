@@ -1,13 +1,19 @@
 "use client";
-import type React from "react";
-
 import { useState } from "react";
 import { toast } from "sonner";
+import { Mail, Phone, Send, User } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/ace-ui/label";
-import { Input } from "@/components/ui/ace-ui/input";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,7 +64,6 @@ export default function ContactPage() {
 
       if (response.ok) {
         toast.success("Message sent successfully!");
-        // Reset form
         setFormData({
           firstname: "",
           lastname: "",
@@ -80,119 +85,154 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-5xl w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white my-32">
-      <h2 className="font-bold text-xl text-neutral-800">Contact Us</h2>
-      <p className="text-neutral-600 text-sm max-w-full mt-2">
-        Fill out the form, we will get back to you as soon as possible.
-      </p>
+    <div className="container mx-auto py-16 px-4">
+      <div className="max-w-4xl mx-auto">
+        <Card className="border-0 shadow-lg">
+          <CardHeader className="bg-primary/5 rounded-t-lg space-y-1 pb-8">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary mx-auto mb-4">
+              <Mail className="h-6 w-6" />
+            </div>
+            <CardTitle className="text-center text-2xl md:text-3xl font-bold">
+              Contact Us
+            </CardTitle>
+            <CardDescription className="text-center text-base">
+              We&apos;d love to hear from you. Fill out the form below and
+              we&apos;ll get back to you as soon as possible.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="px-6 md:px-12 pt-8 pb-8">
+            <form onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium" htmlFor="firstname">
+                    First name <span className="text-red-500">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      required
+                      className="pl-10"
+                      id="firstname"
+                      placeholder="John"
+                      type="text"
+                      value={formData.firstname}
+                      onChange={handleChange}
+                    />
+                    <User className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium" htmlFor="lastname">
+                    Last name
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      className="pl-10"
+                      id="lastname"
+                      placeholder="Doe"
+                      type="text"
+                      value={formData.lastname}
+                      onChange={handleChange}
+                    />
+                    <User className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
+                  </div>
+                </div>
+              </div>
 
-      <form className="my-8" onSubmit={handleSubmit}>
-        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-          <LabelInputContainer>
-            <Label htmlFor="firstname">First name *</Label>
-            <Input
-              required
-              id="firstname"
-              placeholder="John"
-              type="text"
-              value={formData.firstname}
-              onChange={handleChange}
-            />
-          </LabelInputContainer>
-          <LabelInputContainer>
-            <Label htmlFor="lastname">Last name</Label>
-            <Input
-              id="lastname"
-              placeholder="Doe"
-              type="text"
-              value={formData.lastname}
-              onChange={handleChange}
-            />
-          </LabelInputContainer>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium" htmlFor="email">
+                    Email Address <span className="text-red-500">*</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      required
+                      className="pl-10"
+                      id="email"
+                      placeholder="example@gmail.com"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    <Mail className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium" htmlFor="phone">
+                    Phone
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      className="pl-10"
+                      id="phone"
+                      placeholder="+91xxxxxxxxxx"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                    <Phone className="h-4 w-4 absolute left-3 top-3 text-muted-foreground" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2 mb-6">
+                <Label className="text-sm font-medium" htmlFor="subject">
+                  Subject <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  required
+                  id="subject"
+                  placeholder="How can we help you?"
+                  type="text"
+                  value={formData.subject}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="space-y-2 mb-8">
+                <Label className="text-sm font-medium" htmlFor="message">
+                  Message <span className="text-red-500">*</span>
+                </Label>
+                <Textarea
+                  required
+                  className="min-h-32 resize-y"
+                  id="message"
+                  placeholder="Your message here..."
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="flex justify-end">
+                <Button
+                  className="px-8 py-2 h-auto"
+                  disabled={isSubmitting}
+                  type="submit"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">
+                      <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Sending...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      Submit <Send className="h-4 w-4" />
+                    </span>
+                  )}
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+
+        <div className="mt-10 text-center text-sm text-muted-foreground">
+          <p>
+            Need immediate assistance? Call us at{" "}
+            <a className="font-medium" href="tel:9513784194">
+              +91 9513784194
+            </a>
+          </p>
         </div>
-
-        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-          <LabelInputContainer>
-            <Label htmlFor="email">Email Address *</Label>
-            <Input
-              required
-              id="email"
-              placeholder="example@gmail.com"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </LabelInputContainer>
-          <LabelInputContainer>
-            <Label htmlFor="phone">Phone</Label>
-            <Input
-              id="phone"
-              placeholder="+91xxxxxxxxxx"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-          </LabelInputContainer>
-        </div>
-
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="subject">Subject *</Label>
-          <Input
-            required
-            id="subject"
-            placeholder="Subject"
-            type="text"
-            value={formData.subject}
-            onChange={handleChange}
-          />
-        </LabelInputContainer>
-
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="message">Message *</Label>
-          <Textarea
-            required
-            className="resize-y min-h-[100px] bg-gray-50 border-0 focus-visible:ring-1 focus-visible:ring-offset-0"
-            id="message"
-            placeholder="Your message here..."
-            value={formData.message}
-            onChange={handleChange}
-          />
-        </LabelInputContainer>
-
-        <button
-          className="bg-gradient-to-br relative group/btn from-primary to-primary/50 block w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
-          disabled={isSubmitting}
-          type="submit"
-        >
-          {isSubmitting ? "Sending..." : "Submit"} {!isSubmitting && "→"}
-          <BottomGradient />
-        </button>
-
-        <div className="bg-gradient-to-r from-transparent via-neutral-300 to-transparent my-8 h-[1px] w-full" />
-      </form>
+      </div>
     </div>
   );
 }
-
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-primary to-transparent" />
-      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-primary to-transparent" />
-    </>
-  );
-};
-
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn("flex flex-col space-y-2 w-full", className)}>
-      {children}
-    </div>
-  );
-};
