@@ -48,7 +48,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
   };
 
   const handleRegisterRedirect = () => {
-    router.push("/register");
+    router.push("/contact-us");
   };
 
   return (
