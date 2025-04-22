@@ -6,14 +6,18 @@ import {
   FileCog,
   ClipboardCheck,
   Contact,
+  PlayCircle,
+  ArrowRight,
+  Info,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Product } from "@/api/types";
+import { Badge } from "@/components/ui/badge";
 
 const extractYouTubeID = (url: string) => {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -28,6 +32,7 @@ interface ProductSupportTabsProps {
 
 export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
   const [activeTab, setActiveTab] = useState("downloads");
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const router = useRouter();
 
   const hasDrivers = product.drivers && product.drivers.length > 0;
@@ -59,21 +64,21 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
     >
       <TabsList className="flex w-full bg-transparent">
         <TabsTrigger
-          className="flex items-center gap-2 px-4 py-2 -mb-px data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary"
+          className="flex items-center gap-2 px-6 py-3 -mb-px data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary font-medium"
           value="downloads"
         >
           <Download className="h-4 w-4" />
           Downloads
         </TabsTrigger>
         <TabsTrigger
-          className="flex items-center gap-2 px-4 py-2 -mb-px data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary"
+          className="flex items-center gap-2 px-6 py-3 -mb-px data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary font-medium"
           value="warranty"
         >
           <FileWarning className="h-4 w-4" />
           Warranty
         </TabsTrigger>
         <TabsTrigger
-          className="flex items-center gap-2 px-4 py-2 -mb-px data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary"
+          className="flex items-center gap-2 px-6 py-3 -mb-px data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:text-primary font-medium"
           value="tutorials"
         >
           <Youtube className="h-4 w-4" />
@@ -83,7 +88,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
 
       <div>
         <TabsContent className="space-y-6" value="downloads">
-          <Card>
+          <Card className="shadow-sm">
             <CardContent className="p-6">
               <div className="flex flex-col items-center text-center gap-4">
                 <FileCog className="h-12 w-12 text-primary" />
@@ -117,7 +122,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
 
         <TabsContent className="space-y-6" value="warranty">
           <div className="grid gap-6 md:grid-cols-2">
-            <Card>
+            <Card className="shadow-sm">
               <CardContent className="p-6">
                 <div className="flex flex-col space-y-4">
                   <h3 className="text-xl font-semibold text-primary">
@@ -130,8 +135,8 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
                     terms.
                   </p>
 
-                  <Alert className="my-4">
-                    <FileWarning className="h-4 w-4" />
+                  <Alert className="my-4 border-amber-200 bg-amber-50">
+                    <FileWarning className="h-4 w-4 text-amber-500" />
                     <AlertTitle>Important Note</AlertTitle>
                     <AlertDescription>
                       Warranty claims require proof of purchase and product
@@ -154,7 +159,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="shadow-sm">
               <CardContent className="p-6">
                 <div className="flex flex-col items-center text-center gap-4">
                   <ClipboardCheck className="h-12 w-12 text-primary" />
@@ -174,16 +179,30 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
             </Card>
           </div>
         </TabsContent>
+
         <TabsContent className="space-y-10" value="tutorials">
-          <div className="flex items-center justify-center mb-6">
-            <h2 className="text-3xl font-semibold text-primary">Setup and Guide</h2>
+          <div className="flex flex-col items-center justify-center mb-6 text-center">
+            <h2 className="text-3xl font-bold text-primary mb-2">
+              Setup and Guide
+            </h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Follow our step-by-step tutorials to get the most out of your{" "}
+              {product.name}
+            </p>
           </div>
 
           {hasTutorials ? (
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
               {product.tutorials.map((tutorial, idx) => (
-                <Card key={idx} className="overflow-hidden w-full sm:max-w-sm">
-                  <CardContent className="p-0">
+                <Card
+                  key={idx}
+                  className={`overflow-hidden w-full max-w-2xl transform transition-all duration-300 ${
+                    hoveredCard === idx ? "scale-102 shadow-lg" : "shadow-sm"
+                  }`}
+                  onMouseEnter={() => setHoveredCard(idx)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className="relative">
                     <div className="aspect-video">
                       <iframe
                         allowFullScreen
@@ -197,31 +216,52 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
                         width="100%"
                       />
                     </div>
-                    <div className="p-4 space-y-2">
-                      <h3 className="font-semibold text-base line-clamp-2 text-center">
-                        {tutorial.description}
-                      </h3>
-                    </div>
+                    <Badge className="absolute top-4 right-4 bg-black/70 hover:bg-black/70">
+                      <Info className="h-3 w-3 mr-1" /> Tutorial
+                    </Badge>
+                  </div>
+                  <CardContent className="p-5">
+                    <h3 className="font-bold text-lg mb-2">
+                      {tutorial.description}
+                    </h3>
+                    {/* <p className="text-muted-foreground text-sm">
+                      Learn how to set up and use this feature of your{" "}
+                      {product.name}
+                    </p> */}
                   </CardContent>
+                  <CardFooter className="px-5 pb-5 pt-0">
+                    <a
+                      className="text-primary font-medium text-sm flex items-center hover:underline"
+                      href={tutorial.link}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <PlayCircle className="h-4 w-4 mr-1" /> Watch on YouTube
+                      <ArrowRight className="h-3 w-3 ml-1" />
+                    </a>
+                  </CardFooter>
                 </Card>
               ))}
             </div>
           ) : (
-            <Card>
-              <CardContent className="p-6 flex flex-col items-center justify-center text-center py-12">
-                <Youtube className="h-12 w-12 text-muted-foreground mb-4" />
-                <h3 className="text-xl font-medium">No Tutorials Available</h3>
-                <p className="text-muted-foreground mt-2">
+            <Card className="shadow-sm">
+              <CardContent className="p-8 flex flex-col items-center justify-center text-center py-16">
+                <Youtube className="h-16 w-16 text-muted-foreground mb-4" />
+                <h3 className="text-2xl font-medium mb-2">
+                  No Tutorials Available
+                </h3>
+                <p className="text-muted-foreground mt-2 max-w-lg">
                   There are currently no setup guides or tutorials available for
-                  this product.
+                  this product. Our team is working on creating helpful content.
                 </p>
                 <Button
-                  className="mt-6"
+                  className="mt-8"
+                  size="lg"
                   variant="outline"
                   onClick={handleContactRedirect}
                 >
                   <Contact className="mr-2 h-4 w-4" />
-                  Contact Support
+                  Contact Support for Help
                 </Button>
               </CardContent>
             </Card>
