@@ -53,7 +53,7 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
 
   return (
     <Tabs
-      className="w-full bg-none space-y-20"
+      className="w-full bg-none space-y-10"
       value={activeTab}
       onValueChange={setActiveTab}
     >
@@ -174,12 +174,15 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
             </Card>
           </div>
         </TabsContent>
+        <TabsContent className="space-y-10" value="tutorials">
+          <div className="flex items-center justify-center mb-6">
+            <h2 className="text-3xl font-semibold text-primary">Setup and Guide</h2>
+          </div>
 
-        <TabsContent className="space-y-6" value="tutorials">
           {hasTutorials ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-wrap justify-center gap-6">
               {product.tutorials.map((tutorial, idx) => (
-                <Card key={idx} className="overflow-hidden">
+                <Card key={idx} className="overflow-hidden w-full sm:max-w-sm">
                   <CardContent className="p-0">
                     <div className="aspect-video">
                       <iframe
@@ -195,20 +198,9 @@ export function ProductSupportTabs({ product }: ProductSupportTabsProps) {
                       />
                     </div>
                     <div className="p-4 space-y-2">
-                      <h3 className="font-medium text-sm line-clamp-2 h-10">
+                      <h3 className="font-semibold text-base line-clamp-2 text-center">
                         {tutorial.description}
                       </h3>
-                      <Button asChild className="w-full" variant="outline">
-                        <a
-                          className="flex items-center justify-center"
-                          href={tutorial.link}
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          <Youtube className="mr-2 h-4 w-4" />
-                          Watch on YouTube
-                        </a>
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>
